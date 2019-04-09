@@ -1,5 +1,5 @@
   -- 這是喵咪腦洞中國代表隊的先鋒
-local fastpower = 120
+local love = 120
 
 function checkinit()
   local selfwind = game:getselfwind(self)
@@ -27,9 +27,9 @@ function ondraw()
   end
 
   if who == self and selfwind == 1 and fastpower <= 350 then
-   fastpower = fastpower + 15
+   love = love + 15
     for _, t in ipairs(effas) do
-      mount:lighta(t, fastpower)
+      mount:lighta(t, love)
     end
   end
 end
