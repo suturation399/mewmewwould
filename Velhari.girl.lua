@@ -1,5 +1,4 @@
 function checkinit()
-  local selfwind = game:getselfwind(self)
   local roundwind = game:getroundwind()
 
   if who == self and roundwind == 1 or iter > 80 then
@@ -11,7 +10,7 @@ function checkinit()
   end
 
   if who == self and roundwind ~= 1 then
-    return init:step4() <= 2
+    return init:step() <= 2
   end
 
   if who ~= self and roundwind ~= 1 then
@@ -20,30 +19,35 @@ function checkinit()
 end
 
 function ondraw()
-  local selfwind = game:getselfwind(self)
   local roundwind = game:getroundwind()
   local hand = game:gethand(who)
   local effas = hand:effa()
 
-  if who == self and roundwind == 1 then
+  if rinshan then
     return
+  end
+
+  if who == self and roundwind == 1 then
+    for _, t in ipairs(effas) do
+      mount:lighta(t, 25)
+    end
   end
 
   if who ~= self and roundwind == 1 then
     for _, t in ipairs(effas) do
-      mount:lighta(t, -25)
+      mount:lighta(t, -50)
     end
   end
 
   if who == self and roundwind ~= 1 then
     for _, t in ipairs(effas) do
-      mount:lighta(t, 100)
+      mount:lighta(t, 150)
     end
   end
 
   if who ~= self and roundwind ~= 1 then
     for _, t in ipairs(effas) do
-      mount:lighta(t, 50)
+      mount:lighta(t, 25)
     end
   end
 end
