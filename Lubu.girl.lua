@@ -53,6 +53,9 @@ function checkinit()
 end
 
 function ondraw()
+  local hand = game:gethand(self)
+  local effas = hand:effa()
+
   if rinshan then
     return
   end
@@ -71,21 +74,24 @@ function ondraw()
   mount:lighta(T34.new("1y"), 300)
   mount:lighta(T34.new("2y"), 300)
   mount:lighta(T34.new("3y"), 300)
+  for _, t in ipairs(effas) do
+    mount:lighta(t, 100)
+    end
   end
 
   if who ~= self then
-  mount:lighta(T34.new("1m"), -20)
-  mount:lighta(T34.new("9m"), -20)
-  mount:lighta(T34.new("1p"), -20)
-  mount:lighta(T34.new("9p"), -20)
-  mount:lighta(T34.new("1s"), -20)
-  mount:lighta(T34.new("9s"), -20)
-  mount:lighta(T34.new("1f"), -20)
-  mount:lighta(T34.new("2f"), -20)
-  mount:lighta(T34.new("3f"), -20)
-  mount:lighta(T34.new("4f"), -20)
-  mount:lighta(T34.new("1y"), -20)
-  mount:lighta(T34.new("2y"), -20)
-  mount:lighta(T34.new("3y"), -20)
+  mount:lighta(T34.new("1m"), -10)
+  mount:lighta(T34.new("9m"), -10)
+  mount:lighta(T34.new("1p"), -10)
+  mount:lighta(T34.new("9p"), -10)
+  mount:lighta(T34.new("1s"), -10)
+  mount:lighta(T34.new("9s"), -10)
+  mount:lighta(T34.new("1f"), -10)
+  mount:lighta(T34.new("2f"), -10)
+  mount:lighta(T34.new("3f"), -10)
+  mount:lighta(T34.new("4f"), -10)
+  mount:lighta(T34.new("1y"), -10)
+  mount:lighta(T34.new("2y"), -10)
+  mount:lighta(T34.new("3y"), -10)
   end
 end
