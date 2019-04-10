@@ -27,7 +27,7 @@ function ondraw()
   local hand = game:gethand(self)
   local effas = hand:effa()
 
-  if rinshan then
+  if who ~= self and rinshan then
     return
   end
 
