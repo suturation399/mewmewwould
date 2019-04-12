@@ -56,7 +56,7 @@ function ondraw()
   mount:lighta(T37.new("0s"), akaa)
   mount:lighta(T37.new("0m"), akaa)
   for _, t in ipairs(effas) do
-      mount:lighta(t, 20)
+      mount:lighta(t, 10)
     end
   end
 
