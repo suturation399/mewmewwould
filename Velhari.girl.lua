@@ -3,10 +3,22 @@ function onmonkey()
   local round = game:getround()
   local extra = game:getextraround()
 
+  if round == 0 then
+  print("德意志人個個驍勇善雀，你們找死吧!")
+  end
+
   if round <= 2 then
   exist:incmk(T37.new("0p"), 110)
   exist:incmk(T37.new("0s"), 110)
   exist:incmk(T37.new("0m"), 110)
+  end
+
+  if round == 3 then
+  print("你們會變得虛弱又無力")
+  end
+
+  if round == 6 then
+  print("夠了!你們死期到了!")
   end
 end
 
