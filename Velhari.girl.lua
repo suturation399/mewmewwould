@@ -2,12 +2,11 @@ function onmonkey()
   local exist = exists[self:index()]
   local round = game:getround()
   local extra = game:getextraround()
-  local inaka = (round + 1) * 50 + extra * 20
 
   if round <= 2 then
-  exist:incmk(T37.new("0p"), inaka)
-  exist:incmk(T37.new("0s"), inaka)
-  exist:incmk(T37.new("0m"), inaka)
+  exist:incmk(T37.new("0p"), 110)
+  exist:incmk(T37.new("0s"), 110)
+  exist:incmk(T37.new("0m"), 110)
   end
 end
 
@@ -41,7 +40,6 @@ function ondraw()
   local extra = game:getextraround()
   local hand = game:gethand(who)
   local effas = hand:effa()
-  local akaa = (round + 1) * 80 + extra * 20
   local efaa = (round + 1) * -25 + extra * -10
   local doaa = (round - 2) * -25 + extra * -10
   local efab = (round - 5) * 20 + extra * 8
@@ -52,9 +50,9 @@ function ondraw()
   end
 
   if who == self and round <= 2 then
-  mount:lighta(T37.new("0p"), akaa)
-  mount:lighta(T37.new("0s"), akaa)
-  mount:lighta(T37.new("0m"), akaa)
+  mount:lighta(T37.new("0p"), 150)
+  mount:lighta(T37.new("0s"), 150)
+  mount:lighta(T37.new("0m"), 150)
   for _, t in ipairs(effas) do
       mount:lighta(t, 10)
     end
@@ -72,6 +70,9 @@ function ondraw()
     end
   end
 
+  local hands = game:gethand(self)
+  local cefas = hand:effa(self)
+
   if who ~= self and round == 3 then
     mount:lighta(T37.new("0p"), doaa)
     mount:lighta(T37.new("0s"), doaa)
@@ -82,6 +83,11 @@ function ondraw()
     for _, t in ipairs(drids) do
       mount:lighta(t:dora(), doaa)
     end
+    if hands:ready() then 
+      for _, t in ipairs(cefas) do
+        mount:lighta(t, 150)
+      end
+    end
   end
 
   if who ~= self and round >= 4 and round <= 5 then
@@ -90,6 +96,11 @@ function ondraw()
     mount:lighta(T37.new("0m"), doaa)
     for _, t in ipairs(drids) do
       mount:lighta(t:dora(), doaa)
+    end
+    if hands:ready() then 
+      for _, t in ipairs(cefas) do
+        mount:lighta(t, 150)
+      end
     end
   end
 
