@@ -26,7 +26,7 @@ function ondraw()
     return
   end
 
-  if who == self and selfwind == 1 and fastpower <= 350 then
+  if who == self and selfwind == 1 and love <= 350 then
    love = love + 15
     for _, t in ipairs(effas) do
       mount:lighta(t, love)
