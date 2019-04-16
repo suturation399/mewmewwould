@@ -30,7 +30,7 @@ function ondraw()
 
       if handl:step() <= 1 then 
       for _, t in ipairs(handl:effa()) do
-         print("對家向聽數", handl:step(),"有效牌", t)
+         print("上家向聽數", handl:step(),"有效牌", t)
      end
   end
 end
