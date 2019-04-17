@@ -56,8 +56,6 @@ function ondraw()
   local doaa = (round - 2) * -50 + extra * -10
   local efab = (round - 5) * 20 + extra * 8
   local efam = (round - 5) * 50 + extra * 20
-  local hands = game:gethand(self)
-  local cefas = hand:effa(self)
   
   if rinshan then
     return
@@ -133,18 +131,21 @@ function ondraw()
     end
     if handr:ready() then 
       for _, t in ipairs(handr:effa()) do
+         mount:lighta(t, -40)
          print(t, "有危險")
      end
   end
 
     if handc:ready() then 
       for _, t in ipairs(handc:effa()) do
+         mount:lighta(t, -40)
          print(t, "有危險")
      end
   end
 
     if handl:ready() then 
       for _, t in ipairs(handl:effa()) do
+         mount:lighta(t, -40)
          print(t, "有危險")
      end
     end
