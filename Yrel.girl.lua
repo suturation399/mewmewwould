@@ -1,4 +1,4 @@
-local holylight = 5
+local holylight = 10
 
 function onmonkey()
   local existself = exists[self:index()]
@@ -6,18 +6,18 @@ function onmonkey()
   local existc = exists[self:cross():index()]
   local existr = exists[self:right():index()]
 
-    existself:incmk(T34.new("1y"), 420)
-    existl:incmk(T34.new("1y"), -30)
-    existc:incmk(T34.new("1y"), -30)
-    existr:incmk(T34.new("1y"), -30)
+    existself:incmk(T34.new("1y"), 120)
+    existl:incmk(T34.new("1y"), -15)
+    existc:incmk(T34.new("1y"), -15)
+    existr:incmk(T34.new("1y"), -15)
 end
 
 function checkinit()
-  if who ~= self or iter > 99 then
+  if who ~= self or iter > 50 then
     return true
   end
 
-  return init:ct(T34.new("1y")) == 3
+  return init:ct(T34.new("1y")) == 2
 end
 
 function ondraw()
@@ -31,32 +31,31 @@ function ondraw()
     return
   end
 
-  mount:lighta(T34.new("1y"), -100)
-
-   if holylight <= 90 then
-   holylight = holylight + 5
+   if holylight <= 180 then
+   holylight = holylight + 10
     for _, t in ipairs(effas) do
       mount:lighta(t, holylight)
      end
   end
+
       if handr:ready() then 
-      print("有危險")
       for _, t in ipairs(handr:effa()) do
-         print(t)
+         mount:lighta(t, -50)
+         print(t, "有危險")
      end
   end
 
     if handc:ready() then 
-      print("有危險")
       for _, t in ipairs(handc:effa()) do
-         print(t)
+         mount:lighta(t, -50)
+         print(t, "有危險")
      end
   end
 
     if handl:ready() then 
-      print("有危險")
       for _, t in ipairs(handl:effa()) do
-         print(t)
+         mount:lighta(t, -50)
+         print(t, "有危險")
      end
     end
 end
