@@ -55,7 +55,7 @@ function ondraw()
   local efaa = (round + 1) * -25 + extra * -10
   local doaa = (round - 2) * -50 + extra * -10
   local efab = (round - 5) * 20 + extra * 8
-  local efam = (round - 5) * 70 + extra * 30
+  local efam = (round - 5) * 50 + extra * 20
   
   if rinshan then
     return
