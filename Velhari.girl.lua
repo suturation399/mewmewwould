@@ -4,17 +4,17 @@ function onmonkey()
   local extra = game:getextraround()
 
   if round == 0 then
-  print("德意志人個個驍勇善雀，你們找死吧!")
+  print("你們會變得虛弱又無力")
   end
 
-  if round <= 2 then
+  if round >= 3 and round <= 5 then
   exist:incmk(T37.new("0p"), 110)
   exist:incmk(T37.new("0s"), 110)
   exist:incmk(T37.new("0m"), 110)
   end
 
   if round == 3 then
-  print("你們會變得虛弱又無力")
+  print("德意志人個個驍勇善雀，你們找死吧!")
   end
 
   if round == 6 then
@@ -56,21 +56,23 @@ function ondraw()
   local doaa = (round - 2) * -50 + extra * -10
   local efab = (round - 5) * 20 + extra * 8
   local efam = (round - 5) * 50 + extra * 20
-
+  local hands = game:gethand(self)
+  local cefas = hand:effa(self)
+  
   if rinshan then
     return
   end
 
   if who == self and round <= 2 then
-  mount:lighta(T37.new("0p"), 150)
-  mount:lighta(T37.new("0s"), 150)
-  mount:lighta(T37.new("0m"), 150)
   for _, t in ipairs(effas) do
       mount:lighta(t, 10)
     end
   end
 
-  if who == self and round >= 3 and round <= 6 then
+  if who == self and round >= 3 and round <= 5 then
+  mount:lighta(T37.new("0p"), 150)
+  mount:lighta(T37.new("0s"), 150)
+  mount:lighta(T37.new("0m"), 150)
   for _, t in ipairs(effas) do
       mount:lighta(t, 10)
     end
@@ -82,9 +84,6 @@ function ondraw()
     end
   end
 
-  local hands = game:gethand(self)
-  local cefas = hand:effa(self)
-
   if who ~= self and round == 3 then
     mount:lighta(T37.new("0p"), doaa)
     mount:lighta(T37.new("0s"), doaa)
@@ -95,11 +94,6 @@ function ondraw()
     for _, t in ipairs(drids) do
       mount:lighta(t:dora(), doaa)
     end
-    if hands:ready() then 
-      for _, t in ipairs(cefas) do
-        mount:lighta(t, 150)
-      end
-    end
   end
 
   if who ~= self and round >= 4 and round <= 5 then
@@ -108,11 +102,6 @@ function ondraw()
     mount:lighta(T37.new("0m"), doaa)
     for _, t in ipairs(drids) do
       mount:lighta(t:dora(), doaa)
-    end
-    if hands:ready() then 
-      for _, t in ipairs(cefas) do
-        mount:lighta(t, 150)
-      end
     end
   end
 
@@ -143,23 +132,20 @@ function ondraw()
       mount:lighta(t, efam)
     end
     if handr:ready() then 
-      print("有危險")
       for _, t in ipairs(handr:effa()) do
-         print(t)
+         print(t, "有危險")
      end
   end
 
     if handc:ready() then 
-      print("有危險")
       for _, t in ipairs(handc:effa()) do
-         print(t)
+         print(t, "有危險")
      end
   end
 
     if handl:ready() then 
-      print("有危險")
       for _, t in ipairs(handl:effa()) do
-         print(t)
+         print(t, "有危險")
      end
     end
   end
