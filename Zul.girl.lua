@@ -1,5 +1,4 @@
 function ondraw()
-  local drids = mount:getdrids()
   local round = game:getround()
   local extra = game:getextraround()
   local hands = game:gethand(self)
