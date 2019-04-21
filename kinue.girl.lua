@@ -19,8 +19,8 @@ function ondraw()
   end
 
   local np = hand:ct(T34.new("1p")) + hand:ct(T34.new("2p")) + hand:ct(T34.new("3p")) + hand:ct(T34.new("4p")) + hand:ct(T34.new("5p")) + hand:ct(T34.new("6p")) + hand:ct(T34.new("7p")) + hand:ct(T34.new("8p")) + hand:ct(T34.new("9p"))
-  local pnp = np * 10
-  local efanp = np * 5
+  local pnp = np * np * 2
+  local efanp = np * 3 + 25
 
   for i = 1, 9 do
     mount:lighta(T34.new(i .. "p"), pnp)
