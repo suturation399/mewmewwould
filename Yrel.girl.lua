@@ -1,6 +1,5 @@
-local holylight = 10
-
 function onmonkey()
+  holylight = 20
   local existself = exists[self:index()]
   local existl = exists[self:left():index()]
   local existc = exists[self:cross():index()]
@@ -31,8 +30,8 @@ function ondraw()
     return
   end
 
-   if holylight <= 180 then
-   holylight = holylight + 10
+   if holylight <= 360 then
+   holylight = holylight + 20
     for _, t in ipairs(effas) do
       mount:lighta(t, holylight)
      end
