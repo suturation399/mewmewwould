@@ -28,17 +28,18 @@ function ondraw()
     if handr:ready() then
       for _, t in ipairs(handr:effa()) do
         print(t, "有危險")
-     end
-  end
+       end
+    end
 
     if handc:ready() then
       for _, t in ipairs(handc:effa()) do
         print(t, "有危險")
-     end
-  end
+       end
+    end
 
     if handl:ready() then
       for _, t in ipairs(handl:effa()) do
         print(t, "有危險")
       end
-  end
+   end
+end
