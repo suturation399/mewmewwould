@@ -41,6 +41,4 @@ function ondraw()
       for _, t in ipairs(handl:effa()) do
         print(t, "有危險")
       end
-   end
-end
-end
+  end
