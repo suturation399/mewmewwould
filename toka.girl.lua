@@ -14,17 +14,16 @@ function ondraw()
     return
   end
 
-  junme = junme + 1
-  for _, t in ipairs(hand:effa()) do
-    mount:lighta(t, junmk)
-  end
-
   if who ~= self and hand:ready() then
     for _, t in ipairs(effas) do
       mount:lighta(t, -600)
      end
   end
-
+  
+   junme = junme + 1
+  for _, t in ipairs(hand:effa()) do
+    mount:lighta(t, junmk)
+  end
 
     if handr:ready() then
       for _, t in ipairs(handr:effa()) do
