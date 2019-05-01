@@ -10,7 +10,7 @@ function ondraw()
   local handl = game:gethand(self:left())
   local junmk = junme * 5
 
-  if rinshan or (who ~= self and not hand:ready()) then
+  if who ~= self and not hand:ready() or rinshan then
     return
   end
 
@@ -20,8 +20,6 @@ function ondraw()
      end
   end
  
-
-  if who == self  then
     junme = junme + 1
     for _, t in ipairs(hand:effa()) do
       mount:lighta(t, junmk)
@@ -43,6 +41,5 @@ function ondraw()
       for _, t in ipairs(handl:effa()) do
         print(t, "有危險")
       end
-    end
    end
 end
