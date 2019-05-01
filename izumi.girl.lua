@@ -2,7 +2,7 @@ function checkinit()
   chume = 0
   local selfwind = game:getselfwind(self)
 
-  if who ~= self or iter > 70 then
+  if who ~= self or iter > 10 then
     return true
   end
 
@@ -19,22 +19,30 @@ function ondraw()
   local hands = game:gethand(self)
   local steps = hands:step(self)
   local mkst = (steps - 2) * 30 - 10
+  local mkcm = (chume - 5) * 100
 
   if who ~= self or rinshan then
     return
   end
 
-  if who == self and steps >= 1 and chume <=7 then
+  if who == self and steps >= 1 and chume <=5 then
     chume = chume + 1
     for _, t in ipairs(hands:effa()) do
       mount:lighta(t, mkst)
     end
   end
 
-  if who == self and steps >= 1 and chume >=8 then
+  if who == self and steps >= 1 and chume >=6 and chume <=11 then
     chume = chume + 1
     for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, 1000)
+      mount:lighta(t, mkcm)
+     end
+  end
+
+  if who == self and steps >= 1 and chume >=12 then
+    chume = chume + 1
+    for _, t in ipairs(hands:effa()) do
+      mount:lighta(t, 10)
      end
   end
 
