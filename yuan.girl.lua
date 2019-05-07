@@ -22,19 +22,19 @@ function ondraw()
 
     if handr:ready() then
       for _, t in ipairs(handr:effa()) do
-        mount:lighta(t, 130)
+        mount:lighta(t, 95)
        end
     end
 
     if handc:ready() then
       for _, t in ipairs(handc:effa()) do
-        mount:lighta(t, 130)
+        mount:lighta(t, 95)
        end
     end
 
     if handl:ready() then
       for _, t in ipairs(handl:effa()) do
-        mount:lighta(t, 130)
+        mount:lighta(t, 95)
       end
    end
   end
