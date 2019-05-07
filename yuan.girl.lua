@@ -9,6 +9,7 @@ function ondraw()
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
   local junmk = junme * 4
+  local sunmk = junme * 30
 
   if who ~= self or rinshan then
     return
@@ -22,19 +23,19 @@ function ondraw()
 
     if handr:ready() then
       for _, t in ipairs(handr:effa()) do
-        mount:lighta(t, 95)
+        mount:lighta(t, sunmk)
        end
     end
 
     if handc:ready() then
       for _, t in ipairs(handc:effa()) do
-        mount:lighta(t, 95)
+        mount:lighta(t, sunmk)
        end
     end
 
     if handl:ready() then
       for _, t in ipairs(handl:effa()) do
-        mount:lighta(t, 95)
+        mount:lighta(t, sunmk)
       end
    end
   end
