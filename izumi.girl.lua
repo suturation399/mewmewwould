@@ -2,7 +2,7 @@ function checkinit()
   chume = 0
   local selfwind = game:getselfwind(self)
 
-  if who ~= self or iter > 7 then
+  if who ~= self or iter > 4 then
     return true
   end
 
