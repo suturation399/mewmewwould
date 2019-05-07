@@ -8,7 +8,7 @@ function ondraw()
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
-  local junmk = junme * 4
+  local junmk = junme * 3
   local sunmk = junme * 30
 
   if who ~= self or rinshan then
