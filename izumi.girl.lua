@@ -18,38 +18,23 @@ end
 function ondraw()
   local hands = game:gethand(self)
   local steps = hands:step(self)
-  local mkst = (steps - 2) * 30 - 5
-  local mkcm = (chume - 5) * 50 - 50
+  local chnmk = chume * 5
 
   if who ~= self or rinshan then
     return
   end
 
-  if who == self and steps >= 1 and chume <=5 then
+  if who == self and steps >= 1 then
     chume = chume + 1
     for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, mkst)
+      mount:lighta(t, chnmk)
     end
   end
-
-  if who == self and steps >= 1 and chume >=6 and chume <=11 then
-    chume = chume + 1
-    for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, mkcm)
-     end
-  end
-
-  if who == self and steps >= 1 and chume >=12 then
-    chume = chume + 1
-    for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, 10)
-     end
-  end
-
+      
   if who == self and steps == 0 then
-    chume = chume + 1
+    chume = chume + 0
     for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, 0)
+      mount:lighta(t, 5)
      end
   end
 end
