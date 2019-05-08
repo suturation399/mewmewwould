@@ -2,17 +2,17 @@ function onmonkey()
   junme = 0
   local exist = exists[self:index()]
   
-  exist:incmk(T37.new("0p"), 70)
-  exist:incmk(T37.new("0s"), 70)
-  exist:incmk(T37.new("0m"), 70)
+  exist:incmk(T37.new("0p"), 50)
+  exist:incmk(T37.new("0s"), 50)
+  exist:incmk(T37.new("0m"), 50)
 end
 
 function ondraw()
   local hands = game:gethand(self)
   local steps = hands:step(self)
   local drids = mount:getdrids()
-  local junmk = junme * 4
-  local jdomk = 250 - junme * 12
+  local junmk = junme * 3
+  local jdomk = 200 - junme * 10
 
   if who ~= self or rinshan then
     return
@@ -37,7 +37,7 @@ function ondraw()
   if who == self and steps == 0 then
     junme = junme + 1
     for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, -10)
+      mount:lighta(t, -15)
      end
     if junme == 17 then
       print("不管怎樣都是政府的錯")
