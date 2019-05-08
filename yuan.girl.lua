@@ -2,9 +2,9 @@ function onmonkey()
   junme = 0
   local exist = exists[self:index()]
   
-  exist:incmk(T37.new("0p"), 35)
-  exist:incmk(T37.new("0s"), 35)
-  exist:incmk(T37.new("0m"), 35)
+  exist:incmk(T37.new("0p"), 20)
+  exist:incmk(T37.new("0s"), 20)
+  exist:incmk(T37.new("0m"), 20)
 end
 
 function ondraw()
@@ -14,9 +14,9 @@ function ondraw()
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
   local drids = mount:getdrids()
-  local junmk = junme * 3
+  local junmk = junme * 2
   local sunmk = junme * 30
-  local jdomk = 90 - junme * 5
+  local jdomk = 80 - junme * 4
 
   if who ~= self or rinshan then
     return
@@ -38,7 +38,7 @@ function ondraw()
     
     if steps == 0 then
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, -6)
+        mount:lighta(t, -15)
       end
     end
 
