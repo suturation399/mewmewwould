@@ -15,7 +15,7 @@ function ondraw()
   local handl = game:gethand(self:left())
   local drids = mount:getdrids()
   local junmk = junme * 3
-  local sunmk = 200 - junme * 10
+  local sunmk = (18 - junme) * (18 - junme)
   local jdomk = 120 - junme * 6
 
   if who ~= self or rinshan then
