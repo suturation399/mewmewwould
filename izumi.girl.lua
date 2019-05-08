@@ -2,7 +2,7 @@ function checkinit()
   chume = 0
   local selfwind = game:getselfwind(self)
 
-  if who ~= self or iter > 4 then
+  if who ~= self or iter > 3 then
     return true
   end
 
@@ -18,7 +18,7 @@ end
 function ondraw()
   local hands = game:gethand(self)
   local steps = hands:step(self)
-  local chnmk = chume * 5
+  local chnmk = chume * 4
 
   if who ~= self or rinshan then
     return
