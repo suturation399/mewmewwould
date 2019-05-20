@@ -9,8 +9,6 @@ function ondraw()
   local round = game:getround()
   local hand = game:gethand(who)
   local effas = hand:effa()
-  local dora = form:dora(who)
-  local aka = form:akadora(who)
   
   if who == self then
     junme = junme + 1
