@@ -10,7 +10,8 @@ function ondraw()
   local hand = game:gethand(who)
   local effas = hand:effa()
   local drids = mount:getdrids()
-  local nd = hand:ct(T37.new("0p")) + hand:ct(T37.new("0s")) + hand:ct(T37.new("0m"))
+  local dr = id:dora()
+  local nd = hand:ct(T37.new("0p")) + hand:ct(T37.new("0s")) + hand:ct(T37.new("0m")) + hand:ct(T34.new(dr))
   
   if who == self then
     if blizzard <= 140 then
