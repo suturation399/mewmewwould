@@ -23,7 +23,7 @@ function ondraw()
     end
       
     if ice <= 140 then
-      ice = ice + 6
+      ice = ice + junme + 1
     end
 
     if ice >= 141 then
@@ -34,6 +34,6 @@ function ondraw()
     for _, t in ipairs(effas) do
       mount:lighta(t, 10)
     end
-    print(blizzard, ice, nd)
+    print(blizzard, ice, dr, nd)
   end
 end
