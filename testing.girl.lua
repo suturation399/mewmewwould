@@ -10,30 +10,34 @@ function ondraw()
   local hand = game:gethand(who)
   local effas = hand:effa()
   local drids = mount:getdrids()
-  local dr = id:dora()
-  local nd = hand:ct(T37.new("0p")) + hand:ct(T37.new("0s")) + hand:ct(T37.new("0m")) + hand:ct(T34.new(dr))
+  
+  for _, t in ipairs(drids) do
+    nd = hand:ct(T37.new("0p")) + hand:ct(T37.new("0s")) + hand:ct(T37.new("0m")) + hand:ct(t:dora())
+  end
   
   if who == self then
-    if blizzard <= 140 then
+    if blizzard <= 119 then
       blizzard = blizzard + 6
     end
       
-    if blizzard >= 141 then 
-      blizzard = blizzard - 135
+    if blizzard >= 119 then 
+      blizzard = blizzard - 115
     end
       
-    if ice <= 140 then
-      ice = ice + junme + 1
+    if ice <= 119 then
+      ice = ice + 11
     end
 
-    if ice >= 141 then
-      ice = ice - 135
+    if ice >= 119 then
+      ice = ice - 115
     end
     
     junme = junme + 1
     for _, t in ipairs(effas) do
       mount:lighta(t, 10)
     end
-    print(blizzard, ice, dr, nd)
+    print("暴雪能量", blizzard)
+    print("冷凍能量", ice)
+    print("dora量", nd)
   end
 end
