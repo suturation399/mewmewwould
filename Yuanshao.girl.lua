@@ -1,8 +1,6 @@
-  -- 這是喵咪腦洞中國代表隊的先鋒
-local love = 120
-
 function checkinit()
   local selfwind = game:getselfwind(self)
+  love = 120
 
   if who ~= self or iter > 50 or selfwind ~= 1 then
     return true
