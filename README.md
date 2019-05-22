@@ -124,7 +124,6 @@
 
 ## Dia
 > Dia Darkwhisper是世青賽牙買加代表隊成員
-> designing and testing
 	
 + 虛無薄霧
 	+ Dia的黑暗力量以黑暗薄霧籠罩牌山，減少他家對牌山的影響。
