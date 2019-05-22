@@ -52,38 +52,39 @@ function ondraw()
   
   if who == self then
     if rw == 1 and sw == 1 then
+      
+      if blizzard >= 119 then 
+        blizzard = blizzard - 115
+      end
+      
       if blizzard <= 119 then
         blizzard = blizzard + 6 * 5
       end
       
-      if blizzard >= 119 then 
-        blizzard = blizzard - 115
+      if ice >= 119 then
+        ice = ice - 115 
       end
       
       if ice <= 119 then
         ice = ice + 11 * 5
       end
-
-      if ice >= 119 then
-        ice = ice - 115 
-      end
     end
 
-    if not (rw == 1 and sw == 1) then
-      if blizzard <= 119 then
-        blizzard = blizzard + 6
-      end
-      
+    if not (rw == 1 and sw == 1) then   
       if blizzard >= 119 then 
         blizzard = blizzard - 115
       end
       
-      if ice <= 119 then
-        ice = ice + 11
+      if blizzard <= 119 then
+        blizzard = blizzard + 6
       end
-
+      
       if ice >= 119 then
         ice = ice - 115
+      end
+      
+      if ice <= 119 then
+        ice = ice + 11
       end
       
       for i = 1, 4 do
