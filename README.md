@@ -14,7 +14,7 @@
 ## 更新
 ### 9-5-2019
 新增 Jaina Proudmoore
-+ [Jaina Proudmoore](#Jaina Proudmoore)
++ [Jaina](#Jaina)
 
 ### 8-5-2019
 新增 蒲原智美
@@ -29,7 +29,7 @@
 + [蒲原智美](#蒲原智美)
 + [冷たい透華](#冷たい透華)
 + [Velhari](#Velhari)
-+ [Jaina Proudmoore](#Jaina Proudmoore)
++ [Jaina](#Jaina)
 + [Yrel](#Yrel)
 + [Zul](#Zul)
 + [袁玿](#袁玿)
@@ -93,8 +93,8 @@
 	+ 統御壁壘：為自身上一層防禦性壁壘，降低摸到銃牌的機率。
 	+ 腐蚀序列：用黑暗魔法強化自身，使對銃牌產生感知。
 
-## Jaina Proudmoore
-> 世青賽英國代表隊成員  
+## Jaina
+> Jaina Proudmoore是世青賽英國代表隊成員  
 
 + 貫穿全場的機制：匯聚暴風雪
 	+ Jaina每次摸牌都會獲得一定的暴雪能量和冷凍能量。
