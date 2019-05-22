@@ -55,17 +55,13 @@ function ondraw()
       
       if blizzard >= 119 then 
         blizzard = blizzard - 115
-      end
-      
-      if blizzard <= 119 then
+      else
         blizzard = blizzard + 6 * 5
       end
       
       if ice >= 119 then
         ice = ice - 115 
-      end
-      
-      if ice <= 119 then
+      else
         ice = ice + 11 * 5
       end
     end
@@ -73,17 +69,13 @@ function ondraw()
     if not (rw == 1 and sw == 1) then   
       if blizzard >= 119 then 
         blizzard = blizzard - 115
-      end
-      
-      if blizzard <= 119 then
+      else
         blizzard = blizzard + 6
       end
       
       if ice >= 119 then
         ice = ice - 115
-      end
-      
-      if ice <= 119 then
+      else
         ice = ice + 11
       end
       
