@@ -29,11 +29,9 @@ function ondraw()
     if void >= 100 then
       void = void - 99
       for _, t in ipairs(effas) do
-        mount:lighta(t, void * 9)
+        mount:lighta(t, (9 * void))
       end
-    end
-    
-    if void <= 99 then
+    else
       void = void + 7
       for _, t in ipairs(T34.all) do
         mount:lighta(t, 2500)
