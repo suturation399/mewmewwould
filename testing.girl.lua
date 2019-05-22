@@ -5,10 +5,6 @@ coldtars = {
   "2p", "4p", "8p", "2s", "3s", "4s", "6s", "8s", "9m", "1f", "2f", "3f", "4f", "1y", "2y" 
 }
 
-coldpowers = {
-  [coldtars] = 60
-}
-
 function onmonkey()
   junme = 0
   local exist = exists[self:index()]
@@ -43,11 +39,14 @@ function ondraw()
   local hand = game:gethand(who)
   local effas = hand:effa()
   local drids = mount:getdrids()
+  local sw = game:getselfwind(self)
+  local rw = game:getroundwind()
   
   for _, t in ipairs(drids) do
     nd = hand:ctaka5() + hand:ct(t:dora())
   end
   
+  if 
   if who == self then
     if blizzard <= 119 then
       blizzard = blizzard + 6
