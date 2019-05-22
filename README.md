@@ -14,6 +14,7 @@
 ## 更新
 ### 9-5-2019
 移除 Yrel
+
 新增 Jaina Proudmoore
 + [Jaina](#Jaina)
 
@@ -31,7 +32,7 @@
 + [冷たい透華](#冷たい透華)
 + [Velhari](#Velhari)
 + [Jaina](#Jaina)
-+ [Yrel](#Yrel)
++ [Dia](#Dia)
 + [Zul](#Zul)
 + [袁玿](#袁玿)
 + [呂怖](#呂怖)
