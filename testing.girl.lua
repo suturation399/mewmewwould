@@ -1,24 +1,28 @@
 blizzard = 0
 ice = 30
+southround = 0
 
 coldtars = {
   "2p", "4p", "8p", "2s", "3s", "4s", "6s", "8s", "9m", "1f", "2f", "3f", "4f", "1y", "2y" 
 }
 
 function onmonkey()
-  junme = 0
   local exist = exists[self:index()]
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   
   if sw == 1 and rw == 1 then
     for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), 63)
+      exist:incmk(T34.new(i .. "f"), 33)
     end
   end
   
   if sw == 1 and rw == 2 then
-    exist:incmk(T34.new("1y"), 99)
+    exist:incmk(T34.new("1y"), 66)
+  end
+  
+  if rw >= 2 then
+    southround = southround + 1
   end
 end
 
@@ -30,9 +34,8 @@ function checkinit()
     return true
   end
   
-  return init:ct(T34.new("1y")) == 3
+  return init:ct(T34.new("1y")) >= 2
 end
-  
 
 function ondraw()
   local round = game:getround()
@@ -41,35 +44,108 @@ function ondraw()
   local drids = mount:getdrids()
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
+  local coldh = southround * 33
   
   for _, t in ipairs(drids) do
     nd = hand:ctaka5() + hand:ct(t:dora())
   end
   
-  if 
   if who == self then
-    if blizzard <= 119 then
-      blizzard = blizzard + 6
-    end
+    if rw == 1 and sw == 1 then
+      if blizzard <= 119 then
+        blizzard = blizzard + 6 * 5
+      end
       
-    if blizzard >= 119 then 
-      blizzard = blizzard - 115
-    end
+      if blizzard >= 119 then 
+        blizzard = blizzard - 115
+      end
       
-    if ice <= 119 then
-      ice = ice + 11
+      if ice <= 119 then
+        ice = ice + 11 * 5
+      end
+
+      if ice >= 119 then
+        ice = ice - 115 
+      end
     end
 
-    if ice >= 119 then
-      ice = ice - 115
+    if not (rw == 1 and sw == 1) then
+      if blizzard <= 119 then
+        blizzard = blizzard + 6
+      end
+      
+      if blizzard >= 119 then 
+        blizzard = blizzard - 115
+      end
+      
+      if ice <= 119 then
+        ice = ice + 11
+      end
+
+      if ice >= 119 then
+        ice = ice - 115
+      end
+      
+      for i = 1, 4 do
+        mount:lighta(T34.new(i .. "f"), 33)
+      end
     end
     
-    junme = junme + 1
-    for _, t in ipairs(effas) do
-      mount:lighta(t, 10)
+    if sw >= 2 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, ice)
+      end
     end
+    
+    if sw <= 1 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, 3)
+      end
+    end
+    
+    for _, t in ipairs(coldtars) do
+      mount:lighta(T34.new(t), coldh)
+    end
+
     print("暴雪能量", blizzard)
     print("冷凍能量", ice)
-    print("dora量", nd)
+  end
+  
+  if who ~= self then
+    if rw == 1 and ice >= 100 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, (-3 * ice))
+      end
+    end
+    
+    if rw >= 2 then
+      for _, t in ipairs(coldtars) do
+        mount:lighta(T34.new(t), coldh)
+      end
+    end
+    
+    if blizzard <= 49 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, (-3 * blizzard * (1 - nd)))
+      end
+    end
+      
+    if blizzard >= 50 and blizzard <= 74 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, (-3 * blizzard * (3 - nd)))
+      end
+    end
+    
+    if blizzard >= 75 and blizzard <= 99 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, (-3 * blizzard * (5 - nd)))
+      end
+    end
+    
+    if blizzard >= 100 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, -666)
+      end
+    end
   end
 end
