@@ -7,10 +7,10 @@ function onmonkey()
   local exist3 = exists[self:index()]
   
   for _, t in ipairs(T34.all) do
-    exist0:incmk(t, 2500)
-    exist1:incmk(t, 2500)
-    exist2:incmk(t, 2500)
-    exist3:incmk(t, 2500)
+    exist0:incmk(t, 3500)
+    exist1:incmk(t, 3500)
+    exist2:incmk(t, 3500)
+    exist3:incmk(t, 3500)
   end
 end
 
@@ -20,8 +20,8 @@ function ondraw()
   
   if who ~= self then
     for _, t in ipairs(T34.all) do
-      mount:lighta(t, 2500)
-      mount:lightb(t, 2500)
+      mount:lighta(t, 3500)
+      mount:lightb(t, 3500)
     end
   end
   
@@ -34,8 +34,8 @@ function ondraw()
     else
       void = void + 7
       for _, t in ipairs(T34.all) do
-        mount:lighta(t, 2500)
-        mount:lightb(t, 2500)
+        mount:lighta(t, 3500)
+        mount:lightb(t, 3500)
       end
     end  
     print("瘋狂能量", void)
