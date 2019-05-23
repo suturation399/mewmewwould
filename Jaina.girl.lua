@@ -120,19 +120,19 @@ function ondraw()
     
     if blizzard <= 49 and nd == 0 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, (-3 * blizzard))
+        mount:lighta(t, (-13 * blizzard))
       end
     end
       
     if (blizzard >= 50 and blizzard <= 74) and nd <= 2 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, (-3 * blizzard))
+        mount:lighta(t, (-13 * blizzard))
       end
     end
     
     if (blizzard >= 75 and blizzard <= 99) and nd <= 4 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, (-3 * blizzard))
+        mount:lighta(t, (-13 * blizzard))
       end
     end
     
