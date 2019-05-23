@@ -1,4 +1,4 @@
-void = 18
+void = 25
 
 function onmonkey()
   local exist0 = exists[self:left():index()]
