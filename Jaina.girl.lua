@@ -13,7 +13,7 @@ function onmonkey()
   
   if sw == 1 and rw == 1 then
     for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), 33)
+      exist:incmk(T34.new(i .. "f"), 66)
     end
   end
   
@@ -79,9 +79,10 @@ function ondraw()
         ice = ice + 11
       end
       
-      for i = 1, 4 do
-        mount:lighta(T34.new(i .. "f"), 33)
-      end
+      mount:lighta(T34.new("1f"), hand:ct(T34.new("1f")) * 66)
+      mount:lighta(T34.new("2f"), hand:ct(T34.new("2f")) * 66)
+      mount:lighta(T34.new("3f"), hand:ct(T34.new("3f")) * 66)
+      mount:lighta(T34.new("4f"), hand:ct(T34.new("4f")) * 66)
     end
     
     if sw >= 2 then
