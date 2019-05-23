@@ -26,6 +26,7 @@ function ondraw()
   end
   
   if who == self then  
+    print("瘋狂能量", void)
     if void >= 100 then
       void = void - 99
       for _, t in ipairs(effas) do
@@ -38,6 +39,5 @@ function ondraw()
         mount:lightb(t, 3500)
       end
     end  
-    print("瘋狂能量", void)
   end
 end
