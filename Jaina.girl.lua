@@ -3,7 +3,7 @@ ice = 30
 southround = 0
 
 coldtars = {
-  "2p", "4p", "8p", "2s", "3s", "4s", "6s", "8s", "9m", "1f", "2f", "3f", "4f", "1y", "2y" 
+  "2p", "4p", "8p", "2s", "3s", "4s", "6s", "8s", "1f", "2f", "3f", "4f", "1y", "2y" 
 }
 
 function onmonkey()
