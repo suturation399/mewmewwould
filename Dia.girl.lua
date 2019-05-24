@@ -1,4 +1,4 @@
-void = 25
+void = 33
 
 function onmonkey()
   local exist0 = exists[self:left():index()]
@@ -7,11 +7,15 @@ function onmonkey()
   local exist3 = exists[self:index()]
   
   for _, t in ipairs(T34.all) do
-    exist0:incmk(t, 3500)
-    exist1:incmk(t, 3500)
-    exist2:incmk(t, 3500)
-    exist3:incmk(t, 3500)
+    exist0:incmk(t, 3333)
+    exist1:incmk(t, 3333)
+    exist2:incmk(t, 3333)
+    exist3:incmk(t, 3333)
   end
+end
+
+function checkinit()
+  return iter > 333
 end
 
 function ondraw()
@@ -20,8 +24,8 @@ function ondraw()
   
   if who ~= self then
     for _, t in ipairs(T34.all) do
-      mount:lighta(t, 3500)
-      mount:lightb(t, 3500)
+      mount:lighta(t, 3333)
+      mount:lightb(t, 3333)
     end
   end
   
@@ -35,8 +39,8 @@ function ondraw()
     else
       void = void + 7
       for _, t in ipairs(T34.all) do
-        mount:lighta(t, 3500)
-        mount:lightb(t, 3500)
+        mount:lighta(t, 3333)
+        mount:lightb(t, 3333)
       end
     end  
   end
