@@ -11,12 +11,6 @@ function onmonkey()
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   
-  if sw == 1 and rw == 1 then
-    for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), 66)
-    end
-  end
-  
   if sw == 1 and rw == 2 then
     exist:incmk(T34.new("1y"), 66)
   end
@@ -52,17 +46,15 @@ function ondraw()
   
   if who == self then
     if rw == 1 and sw == 1 then
-      
       if blizzard >= 119 then 
         blizzard = blizzard - 115
       else
-        blizzard = blizzard + 6 * 5
+        blizzard = blizzard + 6 * 3
       end
-      
       if ice >= 119 then
         ice = ice - 115 
       else
-        ice = ice + 11 * 5
+        ice = ice + 11 * 3
       end
     end
 
@@ -72,33 +64,27 @@ function ondraw()
       else
         blizzard = blizzard + 6
       end
-      
       if ice >= 119 then
         ice = ice - 115
       else
         ice = ice + 11
       end
-      
-      mount:lighta(T34.new("1f"), hand:ct(T34.new("1f")) * 66)
-      mount:lighta(T34.new("2f"), hand:ct(T34.new("2f")) * 66)
-      mount:lighta(T34.new("3f"), hand:ct(T34.new("3f")) * 66)
-      mount:lighta(T34.new("4f"), hand:ct(T34.new("4f")) * 66)
+    end
+    
+    if blizzard >= 100 then
+      for _, t in ipairs(T34.all) do
+        mount:lighta(t, 3500)
+        mount:lightb(t, 3500)
+      end
     end
     
     if sw >= 2 then
       for _, t in ipairs(effas) do
         mount:lighta(t, ice)
       end
-    end
-    
-    if sw <= 1 then
-      for _, t in ipairs(effas) do
-        mount:lighta(t, 3)
+      for _, t in ipairs(coldtars) do
+        mount:lighta(T34.new(t), coldh)
       end
-    end
-    
-    for _, t in ipairs(coldtars) do
-      mount:lighta(T34.new(t), coldh)
     end
 
     print("暴雪能量", blizzard)
@@ -108,7 +94,7 @@ function ondraw()
   if who ~= self then
     if rw == 1 and ice >= 100 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, (-3 * ice))
+        mount:lighta(t, -33)
       end
     end
     
@@ -137,8 +123,9 @@ function ondraw()
     end
     
     if blizzard >= 100 then
-      for _, t in ipairs(effas) do
-        mount:lighta(t, -666)
+      for _, t in ipairs(T34.all) do
+        mount:lighta(t, 3500)
+        mount:lightb(t, 3500)
       end
     end
   end
