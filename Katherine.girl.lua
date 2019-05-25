@@ -21,7 +21,7 @@ function ondraw()
       junme = junme + 1
       if junme == 6 or junme == 12 then
         for _, t in ipairs(seffas) do
-          mount:lighta(t, 33 * junme)
+          mount:lighta(t, 99 * junme)
         end
       end
     else
