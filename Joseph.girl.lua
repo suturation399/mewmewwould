@@ -23,21 +23,21 @@ function ondraw()
 
   if who == self then
     for _, t in ipairs(coldtars) do
-      mount:lighta(T34.new(t), 93)
+      mount:lighta(T34.new(t), 133)
     end
     if handr:ready() then 
       for _, t in ipairs(handr:effa()) do
-         mount:lighta(t, -133)
+         mount:lighta(t, -199)
       end
     end
     if handc:ready() then 
       for _, t in ipairs(handc:effa()) do
-         mount:lighta(t, -133)
+         mount:lighta(t, -199)
       end
     end
     if handl:ready() then 
       for _, t in ipairs(handl:effa()) do
-        mount:lighta(t, -133)
+        mount:lighta(t, -199)
       end
     end
   end
@@ -45,11 +45,11 @@ function ondraw()
   if who ~= self then
     if shand:step() ~= 0 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, 93)
+        mount:lighta(t, 133)
       end
     else
       for _, t in ipairs(seffas) do
-        mount:lighta(t, 93)
+        mount:lighta(t, 133)
       end
     end
   end
