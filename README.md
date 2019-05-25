@@ -12,8 +12,13 @@
 本喵咪是這方面的新手，請多多指教，也請各位大佬（特別是以上4位）多多提點
 
 ## 近期重要更新
-### 23-5-2019
+### 26-5-2019
+新增 Katherine
++ [Katherine](#Katherine)
+新增 Joseph
++ [Joseph](#Joseph)
 
+### 23-5-2019
 新增 Dia Darkwhisper
 + [Dia](#Dia)
 
@@ -22,10 +27,6 @@
 
 新增 Jaina Proudmoore
 + [Jaina](#Jaina)
-
-### 8-5-2019
-新增 蒲原智美
-+ [蒲原智美](#蒲原智美)
 
 ## 人物列表
 
