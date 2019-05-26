@@ -47,11 +47,11 @@ function ondraw()
     end
     if shand:step() ~= 0 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, 93)
+        mount:lighta(t, 133)
       end
     else
       for _, t in ipairs(seffas) do
-        mount:lighta(t, 93)
+        mount:lighta(t, 133)
       end
     end
   end
