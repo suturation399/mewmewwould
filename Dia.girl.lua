@@ -1,16 +1,16 @@
 void = 33
 
 function onmonkey()
-  local exist0 = exists[self:left():index()]
-  local exist1 = exists[self:right():index()]
-  local exist2 = exists[self:cross():index()]
-  local exist3 = exists[self:index()]
+  local existself = exists[self:index()]
+  local existl = exists[self:left():index()]
+  local existc = exists[self:cross():index()]
+  local existr = exists[self:right():index()]
   
   for _, t in ipairs(T34.all) do
-    exist0:incmk(t, 3333)
-    exist1:incmk(t, 3333)
-    exist2:incmk(t, 3333)
-    exist3:incmk(t, 3333)
+    existself:incmk(t, 3333)
+    existl:incmk(t, 3333)
+    existc:incmk(t, 3333)
+    existr:incmk(t, 3333)
   end
 end
 
