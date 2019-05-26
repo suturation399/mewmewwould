@@ -1,13 +1,6 @@
-coldtars = {
-  "2p", "4p", "8p", "2s", "3s", "4s", "6s", "8s", "1f", "2f", "3f", "4f", "1y", "2y" 
-}
-
 function onmonkey()
-  for _, t in ipairs(coldtars) do
-    exists[self:left():index()]:incmk(T34.new(t), 33)
-    exists[self:cross():index()]:incmk(T34.new(t), 33)
-    exists[self:right():index()]:incmk(T34.new(t), 33)
-  end
+  junme = 0
+  tenjun = 0
 end
 
 function ondraw()
@@ -24,34 +17,36 @@ function ondraw()
   end
 
   if who == self then
+    junme = junme + 1
     if handr:ready() then 
+      tenjun = tenjun + 1
       for _, t in ipairs(handr:effa()) do
-         mount:lighta(t, -40)
+         mount:lighta(t, -33)
       end
     end
     if handc:ready() then 
       for _, t in ipairs(handc:effa()) do
-         mount:lighta(t, -40)
+         mount:lighta(t, -33)
       end
     end
     if handl:ready() then 
       for _, t in ipairs(handl:effa()) do
-        mount:lighta(t, -40)
+        mount:lighta(t, -33)
       end
     end
   end
   
   if who ~= self then
-    for _, t in ipairs(coldtars) do
-      mount:lighta(T34.new(t), 93)
+    for _, t in ipairs(effas) do
+      mount:lighta(t, -33 * tenjun)
     end
     if shand:step() ~= 0 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, 133)
+        mount:lighta(t, -33 * tenjun)
       end
     else
       for _, t in ipairs(seffas) do
-        mount:lighta(t, 133)
+        mount:lighta(t, -33 * tenjun)
       end
     end
   end
