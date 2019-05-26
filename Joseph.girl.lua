@@ -37,8 +37,10 @@ function ondraw()
   end
   
   if who ~= self then
-    for _, t in ipairs(effas) do
-      mount:lighta(t, -33 * tenjun)
+    if junme == 6 or junme == 12 or junme == 18 then
+      for _, t in ipairs(effas) do
+        mount:lighta(t, -99 * junme)
+      end
     end
     if shand:step() ~= 0 then
       for _, t in ipairs(effas) do
