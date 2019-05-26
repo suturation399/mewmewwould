@@ -1,6 +1,6 @@
 function onmonkey()
   junme = 0
-  tenjun = 1
+  tenjun = 0
 end
 
 function ondraw()
@@ -25,23 +25,23 @@ function ondraw()
         end
       end
     else
-      for _, t in ipairs(seffas) do
-        mount:lighta(t, 13 * tenjun)
-      end
       tenjun = tenjun + 1
+      for _, t in ipairs(seffas) do
+        mount:lighta(t, 33 * tenjun)
+      end
       if handr:ready() then 
         for _, t in ipairs(handr:effa()) do
-           mount:lighta(t, -40)
+           mount:lighta(t, -33)
         end
       end
       if handc:ready() then 
         for _, t in ipairs(handc:effa()) do
-           mount:lighta(t, -40)
+           mount:lighta(t, -33)
         end
       end
       if handl:ready() then 
         for _, t in ipairs(handl:effa()) do
-          mount:lighta(t, -40)
+          mount:lighta(t, -33)
         end
       end
     end
@@ -50,7 +50,7 @@ function ondraw()
   if who ~= self then
     if shand:step() == 0 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, -13 * tenjun)
+        mount:lighta(t, -33 * tenjun)
       end
     end
   end
