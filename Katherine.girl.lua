@@ -19,7 +19,7 @@ function ondraw()
   if who == self then
     if not shand:ready() then
       junme = junme + 1
-      if junme == 6 or junme == 12 then
+      if junme == 6 or junme == 12 or junme == 18 then
         for _, t in ipairs(seffas) do
           mount:lighta(t, 99 * junme)
         end
