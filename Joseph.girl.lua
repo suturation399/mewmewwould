@@ -4,7 +4,9 @@ coldtars = {
 
 function onmonkey()
   for _, t in ipairs(coldtars) do
-    exists[self:index()]:incmk(T34.new(t), 93)
+    exists[self:left():index()]:incmk(T34.new(t), 33)
+    exists[self:cross():index()]:incmk(T34.new(t), 33)
+    exists[self:right():index()]:incmk(T34.new(t), 33)
   end
 end
 
@@ -22,9 +24,6 @@ function ondraw()
   end
 
   if who == self then
-    for _, t in ipairs(coldtars) do
-      mount:lighta(T34.new(t), 133)
-    end
     if handr:ready() then 
       for _, t in ipairs(handr:effa()) do
          mount:lighta(t, -199)
@@ -43,13 +42,16 @@ function ondraw()
   end
   
   if who ~= self then
+    for _, t in ipairs(coldtars) do
+      mount:lighta(T34.new(t), 333)
+    end
     if shand:step() ~= 0 then
       for _, t in ipairs(effas) do
-        mount:lighta(t, 133)
+        mount:lighta(t, 333)
       end
     else
       for _, t in ipairs(seffas) do
-        mount:lighta(t, 133)
+        mount:lighta(t, 333)
       end
     end
   end
