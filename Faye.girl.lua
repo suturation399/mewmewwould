@@ -7,11 +7,11 @@ function checkinit()
   end
 
   if who == self and selfwind == 1 then
-    return init:step() == 3
+    return init:step() <= 3
   end
 
   if who == self and selfwind ~= 1 then
-    return init:step() >= 3 and init:step() <= 4
+    return init:step() <= 4
   end
 end
 
