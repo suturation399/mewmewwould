@@ -49,6 +49,7 @@ function ondraw()
         end
         for _, t in ipairs(effas) do
           mount:lighta(t, -33 * (18 - tenjun))
+        end
       else
         for _, t in ipairs(effas) do
           mount:lighta(t, 33 * (18 - tenjun))
