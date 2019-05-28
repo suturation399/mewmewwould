@@ -45,11 +45,11 @@ function ondraw()
     if shand:ready() then
       if hand:ready() then
         for _, t in ipairs(seffas) do
-          mount:lighta(t, 33 * tenjun)
+          mount:lighta(t, 33 * (18 - tenjun))
         end
       else
         for _, t in ipairs(effas) do
-          mount:lighta(t, 33 * tenjun)
+          mount:lighta(t, 33 * (18 - tenjun))
         end
       end
     end
