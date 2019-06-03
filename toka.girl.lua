@@ -16,7 +16,8 @@ function ondraw()
 
   if who ~= self and hand:ready() then
     for _, t in ipairs(effas) do
-      mount:lighta(t, -500)
+      mount:lighta(t, -3000)
+      mount:lightb(t, -3000)
      end
   end
  
