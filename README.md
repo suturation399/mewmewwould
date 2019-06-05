@@ -12,13 +12,13 @@
 本喵咪是這方面的新手，請多多指教，也請各位大佬（特別是以上4位）多多提點
 
 ## 近期重要更新
-### 23-5-2019
-新增 Dia Darkwhisper
-+ [Dia](#Dia)
-
-### 28-5-2019
+### 5-6-2019
 新增 Archimonde
 + [Archimonde](#Archimonde)
+
+### 28-5-2019
+新增 Faye
++ [Faye](#Faye)
 
 新增 Ironhull
 + [Ironhull](#Ironhull)
