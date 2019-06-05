@@ -9,7 +9,7 @@ function ondraw()
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
-  local torment = (12 - junme) * 44
+  local torment = (12 - junme) * -44
 
   for _, t in ipairs(drids) do
     nd = hand:ctaka5() + hand:ct(t:dora())
