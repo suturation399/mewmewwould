@@ -12,9 +12,13 @@
 本喵咪是這方面的新手，請多多指教，也請各位大佬（特別是以上4位）多多提點
 
 ## 近期重要更新
+### 23-5-2019
+新增 Dia Darkwhisper
++ [Dia](#Dia)
+
 ### 28-5-2019
-新增 Faye
-+ [Faye](#Faye)
+新增 Archimonde
++ [Archimonde](#Archimonde)
 
 新增 Ironhull
 + [Ironhull](#Ironhull)
@@ -26,10 +30,6 @@
 新增 Joseph
 + [Joseph](#Joseph)
 
-### 23-5-2019
-新增 Dia Darkwhisper
-+ [Dia](#Dia)
-
 ## 人物列表
 
 + [愛宕絹恵](#愛宕絹恵)
@@ -38,6 +38,7 @@
 + [江崎仁美](#江崎仁美)
 + [蒲原智美](#蒲原智美)
 + [冷たい透華](#冷たい透華)
++ [Archimonde](#Archimonde)
 + [Velhari](#Velhari)
 + [Faye](#Faye)
 + [Ironhull](#Ironhull)
@@ -90,7 +91,7 @@
 > Archimonde是世青賽德國代表隊先鋒 
 
 + 惡魔邪術：火焰誘惑
-	+ 他家手牌每張dora會提升摸進銃牌的機率。
+	+ 他家手牌每張dora會提升摸進自家銃牌的機率。
 
 + 惡魔邪術：束縛折磨
 	+ Archimonde想要折磨他家的靈魂，他家難以從一向聽進入聽牌
