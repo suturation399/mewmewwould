@@ -1,6 +1,5 @@
 function onmonkey()
   junme = 0
-  tenjun = 1
 end
 
 function ondraw()
@@ -11,47 +10,25 @@ function ondraw()
   local handl = game:gethand(self:left())
   local seffas = shand:effa()
   local effas = hand:effa()
+  local torment = (12 - junme) * 50
   
   if rinshan then
     return
   end
 
   if who == self then
-    if not shand:ready() then
-      junme = junme + 1
-      if junme == 6 or junme == 12 then
-        for _, t in ipairs(seffas) do
-          mount:lighta(t, 33 * junme)
-        end
-      end
-    else
-      for _, t in ipairs(seffas) do
-        mount:lighta(t, 13 * tenjun)
-      end
-      tenjun = tenjun + 1
-      if handr:ready() then 
-        for _, t in ipairs(handr:effa()) do
-           mount:lighta(t, -40)
-        end
-      end
-      if handc:ready() then 
-        for _, t in ipairs(handc:effa()) do
-           mount:lighta(t, -40)
-        end
-      end
-      if handl:ready() then 
-        for _, t in ipairs(handl:effa()) do
-          mount:lighta(t, -40)
-        end
-      end
-    end
+    junme = junme + 1
   end
   
-  if who ~= self then
-    if shand:step() == 0 then
-      for _, t in ipairs(effas) do
-        mount:lighta(t, -13 * tenjun)
+  if who == self:right() then
+    if handr:step() == 1 then
+      for _, t in ipairs(handr:effa()) do
+        mount:lighta(t, torment)
+      end
+    end
+    if handl:step() == 0 then
+      for _, t in ipairs(handl:effa()) do
+        mount:lighta(t, 90)
       end
     end
   end
-end
