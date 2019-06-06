@@ -1,20 +1,17 @@
 function checkinit()
   junme = 0
   local selfwind = game:getselfwind(self)
-  local inp = init:closed():ct("p")
-  local inm = init:closed():ct("m")
-  local ins = init:closed():ct("s")
   
   if who ~= self or iter > 4 then
     return true
   end
 
   if who == self and selfwind == 1 then
-    return init:step() == 3 and inp == inm and inm == ins
+    return init:step() == 3
   end
 
   if who == self and selfwind ~= 1 then
-    return init:step() >= 3 and init:step() <= 4 and inp == inm and inm == ins
+    return init:step() >= 3 and init:step() <= 4
   end
 end
 
