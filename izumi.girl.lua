@@ -9,7 +9,7 @@ function random()
 end
 
 function onmonkey()
-  status = random() % 14
+  status = random() % 24
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local exist = exists[self:index()]
@@ -126,7 +126,7 @@ function ondraw()
     nd = hands:ctaka5() + hands:ct(t:dora())
   end
 
-  local dormk = ((nd - 2) * -44) - 14
+  local dormk = ((nd - 2) * -44) - 24
   
   if who ~= self or rinshan then
     return
