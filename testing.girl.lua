@@ -48,23 +48,17 @@ function onmonkey()
     if rw == 2 then
       exist:incmk(T34.new("2f"), 144)
     end
-    exist:incmk(T34.new("3f"), 144)
+    if rw >= 3 then
+      exist:incmk(T34.new("3f"), 144)
+    end
   end
   
   if status == 5 then
-    exist:incmk(T34.new("1m"), -14)
-    exist:incmk(T34.new("9m"), -14)
-    exist:incmk(T34.new("1s"), -14)
-    exist:incmk(T34.new("9s"), -14)
-    exist:incmk(T34.new("1p"), -14)
-    exist:incmk(T34.new("9p"), -14)
-    exist:incmk(T34.new("1f"), -14)
-    exist:incmk(T34.new("2f"), -14)
-    exist:incmk(T34.new("3f"), -14)
-    exist:incmk(T34.new("4f"), -14)
-    exist:incmk(T34.new("1y"), -14)
-    exist:incmk(T34.new("2y"), -14)
-    exist:incmk(T34.new("3y"), -14)
+    for i = 2, 8 do
+      exist:incmk(T34.new(i .. "p"), 144)
+      exist:incmk(T34.new(i .. "s"), 144)
+      exist:incmk(T34.new(i .. "m"), 144)
+    end
   end
 end
 
