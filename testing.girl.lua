@@ -1,18 +1,11 @@
 function checkinit()
   junme = 0
-  local selfwind = game:getselfwind(self)
   
   if who ~= self or iter > 4 then
     return true
   end
 
-  if who == self and selfwind == 1 then
-    return init:step() == 3
-  end
-
-  if who == self and selfwind ~= 1 then
-    return init:step() >= 3 and init:step() <= 4
-  end
+  return init:step() >= 3 and init:step() <= 4
 end
 
 function ondraw()
@@ -25,7 +18,7 @@ function ondraw()
     nd = hands:ctaka5() + hands:ct(t:dora())
   end
 
-  local dormk = (nd - 2) * -84 - 14
+  local dormk = ((nd - 2) * -44) - 14
   
   if who ~= self or rinshan then
     return
@@ -33,13 +26,13 @@ function ondraw()
 
   if who == self then
     junme = junme + 1
-    mount:lighta(T37.new("0p"), dormk)
-    mount:lighta(T37.new("0s"), dormk)
-    mount:lighta(T37.new("0m"), dormk)
-    for _, t in ipairs(drids) do
-      mount:lighta(t:dora(), dormk)
-    end
     if steps >= 1 then
+      mount:lighta(T37.new("0p"), dormk)
+      mount:lighta(T37.new("0s"), dormk)
+      mount:lighta(T37.new("0m"), dormk)
+      for _, t in ipairs(drids) do
+        mount:lighta(t:dora(), dormk)
+      end
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, junmk)
       end
