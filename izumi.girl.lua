@@ -9,7 +9,7 @@ function random()
 end
 
 function onmonkey()
-  status = random() % 24
+  status = random() % 20
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local exist = exists[self:index()]
@@ -55,9 +55,9 @@ function onmonkey()
   
   if status >= 5 then
     for i = 2, 8 do
-      exist:incmk(T34.new(i .. "p"), 144)
-      exist:incmk(T34.new(i .. "s"), 144)
-      exist:incmk(T34.new(i .. "m"), 144)
+      exist:incmk(T34.new(i .. "p"), 44)
+      exist:incmk(T34.new(i .. "s"), 44)
+      exist:incmk(T34.new(i .. "m"), 44)
     end
   end
 end
