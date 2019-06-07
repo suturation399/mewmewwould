@@ -1,11 +1,125 @@
+a = 1103515245
+c = 12345
+m = 2 ^ 32 - 1
+seed = 1
+
+function random()
+  seed = (a * seed + c) % m
+  return seed
+end
+
+function onmonkey()
+  status = random() % 6
+  local sw = game:getselfwind(who)
+  local rw = game:getroundwind()
+  local exist = exists[self:index()]
+  
+  if status == 0 then
+    exist:incmk(T34.new("1y"), 144)
+  end
+  
+  if status == 1 then
+    exist:incmk(T34.new("2y"), 144)
+  end
+
+  if status == 2 then
+    exist:incmk(T34.new("3y"), 144)
+  end
+
+  if status == 3 then
+    if sw == 1 then
+      exist:incmk(T34.new("1f"), 144)
+    end
+    if sw == 2 then
+      exist:incmk(T34.new("2f"), 144)
+    end
+    if sw == 3 then
+      exist:incmk(T34.new("3f"), 144)
+    end
+    if sw == 4 then
+      exist:incmk(T34.new("4f"), 144)
+    end
+  end
+  
+  if status == 4 then
+    if rw == 1 then
+      exist:incmk(T34.new("1f"), 144)
+    end
+    if rw == 2 then
+      exist:incmk(T34.new("2f"), 144)
+    end
+    exist:incmk(T34.new("3f"), 144)
+  end
+  
+  if status == 5 then
+    exist:incmk(T34.new("1m"), -14)
+    exist:incmk(T34.new("9m"), -14)
+    exist:incmk(T34.new("1s"), -14)
+    exist:incmk(T34.new("9s"), -14)
+    exist:incmk(T34.new("1p"), -14)
+    exist:incmk(T34.new("9p"), -14)
+    exist:incmk(T34.new("1f"), -14)
+    exist:incmk(T34.new("2f"), -14)
+    exist:incmk(T34.new("3f"), -14)
+    exist:incmk(T34.new("4f"), -14)
+    exist:incmk(T34.new("1y"), -14)
+    exist:incmk(T34.new("2y"), -14)
+    exist:incmk(T34.new("3y"), -14)
+  end
+end
+
 function checkinit()
   junme = 0
+  local sw = game:getselfwind(who)
+  local rw = game:getroundwind()
   
-  if who ~= self or iter > 4 then
+  if who ~= self or iter > 88 then
     return true
   end
 
-  return init:step() >= 3 and init:step() <= 4
+  if status == 0 then
+    return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("1y")) == 2
+  end
+
+  if status == 1 then
+    return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("2y")) == 2
+  end
+
+  if status == 2 then
+    return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("3y")) == 2
+  end
+
+  if status == 3 then
+    if sw == 1 then
+      return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("1f")) == 2
+    end
+    if sw == 2 then
+      return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("2f")) == 2
+    end
+    if sw == 3 then
+      return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("3f")) == 2
+    end
+    if sw == 4 then
+      return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("4f")) == 2
+    end
+  end
+
+  if status == 4 then
+    if rw == 1 then
+      return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("1f")) == 2
+    end
+    if rw == 2 then
+      return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("2f")) == 2
+    end
+    if rw == 3 then
+      return init:step4() >= 3 and init:step4() <= 4 and init:ct(T34.new("3f")) == 2
+    end
+  end
+
+  if status == 5 then
+  local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
+  return ny <= 2
+  end
 end
 
 function ondraw()
