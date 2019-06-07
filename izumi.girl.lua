@@ -146,7 +146,7 @@ function ondraw()
       end
     else
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, 4)
+        mount:lighta(t, 14)
       end
     end
   end
