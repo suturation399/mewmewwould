@@ -9,35 +9,74 @@ function random()
 end
 
 function onmonkey()
-  status = random() % 20
+  status = random() % 34
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local exist = exists[self:index()]
   
   if status == 0 then
     exist:incmk(T34.new("1y"), 144)
+    exist:incmk(T34.new("2y"), -14)
+    exist:incmk(T34.new("3y"), -14)
+    for i = 1, 4 do
+      exist:incmk(T34.new(i .. "f"), -14)
+    end
   end
   
   if status == 1 then
     exist:incmk(T34.new("2y"), 144)
+    exist:incmk(T34.new("1y"), -14)
+    exist:incmk(T34.new("3y"), -14)
+    for i = 1, 4 do
+      exist:incmk(T34.new(i .. "f"), -14)
+    end
   end
 
   if status == 2 then
     exist:incmk(T34.new("3y"), 144)
+    exist:incmk(T34.new("1y"), -14)
+    exist:incmk(T34.new("2y"), -14)
+    for i = 1, 4 do
+      exist:incmk(T34.new(i .. "f"), -14)
+    end
   end
 
   if status == 3 then
     if sw == 1 then
       exist:incmk(T34.new("1f"), 144)
+      exist:incmk(T34.new("2f"), -14)
+      exist:incmk(T34.new("3f"), -14)
+      exist:incmk(T34.new("4f"), -14)
+      for i = 1, 3 do
+        exist:incmk(T34.new(i .. "y"), -14)
+      end
     end
     if sw == 2 then
       exist:incmk(T34.new("2f"), 144)
+      exist:incmk(T34.new("1f"), -14)
+      exist:incmk(T34.new("3f"), -14)
+      exist:incmk(T34.new("4f"), -14)
+      for i = 1, 3 do
+        exist:incmk(T34.new(i .. "y"), -14)
+      end
     end
     if sw == 3 then
       exist:incmk(T34.new("3f"), 144)
+      exist:incmk(T34.new("2f"), -14)
+      exist:incmk(T34.new("1f"), -14)
+      exist:incmk(T34.new("4f"), -14)
+      for i = 1, 3 do
+        exist:incmk(T34.new(i .. "y"), -14)
+      end
     end
     if sw == 4 then
       exist:incmk(T34.new("4f"), 144)
+      exist:incmk(T34.new("2f"), -14)
+      exist:incmk(T34.new("3f"), -14)
+      exist:incmk(T34.new("1f"), -14)
+      for i = 1, 3 do
+        exist:incmk(T34.new(i .. "y"), -14)
+      end
     end
   end
   
@@ -126,7 +165,7 @@ function ondraw()
     nd = hands:ctaka5() + hands:ct(t:dora())
   end
 
-  local dormk = ((nd - 2) * -44) - 24
+  local dormk = ((nd - 2) * -44) - (4 * junme) - 24
   
   if who ~= self or rinshan then
     return
