@@ -2,6 +2,7 @@ round = 0
 
 function onmonkey()
   round = round + 1
+end
 
 function ondraw()
   local extra = game:getextraround()
