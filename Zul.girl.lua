@@ -1,11 +1,15 @@
+round = 0
+
+function onmonkey()
+  round = round + 1
+
 function ondraw()
-  local round = game:getround()
   local extra = game:getextraround()
   local hands = game:gethand(self)
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
-  local eaa = (round + 1) * 20 + extra * 7
+  local eaa = round * 15 
 
   if who ~= self or rinshan then
     return
