@@ -1,7 +1,7 @@
 realround = 0
 
 function onmonkey()
-  round = round + 1
+  realround = realround + 1
 end
 
 function ondraw()
