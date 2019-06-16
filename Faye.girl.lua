@@ -1,3 +1,5 @@
+print("沒人能對抗風暴！")
+
 function checkinit()
   junme = 0
   local selfwind = game:getselfwind(self)
