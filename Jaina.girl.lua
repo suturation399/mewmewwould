@@ -1,3 +1,4 @@
+print("大海啊！回應我！")
 blizzard = 0
 ice = 30
 southround = 0
@@ -17,6 +18,10 @@ function onmonkey()
   
   if rw >= 2 then
     southround = southround + 1
+  end
+  
+  if southround == 1 then
+    print("你們都會葬身海底！")
   end
 end
 
