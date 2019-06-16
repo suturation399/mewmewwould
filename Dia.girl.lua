@@ -1,3 +1,6 @@
+
+print("亡者即將再度甦醒！")
+
 void = 33
 
 function onmonkey()
