@@ -1,3 +1,5 @@
+print("我的防禦，固若金湯！")
+
 function ondraw()
   local hand = game:gethand(who)
   local effas = hand:effa()
