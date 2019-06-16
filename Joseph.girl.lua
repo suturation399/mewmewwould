@@ -1,3 +1,5 @@
+print("你們別想逃過大海之怒的制裁！")
+
 function onmonkey()
   junme = 0
   tenjun = 0
