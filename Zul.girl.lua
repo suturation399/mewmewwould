@@ -1,3 +1,5 @@
+print("就如我的預言一樣，血神的力量會毁滅你們！")
+
 realround = 0
 
 function onmonkey()
