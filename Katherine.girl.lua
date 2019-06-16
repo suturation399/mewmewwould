@@ -1,4 +1,5 @@
 print("誰都躲不過天怒的制裁！")
+
 function onmonkey()
   junme = 0
   tenjun = 0
