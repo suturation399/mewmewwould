@@ -1,3 +1,4 @@
+print("誰都躲不過天怒的制裁！")
 function onmonkey()
   junme = 0
   tenjun = 0
@@ -20,6 +21,7 @@ function ondraw()
     if not shand:ready() then
       junme = junme + 1
       if junme == 6 or junme == 12 or junme == 18 then
+        print("雷霆之聲響徹雲霄！")
         for _, t in ipairs(seffas) do
           mount:lighta(t, 99 * junme)
         end
