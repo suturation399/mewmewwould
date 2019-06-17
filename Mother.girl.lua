@@ -63,19 +63,39 @@ function ondraw()
         local gains = form:gain(self)
         print("聽牌計算結果為", t)
         print("預計牌山殘枚數為", ntenpai)
-        print("預計銃和得點為", gains)
+        print("最低銃和得點為", gains)
         for _, t in ipairs(effas) do
           mount:lighta(t, junme * 4)
         end
       end
     end
-    if junme == 9 then
-      print("啟動他家手牌計算程序")
+    if junme == 7 then
+      print("啟動他家進展計算程序")
     end
-    if junme >= 10 then
+    if junme >= 8 and junme <= 13 then
       print("預計下家向聽數為", handr:step())
       print("預計對家向聽數為", handc:step())
       print("預計上家向聽數為", handl:step())
+    end
+    if junme == 14 then
+      print("正在計算各牌的危險性...")
+    end
+    if junme >= 15 then
+      if handr:ready() then
+        for _, t in ipairs(handr:effa()) do
+          print("預計危險牌為", t)
+        end
+      end
+      if handc:ready() then
+        for _, t in ipairs(handc:effa()) do
+          print("預計危險牌為", t)
+        end
+      end
+      if handl:ready() then
+        for _, t in ipairs(handl:effa()) do
+          print("預計危險牌為", t)
+        end
+      end
     end
   end
 end
