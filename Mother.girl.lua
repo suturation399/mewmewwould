@@ -63,7 +63,7 @@ function ondraw()
         local gains = form:gain(self)
         print("聽牌計算結果為", t)
         print("預計牌山殘枚數為", ntenpai)
-        print("最低銃和得點為", gains)
+        print("銃和得點為", gains)
         for _, t in ipairs(effas) do
           mount:lighta(t, junme * 4)
         end
