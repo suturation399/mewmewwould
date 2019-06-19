@@ -59,11 +59,8 @@ function ondraw()
     else
       for _, t in ipairs(effas) do
         local ntenpai = mount:remaina(t)
-        local form = Form.new(hands, T37.new(t:id34()), ctx, rule, drids)
-        local gains = form:gain(self)
         print("聽牌計算結果為", t)
         print("預計牌山殘枚數為", ntenpai)
-        print("銃和得點為", gains)
         for _, t in ipairs(effas) do
           mount:lighta(t, junme * 4)
         end
