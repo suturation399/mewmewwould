@@ -9,7 +9,7 @@ function random()
 end
 
 function onmonkey()
-  status = random() % 34
+  status = random() % 28
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local exist = exists[self:index()]
