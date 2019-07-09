@@ -43,7 +43,7 @@ function checkinit()
     end
     return init:ct(T34.new("1y")) >= 3 and init:ct(T34.new("2y")) >= 3 and init:ct(T34.new("3y")) >= 3
   else
-    return iter > 133
+    return iter > 888
   end
 end
 
