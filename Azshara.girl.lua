@@ -9,3 +9,7 @@ function random()
 end
 
 function onmonkey()
+  status = random() % 6
+end
+
+
