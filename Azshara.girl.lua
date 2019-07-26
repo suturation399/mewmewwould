@@ -4,11 +4,11 @@ failurec = 0
 failurel = 0
 pressure = 0
 catastrophe = 0
-junme = 0
+junmk = 0
 
 function onmonkey()
   power = 0
-  junme = 0
+  junmk = 0
   
   if failurer == 1 then
     ancientr = -100
@@ -62,5 +62,11 @@ function ondraw()
   end
   
   if who == self then
-    junme = junme + 1
+    junmk = junmk + 5
+    local noner = riverr:ct(T34.new("1p")) + riverr:ct(T34.new("1s")) + riverr:ct(T34.new("1m"))
+    local ntwor = riverr:ct(T34.new("2p")) + riverr:ct(T34.new("2s")) + riverr:ct(T34.new("2m"))
+    local nthreer = riverr:ct(T34.new("3p")) + riverr:ct(T34.new("3s")) + riverr:ct(T34.new("3m"))
+    local   = riverr:ct(T34.new("1p")) + riverr:ct(T34.new("1s")) + riverr:ct(T34.new("1m"))
+    
+    
     
