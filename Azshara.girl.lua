@@ -4,11 +4,11 @@ failurec = 0
 failurel = 0
 pressure = 0
 catastrophe = 0
-junmk = 0
+junme = 0
 
 function onmonkey()
   power = 0
-  junmk = 0
+  junme = 0
   
   if failurer == 1 then
     ancientr = -100
@@ -53,20 +53,24 @@ end
 
 function ondraw()
   local riverr = game:getriver(self:right())
+    local noner = riverr:ct(T34.new("1p")) + riverr:ct(T34.new("1s")) + riverr:ct(T34.new("1m"))
+    local ntwor = riverr:ct(T34.new("2p")) + riverr:ct(T34.new("2s")) + riverr:ct(T34.new("2m"))
+    local nthreer = riverr:ct(T34.new("3p")) + riverr:ct(T34.new("3s")) + riverr:ct(T34.new("3m"))
+    local nfourr = riverr:ct(T34.new("4p")) + riverr:ct(T34.new("4s")) + riverr:ct(T34.new("4m"))
+    local nfiver = riverr:ct(T34.new("5p")) + riverr:ct(T34.new("5s")) + riverr:ct(T34.new("5m"))
+    local nsixr = riverr:ct(T34.new("6p")) + riverr:ct(T34.new("6s")) + riverr:ct(T34.new("6m"))
+    local nsevenr = riverr:ct(T34.new("7p")) + riverr:ct(T34.new("7s")) + riverr:ct(T34.new("7m"))
+    local neightr = riverr:ct(T34.new("8p")) + riverr:ct(T34.new("8s")) + riverr:ct(T34.new("8m"))
+    local nniner = riverr:ct(T34.new("9p")) + riverr:ct(T34.new("9s")) + riverr:ct(T34.new("9m"))
   local riverc = game:getriver(self:cross())
   local riverl = game:getriver(self:left())
   local hands = game:gethand(self)
   
-  if who ~= self or rinshan then
-    return
-  end
-  
   if who == self then
-    junmk = junmk + 5
-    local noner = riverr:ct(T34.new("1p")) + riverr:ct(T34.new("1s")) + riverr:ct(T34.new("1m"))
-    local ntwor = riverr:ct(T34.new("2p")) + riverr:ct(T34.new("2s")) + riverr:ct(T34.new("2m"))
-    local nthreer = riverr:ct(T34.new("3p")) + riverr:ct(T34.new("3s")) + riverr:ct(T34.new("3m"))
-    local   = riverr:ct(T34.new("1p")) + riverr:ct(T34.new("1s")) + riverr:ct(T34.new("1m"))
+    junme = junme + 1
+    if junme <= 1 then 
+      decree == 0
+
     
     
     
