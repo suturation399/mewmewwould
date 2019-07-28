@@ -96,6 +96,9 @@ function ondraw()
   
   if who == self then
     junme = junme + 1
+    ancientr = 30 + noner + 2 * ntwor + 3 * nthreer + 4 * nfourr + 5 * nfiver + 6 * nsixr + 7 * nsevenr + 8 * neightr + 9 * nniner
+    ancientc = 30 + nonec + 2 * ntwoc + 3 * nthreec + 4 * nfourc + 5 * nfivec + 6 * nsixc + 7 * nsevenc + 8 * neightc + 9 * nninec
+    ancientl = 30 + nonel + 2 * ntwol + 3 * nthreel + 4 * nfourl + 5 * nfivel + 6 * nsixl + 7 * nsevenl + 8 * neightl + 9 * nninel
     power = 3 * (nones + 2 * ntwos + 3 * nthrees + 4 * nfours + 5 * nfives + 6 * nsixs + 7 * nsevens + 8 * neights + 9 * nnines)
     if junme <= 1 then 
       decree = hands:step()
