@@ -1,15 +1,11 @@
-a = 1103515245
-c = 12345
-m = 2 ^ 32 - 1
-seed = 1
+doge = 0
 
-function random()
-  seed = (a * seed + c) % m
-  return seed
+function ondice()
+  doge = rand:gen(24)
 end
 
 function onmonkey()
-  status = random() % 28
+  status = doge
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local exist = exists[self:index()]
