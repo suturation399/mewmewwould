@@ -169,7 +169,6 @@ function ondraw()
 
   if who == self then
     junme = junme + 1
-    print(status)
     if steps >= 1 then
       mount:lighta(T37.new("0p"), dormk)
       mount:lighta(T37.new("0s"), dormk)
