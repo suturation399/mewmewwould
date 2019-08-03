@@ -10,7 +10,7 @@ function onmonkey()
   local rw = game:getroundwind()
   local exist = exists[self:index()]
   
-  if status == 0 then
+  if status == 1 then
     exist:incmk(T34.new("1y"), 144)
     exist:incmk(T34.new("2y"), -14)
     exist:incmk(T34.new("3y"), -14)
@@ -19,7 +19,7 @@ function onmonkey()
     end
   end
   
-  if status == 1 then
+  if status == 2 then
     exist:incmk(T34.new("2y"), 144)
     exist:incmk(T34.new("1y"), -14)
     exist:incmk(T34.new("3y"), -14)
@@ -28,7 +28,7 @@ function onmonkey()
     end
   end
 
-  if status == 2 then
+  if status == 3 then
     exist:incmk(T34.new("3y"), 144)
     exist:incmk(T34.new("1y"), -14)
     exist:incmk(T34.new("2y"), -14)
@@ -37,7 +37,7 @@ function onmonkey()
     end
   end
 
-  if status == 3 then
+  if status == 4 then
     if sw == 1 then
       exist:incmk(T34.new("1f"), 144)
       exist:incmk(T34.new("2f"), -14)
@@ -76,7 +76,7 @@ function onmonkey()
     end
   end
   
-  if status == 4 then
+  if status == 5 then
     if rw == 1 then
       exist:incmk(T34.new("1f"), 144)
     end
@@ -88,7 +88,7 @@ function onmonkey()
     end
   end
   
-  if status >= 5 then
+  if status >= 6 then
     for i = 2, 8 do
       exist:incmk(T34.new(i .. "p"), 44)
       exist:incmk(T34.new(i .. "s"), 44)
