@@ -4,11 +4,15 @@ failurec = 0
 failurel = 0
 pressure = 0
 catastrophe = 0
-junme = 0
+doge = 0
+
+function ondice()
+  doge = rand:gen(6)
+end
 
 function onmonkey()
   power = 0
-  junme = 0
+  decree = doge
   
   if failurer == 1 then
     ancientr = -100
@@ -22,10 +26,21 @@ function onmonkey()
     ancientc = 30
   end
   
-    if failurel == 1 then
+  if failurel == 1 then
     ancientl = -100
   else
     ancientl = 30
+  end
+  
+  if ancientr + ancientc + ancientl == -300 then
+    pressure = 3
+    catastrophe = 1
+  end
+  if ancientr + ancientc + ancientl == -200 + 30 then
+    pressure = 2
+  end
+  if ancientr + ancientc + ancientl == -100 + 60 then
+    pressure = 1
   end
   
   if catastrophe == 1 then
@@ -42,6 +57,7 @@ function checkinit()
     else
       return true
     end
+    if 
   end
 
   if catastrophe == 1 then
@@ -49,9 +65,11 @@ function checkinit()
   else
     return true
   end
+  
 end
 
 function ondraw()
+  local drids = mount:getdrids()
   local riverr = game:getriver(self:right())
     local noner = riverr:ct(T34.new("1p")) + riverr:ct(T34.new("1s")) + riverr:ct(T34.new("1m"))
     local ntwor = riverr:ct(T34.new("2p")) + riverr:ct(T34.new("2s")) + riverr:ct(T34.new("2m"))
@@ -92,22 +110,36 @@ function ondraw()
     local nsevens = rivers:ct(T34.new("7p")) + rivers:ct(T34.new("7s")) + rivers:ct(T34.new("7m"))
     local neights = rivers:ct(T34.new("8p")) + rivers:ct(T34.new("8s")) + rivers:ct(T34.new("8m"))
     local nnines = rivers:ct(T34.new("9p")) + rivers:ct(T34.new("9s")) + rivers:ct(T34.new("9m"))
-  local hands = game:gethand(self)
+  local hand = game:gethand(who)
   
   if who == self then
-    junme = junme + 1
-    ancientr = 30 + noner + 2 * ntwor + 3 * nthreer + 4 * nfourr + 5 * nfiver + 6 * nsixr + 7 * nsevenr + 8 * neightr + 9 * nniner
-    ancientc = 30 + nonec + 2 * ntwoc + 3 * nthreec + 4 * nfourc + 5 * nfivec + 6 * nsixc + 7 * nsevenc + 8 * neightc + 9 * nninec
-    ancientl = 30 + nonel + 2 * ntwol + 3 * nthreel + 4 * nfourl + 5 * nfivel + 6 * nsixl + 7 * nsevenl + 8 * neightl + 9 * nninel
-    power = 3 * (nones + 2 * ntwos + 3 * nthrees + 4 * nfours + 5 * nfives + 6 * nsixs + 7 * nsevens + 8 * neights + 9 * nnines)
-    if junme <= 1 then 
-      decree = hands:step()
-    end
-    for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, power)
+    power = nones + 2 * ntwos + 3 * nthrees + 4 * nfours + 5 * nfives + 6 * nsixs + 7 * nsevens + 8 * neights + 9 * nnines
+    ancientr = 30 + noner + 2 * ntwor + 3 * nthreer + 4 * nfourr + 5 * nfiver + 6 * nsixr + 7 * nsevenr + 8 * neightr + 9 * nniner - power
+    ancientc = 30 + nonec + 2 * ntwoc + 3 * nthreec + 4 * nfourc + 5 * nfivec + 6 * nsixc + 7 * nsevenc + 8 * neightc + 9 * nninec - power
+    ancientl = 30 + nonel + 2 * ntwol + 3 * nthreel + 4 * nfourl + 5 * nfivel + 6 * nsixl + 7 * nsevenl + 8 * neightl + 9 * nninel - power
+    power = 3 * (nones + 2 * ntwos + 3 * nthrees + 4 * nfours + 5 * nfives + 6 * nsixs + 7 * nsevens + 8 * neights + 9 * nnines
+    print("力量結界能量", power * 3)
+    print("下家上古結界能量", ancientr)
+    print("對家上古結界能量", ancientc)
+    print("上家上古結界能量", ancientl)
+    for _, t in ipairs(hand:effa()) do
+      mount:lighta(t, power * 3)
     end
   end
-
-    
-    
+      
+  if who ~= self then
+    if decree == 1 then
+      mount:lighta(T37.new("0p"), -30)
+      mount:lighta(T37.new("0s"), -30)
+      mount:lighta(T37.new("0m"), -30)
+      for _, t in ipairs(drids) do
+        mount:lighta(t:dora(), -30)
+      end
+    end
+    if decree == 2 then
+      local np = hand:ct(T34.new("1p")) + hand:ct(T34.new("2p")) + hand:ct(T34.new("3p")) + hand:ct(T34.new("4p")) + hand:ct(T34.new("5p")) + hand:ct(T34.new("6p")) + hand:ct(T34.new("7p")) + hand:ct(T34.new("8p")) + hand:ct(T34.new("9p"))
+      local ns = hand:ct(T34.new("1s")) + hand:ct(T34.new("2s")) + hand:ct(T34.new("3s")) + hand:ct(T34.new("4s")) + hand:ct(T34.new("5s")) + hand:ct(T34.new("6s")) + hand:ct(T34.new("7s")) + hand:ct(T34.new("8s")) + hand:ct(T34.new("9s"))
+      local nm = hand:ct(T34.new("1m")) + hand:ct(T34.new("2m")) + hand:ct(T34.new("3m")) + hand:ct(T34.new("4m")) + hand:ct(T34.new("5m")) + hand:ct(T34.new("6m")) + hand:ct(T34.new("7m")) + hand:ct(T34.new("8m")) + hand:ct(T34.new("9m"))
+      
+      
     
