@@ -128,6 +128,9 @@ function ondraw()
   end
       
   if who ~= self then
+    local np = hand:ct(T34.new("1p")) + hand:ct(T34.new("2p")) + hand:ct(T34.new("3p")) + hand:ct(T34.new("4p")) + hand:ct(T34.new("5p")) + hand:ct(T34.new("6p")) + hand:ct(T34.new("7p")) + hand:ct(T34.new("8p")) + hand:ct(T34.new("9p"))
+    local ns = hand:ct(T34.new("1s")) + hand:ct(T34.new("2s")) + hand:ct(T34.new("3s")) + hand:ct(T34.new("4s")) + hand:ct(T34.new("5s")) + hand:ct(T34.new("6s")) + hand:ct(T34.new("7s")) + hand:ct(T34.new("8s")) + hand:ct(T34.new("9s"))
+    local nm = hand:ct(T34.new("1m")) + hand:ct(T34.new("2m")) + hand:ct(T34.new("3m")) + hand:ct(T34.new("4m")) + hand:ct(T34.new("5m")) + hand:ct(T34.new("6m")) + hand:ct(T34.new("7m")) + hand:ct(T34.new("8m")) + hand:ct(T34.new("9m"))
     if decree == 1 then
       mount:lighta(T37.new("0p"), -30)
       mount:lighta(T37.new("0s"), -30)
@@ -137,9 +140,56 @@ function ondraw()
       end
     end
     if decree == 2 then
-      local np = hand:ct(T34.new("1p")) + hand:ct(T34.new("2p")) + hand:ct(T34.new("3p")) + hand:ct(T34.new("4p")) + hand:ct(T34.new("5p")) + hand:ct(T34.new("6p")) + hand:ct(T34.new("7p")) + hand:ct(T34.new("8p")) + hand:ct(T34.new("9p"))
-      local ns = hand:ct(T34.new("1s")) + hand:ct(T34.new("2s")) + hand:ct(T34.new("3s")) + hand:ct(T34.new("4s")) + hand:ct(T34.new("5s")) + hand:ct(T34.new("6s")) + hand:ct(T34.new("7s")) + hand:ct(T34.new("8s")) + hand:ct(T34.new("9s"))
-      local nm = hand:ct(T34.new("1m")) + hand:ct(T34.new("2m")) + hand:ct(T34.new("3m")) + hand:ct(T34.new("4m")) + hand:ct(T34.new("5m")) + hand:ct(T34.new("6m")) + hand:ct(T34.new("7m")) + hand:ct(T34.new("8m")) + hand:ct(T34.new("9m"))
-      
-      
+      if np <= ns and np <= nm then
+        for i = 1, 9 do
+          mount:lighta(T34.new(i .. "p"), 75)
+        end
+      end
+      if ns <= np and ns <= nm then
+        for i = 1, 9 do
+          mount:lighta(T34.new(i .. "s"), 75)
+        end
+      end
+      if nm <= ns and nm <= np then
+        for i = 1, 9 do
+          mount:lighta(T34.new(i .. "m"), 75)
+        end
+      end
+    end
+    if decree == 3 then
+      if np >= ns and np >= nm then
+        for i = 1, 9 do
+          mount:lighta(T34.new(i .. "p"), 75)
+        end
+      end
+      if ns >= np and ns >= nm then
+        for i = 1, 9 do
+          mount:lighta(T34.new(i .. "s"), 75)
+        end
+      end
+      if nm >= ns and nm >= np then
+        for i = 1, 9 do
+          mount:lighta(T34.new(i .. "m"), 75)
+        end
+      end
+    end
+    if decree == 4 then
+      for _, t in ipairs(game:gethand(self):effa(self)) do
+        mount:lighta(t, 30)
+      end
+    end
+    if decree == 5 then
+      local riverw = game:getriver(who)
+      for _, t in ipairs(riverw) do
+        mount:lighta(t, -80)
+      end
+    end
+    if decree == 6 then
+      local riverw = game:getriver(who)
+      for _, t in ipairs(riverw) do
+        mount:lighta(t, 30)
+      end
+    end
+  end
+end
     
