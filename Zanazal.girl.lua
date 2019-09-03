@@ -161,3 +161,14 @@ function ondraw()
   
   if who == self then
     junme = junme + 1
+    if status <= 5 then
+      for _, t in ipairs(hands:effa()) do
+        mount:lighta(t, junme * 2)
+      end
+    end
+      mount:lighta(T37.new("0p"), 50)
+      mount:lighta(T37.new("0s"), 50)
+      mount:lighta(T37.new("0m"), 50)
+      for _, t in ipairs(drids) do
+        mount:lighta(t:dora(), 50)
+      end
