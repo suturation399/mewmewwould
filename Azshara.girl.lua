@@ -57,7 +57,6 @@ function checkinit()
     else
       return true
     end
-    if 
   end
 
   if catastrophe == 1 then
