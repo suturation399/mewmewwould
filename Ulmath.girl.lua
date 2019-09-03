@@ -19,17 +19,17 @@ function ondraw()
   if who ~= self then
     if hand:step() <= hands:step() then
       for i = 1, 4 do
-        mount:lighta(T34.new(i .. "f"), 55)
+        mount:lighta(T34.new(i .. "f"), 15 * (5 - hand:step()))
       end
       for i = 1, 3 do
-        mount:lighta(T34.new(i .. "y"), 55)
+        mount:lighta(T34.new(i .. "y"), 15 * (5 - hand:step()))
       end
       for _, t in ipairs(hand:effa()) do
         mount:lighta(t, -55)
       end
     else
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, 55)
+        mount:lighta(t, 55 * hands:step())
       end
     end
   end
