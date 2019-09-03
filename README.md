@@ -16,6 +16,7 @@
 ### 3-9-2019
 新增 Zanazal
 + [Zanazal](#Zanazal)
++ [Ulmath](#Ulmath)
 
 再次調整二条泉，使其表現更合乎代碼預期，整體可能有所變強
 
@@ -38,6 +39,7 @@
 + [Archimonde](#Archimonde)
 + [Velhari](#Velhari)
 + [Kiljaeden](#Kiljaeden)
++ [Ulmath](#Ulmath)
 + [Faye](#Faye)
 + [Ironhull](#Ironhull)
 + [Katherine](#Katherine)
@@ -151,13 +153,17 @@
 + 漣漪浪潮
 
 ## Ulmath
-> (設計中)Ulmath是世青賽亞特蘭提斯代表隊的次鋒  
+> Ulmath是世青賽亞特蘭提斯代表隊的次鋒  
 
 + 靈魂繫鏈
+	+ 四家的向聽數會被Ulmath栓縛在一起
 
 + 孤寂命運
+	+ 自身難以造成四面子一雀頭的牌型
+	+ Ulmath的手牌會以七對子方向進發
 
 + 心智崩解
+	+ Ulmath的虛無之舞會把無效的字牌丟給他家
 
 ## Orgozoa
 > (設計中)Orgozoa是世青賽亞特蘭提斯代表隊的中堅  
