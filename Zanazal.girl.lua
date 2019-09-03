@@ -11,6 +11,7 @@ function onmonkey()
   local exist = exists[self:index()]
   
   if status == 1 then
+    print("元素呼喚：洪流")
     exist:incmk(T34.new("1y"), 144)
     exist:incmk(T34.new("2y"), -14)
     exist:incmk(T34.new("3y"), -14)
@@ -20,6 +21,7 @@ function onmonkey()
   end
   
   if status == 2 then
+    print("元素呼喚：洪流")
     exist:incmk(T34.new("2y"), 144)
     exist:incmk(T34.new("1y"), -14)
     exist:incmk(T34.new("3y"), -14)
@@ -29,6 +31,7 @@ function onmonkey()
   end
 
   if status == 3 then
+    print("元素呼喚：洪流")
     exist:incmk(T34.new("3y"), 144)
     exist:incmk(T34.new("1y"), -14)
     exist:incmk(T34.new("2y"), -14)
@@ -38,6 +41,7 @@ function onmonkey()
   end
 
   if status == 4 then
+    print("元素呼喚：洪流")
     if sw == 1 then
       exist:incmk(T34.new("1f"), 144)
       exist:incmk(T34.new("2f"), -14)
@@ -77,6 +81,7 @@ function onmonkey()
   end
   
   if status == 5 then
+    print("元素呼喚：洪流")
     if rw == 1 then
       exist:incmk(T34.new("1f"), 144)
     end
@@ -88,12 +93,16 @@ function onmonkey()
     end
   end
   
-  if status >= 6 then
-    for i = 2, 8 do
-      exist:incmk(T34.new(i .. "p"), 5)
-      exist:incmk(T34.new(i .. "s"), 5)
-      exist:incmk(T34.new(i .. "m"), 5)
-    end
+  if status >= 6 and status <= 10 then
+    print("元素呼喚：爆裂")
+  end
+  
+  if status >= 11 and status <= 15 then
+    print("元素呼喚：土牆")
+  end
+  
+  if status >= 16 and status <= 20 then
+    print("元素呼喚：雷擊")
   end
 end
 
@@ -154,6 +163,9 @@ function ondraw()
   local drids = mount:getdrids()
   local hands = game:gethand(self)
   local steps = hands:step(self)
+  local handr = game:gethand(self:right())
+  local handc = game:gethand(self:cross())
+  local handl = game:gethand(self:left())
   
   if who ~= self or rinshan then
     return
@@ -166,9 +178,37 @@ function ondraw()
         mount:lighta(t, junme * 2)
       end
     end
+    if status >= 6 and status <= 10 then
       mount:lighta(T37.new("0p"), 50)
       mount:lighta(T37.new("0s"), 50)
       mount:lighta(T37.new("0m"), 50)
       for _, t in ipairs(drids) do
         mount:lighta(t:dora(), 50)
       end
+    end
+    if status >= 11 and status <= 15 then
+      if handr:ready() then
+        for _, t in ipairs(handr:effa()) do
+          print(t, "有危險")
+         end
+      end
+      if handc:ready() then
+        for _, t in ipairs(handc:effa()) do
+          print(t, "有危險")
+         end
+      end
+      if handl:ready() then
+        for _, t in ipairs(handl:effa()) do
+          print(t, "有危險")
+        end
+      end
+    end
+    if status >= 16 and status <= 20 then
+      if junme <= 8 then
+        for _, t in ipairs(hands:effa()) do
+          mount:lighta(t, (8 - junme) * 5)
+        end
+      end
+    end
+  end
+end
