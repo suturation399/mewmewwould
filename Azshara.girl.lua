@@ -116,7 +116,7 @@ function ondraw()
     ancientr = 30 + noner + 2 * ntwor + 3 * nthreer + 4 * nfourr + 5 * nfiver + 6 * nsixr + 7 * nsevenr + 8 * neightr + 9 * nniner - power
     ancientc = 30 + nonec + 2 * ntwoc + 3 * nthreec + 4 * nfourc + 5 * nfivec + 6 * nsixc + 7 * nsevenc + 8 * neightc + 9 * nninec - power
     ancientl = 30 + nonel + 2 * ntwol + 3 * nthreel + 4 * nfourl + 5 * nfivel + 6 * nsixl + 7 * nsevenl + 8 * neightl + 9 * nninel - power
-    power = 3 * (nones + 2 * ntwos + 3 * nthrees + 4 * nfours + 5 * nfives + 6 * nsixs + 7 * nsevens + 8 * neights + 9 * nnines
+    power = 3 * (nones + 2 * ntwos + 3 * nthrees + 4 * nfours + 5 * nfives + 6 * nsixs + 7 * nsevens + 8 * neights + 9 * nnines)
     print("力量結界能量", power * 3)
     print("下家上古結界能量", ancientr)
     print("對家上古結界能量", ancientc)
