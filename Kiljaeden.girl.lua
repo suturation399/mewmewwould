@@ -8,7 +8,7 @@ function onmonkey()
   local existc = exists[self:cross():index()]
   local existr = exists[self:right():index()]
   local rule = game:getrule()
-  local rw = game:getextraround()
+  local rw = game:getroundwind()
   local Armageddon = (rule.roundlimit == 4 and (rw == 2 or realround >= 6)) or (rule.roundlimit == 8 and (rw == 3 or realround >= 13))
   
   
