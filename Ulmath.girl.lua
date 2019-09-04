@@ -29,7 +29,7 @@ function ondraw()
       end
     else
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, 55 * hands:step())
+        mount:lighta(t, 55 * (hands:step() + 1))
       end
     end
   end
