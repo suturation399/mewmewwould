@@ -37,10 +37,10 @@ function ondraw()
   junme = junme + 1
   if hands:step() > handr:step() or hands:step() > handc:step() or hands:step() > handl:step() then
     for _, t in ipairs(hand:effa()) do
-      mount:lighta(t, junme * 5 * (hands:step() + 2))
+      mount:lighta(t, junme * 5 * 2 * (hands:step() + 2))
     end
     for _, t in ipairs(hand:effa4()) do
-      mount:lighta(t, junme * -5 * (hands:step() + 2))
+      mount:lighta(t, junme * -5 * 2 * (hands:step() + 2))
     end
   else
     for _, t in ipairs(hand:effa()) do
