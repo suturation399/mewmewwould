@@ -31,7 +31,7 @@ end
 
 function checkinit()
   local rule = game:getrule()
-  local rw = game:getextraround()
+  local rw = game:getroundwind()
   local Armageddon = (rule.roundlimit == 4 and (rw == 2 or realround >= 6)) or (rule.roundlimit == 8 and (rw == 3 or realround >= 13))
   
   if Armageddon then
@@ -51,7 +51,7 @@ function ondraw()
   local hand = game:gethand(who)
   local effas = hand:effa()
   local rule = game:getrule()
-  local rw = game:getextraround()
+  local rw = game:getroundwind()
   local Armageddon = (rule.roundlimit == 4 and (rw == 2 or realround >= 6)) or (rule.roundlimit == 8 and (rw == 3 or realround >= 13))
   
   if Armageddon then
