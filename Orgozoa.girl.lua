@@ -6,6 +6,16 @@ mkByCt = {
   [4] = 0,
 }
 
+function onmonkey()
+  local exist = exists[self:index()]
+  
+  for i = 3, 7 do
+    exist:incmk(T34.new(i .. "p"), 55)
+    exist:incmk(T34.new(i .. "s"), 55)
+    exist:incmk(T34.new(i .. "m"), 55)
+  end
+end
+
 function checkinit()
   junme = 0
   
