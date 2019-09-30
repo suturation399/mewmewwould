@@ -51,14 +51,14 @@ function ondraw()
         mount:lighta(t, junme * -5 * 2 * (hands:step() + 2) * (5 - handr:step()) * (5 - handc:step()) * (5 - handl:step()))
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 5 * 4 * (hands:step() + 2) * (5 - handr:step()) * (5 - handc:step()) * (5 - handl:step()))
+        mount:lighta(t, junme * 5 * 3 * (hands:step() + 2) * (5 - handr:step()) * (5 - handc:step()) * (5 - handl:step()))
       end
     else
       for _, t in ipairs(hand:effa()) do
         mount:lighta(t, junme * -5 * 2)
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 5 * 4)
+        mount:lighta(t, junme * 5 * 3)
       end
     end
   end
