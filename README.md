@@ -13,6 +13,10 @@
 
 ## 近期重要更新
 
+### 1-10-2019
+新增 Orgozoa
++ [Orgozoa](#Orgozoa)
+
 ### 3-9-2019
 新增 Zanazal
 + [Zanazal](#Zanazal)
@@ -23,10 +27,6 @@
 ### 10-7-2019
 新增 Kiljaeden
 + [Kiljaeden](#Kiljaeden)
-
-### 17-6-2019
-新增 母親大人
-+ [母親大人](#母親大人)
 
 ## 人物列表
 
@@ -40,6 +40,7 @@
 + [Velhari](#Velhari)
 + [Kiljaeden](#Kiljaeden)
 + [Ulmath](#Ulmath)
++ [Orgozoa](#Orgozoa)
 + [Faye](#Faye)
 + [Ironhull](#Ironhull)
 + [Katherine](#Katherine)
@@ -140,20 +141,8 @@
 	+ Kiljaeden超越凡人境界，進行地獄般毁滅性的一擊，並將所有他家無助的靈魂拉進扭曲虛空。
 	+ 那是一個無盡混沌的空間，沒幾個靈魂能活著回來⋯⋯
 
-
-## Priscilla Ashvane
-> (設計中)Priscilla Ashvane是世青賽亞特蘭提斯代表隊的先鋒  
-> Priscilla身為英國人孜孜不倦地追求權力，這股欲望最終將她引到亞特蘭提斯，與Azshara女王達成了黑暗的協定。  
-> 然而，Priscilla的忠誠為她換來的回報，可能不是她有辦法應付的。  
-
-+ 硬化甲殼
-
-+ 珊瑚增生
-
-+ 漣漪浪潮
-
 ## Ulmath
-> Ulmath是世青賽亞特蘭提斯代表隊的次鋒  
+> Ulmath是世青賽亞特蘭提斯代表隊的先鋒  
 
 + 靈魂繫鏈
 	+ 四家的向聽數會被Ulmath栓縛在一起
@@ -166,12 +155,28 @@
 	+ Ulmath的虛無之舞會把無效的字牌丟給他家
 	+ 以破壞他家的精神心智
 
+## Priscilla Ashvane
+> (設計中)Priscilla Ashvane是世青賽亞特蘭提斯代表隊的次鋒  
+> Priscilla身為英國人孜孜不倦地追求權力，這股欲望最終將她引到亞特蘭提斯，與Azshara女王達成了黑暗的協定。  
+> 然而，Priscilla的忠誠為她換來的回報，可能不是她有辦法應付的。  
+
++ 硬化甲殼
+
++ 珊瑚增生
+
++ 漣漪浪潮
+
 ## Orgozoa
-> (設計中)Orgozoa是世青賽亞特蘭提斯代表隊的中堅  
+> Orgozoa是世青賽亞特蘭提斯代表隊的中堅  
+
++ 滴降黏液
+	+ 四家的向聽數會被Orgozoa黏在一起
 
 + 麻木螫刺
-
-+ 弧形電流
+	+ Orgozoa的觸手會把無效的中章牌丟給他家
+	
++ 蔓延電流
+	+ 自身容易造成四面子一雀頭的牌型
 
 ## Azshara
 > (測試製作中)Azshara女王是世青賽亞特蘭提斯代表隊的王牌大將  
