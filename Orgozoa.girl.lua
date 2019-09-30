@@ -1,7 +1,7 @@
 function onmonkey()
   local exist = exists[self:index()]
   
-  for i = 3, 7 do
+  for i = 2, 8 do
     exist:incmk(T34.new(i .. "p"), 55)
     exist:incmk(T34.new(i .. "s"), 55)
     exist:incmk(T34.new(i .. "m"), 55)
