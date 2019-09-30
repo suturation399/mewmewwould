@@ -11,12 +11,12 @@ end
 function checkinit()
   junme = 0
   
-  if who ~= self or iter > 55 then
+  if who ~= self or iter > 555 then
     return true
   end
   
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  return ny <= 3 and init:step7() == 5 and init:step13() < init:step4() 
+  return ny <= 3 and init:step7() == 5
 end
 
 function ondraw()
