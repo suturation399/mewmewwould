@@ -16,7 +16,7 @@ function checkinit()
   end
   
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  return ny <= 3 and init:step7() == 5
+  return ny <= 4 and init:step7() == 5
 end
 
 function ondraw()
@@ -48,17 +48,17 @@ function ondraw()
     junme = junme + 1
     if hands:step() > handr:step() or hands:step() > handc:step() or hands:step() > handl:step() then
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * -5 * (hands:step() + 2) * (5 - handr:step()) * (5 - handc:step()) * (5 - handl:step()))
+        mount:lighta(t, junme * -5 * 2 * (hands:step() + 2) * (5 - handr:step()) * (5 - handc:step()) * (5 - handl:step()))
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 5 * 2 * (hands:step() + 2) * (5 - handr:step()) * (5 - handc:step()) * (5 - handl:step()))
+        mount:lighta(t, junme * 5 * 4 * (hands:step() + 2) * (5 - handr:step()) * (5 - handc:step()) * (5 - handl:step()))
       end
     else
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * -5)
+        mount:lighta(t, junme * -5 * 2)
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 5 * 2)
+        mount:lighta(t, junme * 5 * 4)
       end
     end
   end
