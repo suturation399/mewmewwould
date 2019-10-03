@@ -16,11 +16,14 @@ function ondraw()
         mount:lighta(t, junme * 14)
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * -14)
+        mount:lighta(t, junme * -21)
       end
     else
       for _, t in ipairs(hand:effa4()) do
         mount:lighta(t, junme * 14)
+      end
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, junme * -7)
       end
     end
   end
@@ -31,12 +34,15 @@ function ondraw()
       for _, t in ipairs(hand:effa4()) do
         mount:lighta(t, junme * 14)
       end
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, junme * -21)
+      end
     else
       for _, t in ipairs(hand:effa()) do
         mount:lighta(t, junme * 14)
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * -14)
+        mount:lighta(t, junme * -7)
       end
     end
     if handr:step() == 0 then 
