@@ -1,5 +1,5 @@
 function onmonkey()
-  junme = 1
+  junme = 0
 end
 
 function ondraw()
@@ -13,14 +13,14 @@ function ondraw()
   if who ~= self then
     if hand:step4() <= hand:step7() and hand:step4() <= hand:step13() then
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * 7)
+        mount:lighta(t, junme * 14)
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * -7)
+        mount:lighta(t, junme * -14)
       end
     else
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 7)
+        mount:lighta(t, junme * 14)
       end
     end
   end
@@ -29,14 +29,14 @@ function ondraw()
     junme = junme + 1
     if hand:step4() <= hand:step7() and hand:step4() <= hand:step13() then
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 7)
+        mount:lighta(t, junme * 14)
       end
     else
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * 7)
+        mount:lighta(t, junme * 14)
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * -7)
+        mount:lighta(t, junme * -14)
       end
     end
     if handr:step() == 0 then 
