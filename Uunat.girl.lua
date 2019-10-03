@@ -39,20 +39,26 @@ function ondraw()
         mount:lighta(t, junme * -7)
       end
     end
-    if handr:ready() then
+    if handr:step() == 0 then 
       for _, t in ipairs(handr:effa()) do
-        print(t, "有危險")
+        print("下家聽牌請注意", t)
       end
+    else
+      print("下家向聽數", handr:step())
     end
-    if handc:ready() then
+    if handc:step() == 0 then 
       for _, t in ipairs(handc:effa()) do
-        print(t, "有危險")
+        print("對家聽牌請注意", t)
       end
+    else
+      print("對家向聽數", handc:step())
     end
-    if handl:ready() then
+    if handl:step() == 0 then 
       for _, t in ipairs(handl:effa()) do
-        print(t, "有危險")
+        print("上家聽牌請注意", t)
       end
+    else
+      print("上家向聽數", handl:step())
     end
   end
 end
