@@ -48,7 +48,7 @@ function ondraw()
   if who == self then
     junme = junme + 1
     for _, t in ipairs(hand:effa()) do
-      mount:lighta(t, junme * 14)
+      mount:lighta(t, junme * -14)
     end
     for _, t in ipairs(hand:effa4()) do
       mount:lighta(t, junme * 21)
