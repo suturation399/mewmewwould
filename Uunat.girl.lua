@@ -30,17 +30,17 @@ function ondraw()
   if who ~= self then
     if hand:step4() <= hand:step7() and hand:step4() <= hand:step13() then
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * 14)
+        mount:lighta(t, junme * 16)
       end
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * -21)
+        mount:lighta(t, junme * -24)
       end
     else
       for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 14)
+        mount:lighta(t, junme * 16)
       end
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * -7)
+        mount:lighta(t, junme * -8)
       end
     end
   end
@@ -48,10 +48,10 @@ function ondraw()
   if who == self then
     junme = junme + 1
     for _, t in ipairs(hand:effa()) do
-      mount:lighta(t, junme * -14)
+      mount:lighta(t, junme * -8)
     end
     for _, t in ipairs(hand:effa4()) do
-      mount:lighta(t, junme * 21)
+      mount:lighta(t, junme * 12)
     end
     if handr:step() == 0 then 
       for _, t in ipairs(handr:effa()) do
