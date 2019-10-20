@@ -11,19 +11,7 @@ function onmonkey()
   local existc = exists[self:cross():index()]
   local existr = exists[self:right():index()]
   
-  if status == 5 then 
-    print("深海共鳴：深淵崩解")
-  end
-  
-  if status == 6 then 
-    print("虛無共鳴：虛無之擁")
-    existself:incmk(T34.new("1y"), 420)
-    existl:incmk(T34.new("1y"), -30)
-    existc:incmk(T34.new("1y"), -30)
-    existr:incmk(T34.new("1y"), -30)
-  end
-  
-  if status == 7 then
+  if status == 1 then 
     print("風暴共鳴：殲滅風暴")
     for i = 1, 4 do
       existself:incmk(T34.new(i .. "f"), 30)
@@ -33,17 +21,45 @@ function onmonkey()
     end
   end
   
+  if status == 2 then 
+    print("虛無共鳴：虛無之擁")
+    existself:incmk(T34.new("1y"), 420)
+    existl:incmk(T34.new("1y"), -30)
+    existc:incmk(T34.new("1y"), -30)
+    existr:incmk(T34.new("1y"), -30)
+  end
+  
+  if status == 3 then
+    print("深海共鳴：深淵崩解")
+  end
 end
 
 function checkinit()
   junme = 0
   
-  if who ~= self or iter > 835 then
+  if iter > 835 then
     return true
   end
   
-  local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  return ny <= 4 and init:step7() == 5
+  if status <= 1 then 
+    if who == self then
+      init:ct(T34.new("1y")) == 3
+    end
+    if who ~= self then
+      return
+    end
+  end
+  
+  if status == 2 then 
+    if who == self then
+      init:ct(T34.new("1y")) == 3
+    end
+    if who ~= self then
+      return
+    end
+  end
+  
+  if status == 3 then
 end
 
 function ondraw()
