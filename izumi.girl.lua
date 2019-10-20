@@ -10,7 +10,7 @@ function onmonkey()
   local rw = game:getroundwind()
   local exist = exists[self:index()]
   
-  if status == 1 then
+  if status <= 1 then
     exist:incmk(T34.new("1y"), 144)
     exist:incmk(T34.new("2y"), -14)
     exist:incmk(T34.new("3y"), -14)
