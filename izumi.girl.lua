@@ -124,7 +124,7 @@ function checkinit()
     return true
   end
 
-  if status == 1 then
+  if status <= 1 then
     return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("1y")) == 2
   end
 
