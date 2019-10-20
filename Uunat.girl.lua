@@ -1,17 +1,44 @@
+doge = 0
+
+function ondice()
+  doge = rand:gen(9)
+end
+
 function onmonkey()
-  local exist = exists[self:index()]
+  status = doge
+  local existself = exists[self:index()]
+  local existl = exists[self:left():index()]
+  local existc = exists[self:cross():index()]
+  local existr = exists[self:right():index()]
   
-  for i = 2, 8 do
-    exist:incmk(T34.new(i .. "p"), 55)
-    exist:incmk(T34.new(i .. "s"), 55)
-    exist:incmk(T34.new(i .. "m"), 55)
+  if status == 5 then 
+    print("深海共鳴：深淵崩解")
   end
+  
+  if status == 6 then 
+    print("虛無共鳴：虛無之擁")
+    existself:incmk(T34.new("1y"), 420)
+    existl:incmk(T34.new("1y"), -30)
+    existc:incmk(T34.new("1y"), -30)
+    existr:incmk(T34.new("1y"), -30)
+  end
+  
+  if status == 7 then
+    print("風暴共鳴：殲滅風暴")
+    for i = 1, 4 do
+      existself:incmk(T34.new(i .. "f"), 30)
+      existl:incmk(T34.new(i .. "f"), -90)
+      existc:incmk(T34.new(i .. "f"), -90)
+      existr:incmk(T34.new(i .. "f"), -90)
+    end
+  end
+  
 end
 
 function checkinit()
   junme = 0
   
-  if who ~= self or iter > 222 then
+  if who ~= self or iter > 835 then
     return true
   end
   
