@@ -11,7 +11,7 @@ function onmonkey()
   local existc = exists[self:cross():index()]
   local existr = exists[self:right():index()]
   
-  if status == 1 then 
+  if status <= 1 then 
     print("風暴共鳴：殲滅風暴")
     for i = 1, 4 do
       existself:incmk(T34.new(i .. "f"), 30)
@@ -43,23 +43,26 @@ function checkinit()
   
   if status <= 1 then 
     if who == self then
-      init:ct(T34.new("1y")) == 3
+      return
     end
     if who ~= self then
-      return
+      for i = 1, 4 do
+        init:ct(T34.new(i .. "f")) == 0
     end
   end
   
   if status == 2 then 
-    if who == self then
-      init:ct(T34.new("1y")) == 3
-    end
     if who ~= self then
       return
     end
+    if who == self then
+      init:ct(T34.new("1y")) == 3
+    end
   end
   
-  if status == 3 then
+  if status >= 3 then
+    return
+  end
 end
 
 function ondraw()
@@ -71,20 +74,12 @@ function ondraw()
   local effas = hand:effa()
   
   if who ~= self then
-    if hand:step4() <= hand:step7() and hand:step4() <= hand:step13() then
-      for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * 16)
-      end
-      for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * -24)
+    if stutus == 3 and junme >= 14 then
+      for _, t in ipairs(hands:effa()) do
+        mount:lighta(t, junme * 8)
       end
     else
-      for _, t in ipairs(hand:effa4()) do
-        mount:lighta(t, junme * 16)
-      end
-      for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, junme * -8)
-      end
+      return
     end
   end
 
