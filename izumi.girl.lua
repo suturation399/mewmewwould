@@ -12,66 +12,66 @@ function onmonkey()
   
   if status <= 1 then
     exist:incmk(T34.new("1y"), 144)
-    exist:incmk(T34.new("2y"), -14)
-    exist:incmk(T34.new("3y"), -14)
+    exist:incmk(T34.new("2y"), -15)
+    exist:incmk(T34.new("3y"), -15)
     for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), -14)
+      exist:incmk(T34.new(i .. "f"), -15)
     end
   end
   
   if status == 2 then
     exist:incmk(T34.new("2y"), 144)
-    exist:incmk(T34.new("1y"), -14)
-    exist:incmk(T34.new("3y"), -14)
+    exist:incmk(T34.new("1y"), -15)
+    exist:incmk(T34.new("3y"), -15)
     for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), -14)
+      exist:incmk(T34.new(i .. "f"), -15)
     end
   end
 
   if status == 3 then
     exist:incmk(T34.new("3y"), 144)
-    exist:incmk(T34.new("1y"), -14)
-    exist:incmk(T34.new("2y"), -14)
+    exist:incmk(T34.new("1y"), -15)
+    exist:incmk(T34.new("2y"), -15)
     for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), -14)
+      exist:incmk(T34.new(i .. "f"), -15)
     end
   end
 
   if status == 4 then
     if sw == 1 then
       exist:incmk(T34.new("1f"), 144)
-      exist:incmk(T34.new("2f"), -14)
-      exist:incmk(T34.new("3f"), -14)
-      exist:incmk(T34.new("4f"), -14)
+      exist:incmk(T34.new("2f"), -15)
+      exist:incmk(T34.new("3f"), -15)
+      exist:incmk(T34.new("4f"), -15)
       for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -14)
+        exist:incmk(T34.new(i .. "y"), -15)
       end
     end
     if sw == 2 then
       exist:incmk(T34.new("2f"), 144)
-      exist:incmk(T34.new("1f"), -14)
-      exist:incmk(T34.new("3f"), -14)
-      exist:incmk(T34.new("4f"), -14)
+      exist:incmk(T34.new("1f"), -15)
+      exist:incmk(T34.new("3f"), -15)
+      exist:incmk(T34.new("4f"), -15)
       for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -14)
+        exist:incmk(T34.new(i .. "y"), -15)
       end
     end
     if sw == 3 then
       exist:incmk(T34.new("3f"), 144)
-      exist:incmk(T34.new("2f"), -14)
-      exist:incmk(T34.new("1f"), -14)
-      exist:incmk(T34.new("4f"), -14)
+      exist:incmk(T34.new("2f"), -15)
+      exist:incmk(T34.new("1f"), -15)
+      exist:incmk(T34.new("4f"), -15)
       for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -14)
+        exist:incmk(T34.new(i .. "y"), -15)
       end
     end
     if sw == 4 then
       exist:incmk(T34.new("4f"), 144)
-      exist:incmk(T34.new("2f"), -14)
-      exist:incmk(T34.new("3f"), -14)
-      exist:incmk(T34.new("1f"), -14)
+      exist:incmk(T34.new("2f"), -15)
+      exist:incmk(T34.new("3f"), -15)
+      exist:incmk(T34.new("1f"), -15)
       for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -14)
+        exist:incmk(T34.new(i .. "y"), -15)
       end
     end
   end
@@ -79,38 +79,38 @@ function onmonkey()
   if status == 5 then
     if rw == 1 then
       exist:incmk(T34.new("1f"), 144)
-      exist:incmk(T34.new("2f"), -14)
-      exist:incmk(T34.new("3f"), -14)
-      exist:incmk(T34.new("4f"), -14)
+      exist:incmk(T34.new("2f"), -15)
+      exist:incmk(T34.new("3f"), -15)
+      exist:incmk(T34.new("4f"), -15)
       for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -14)
+        exist:incmk(T34.new(i .. "y"), -15)
       end
     end
     if rw == 2 then
       exist:incmk(T34.new("2f"), 144)
-      exist:incmk(T34.new("1f"), -14)
-      exist:incmk(T34.new("3f"), -14)
-      exist:incmk(T34.new("4f"), -14)
+      exist:incmk(T34.new("1f"), -15)
+      exist:incmk(T34.new("3f"), -15)
+      exist:incmk(T34.new("4f"), -15)
       for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -14)
+        exist:incmk(T34.new(i .. "y"), -15)
       end
     end
     if rw >= 3 then
       exist:incmk(T34.new("3f"), 144)
-      exist:incmk(T34.new("2f"), -14)
-      exist:incmk(T34.new("1f"), -14)
-      exist:incmk(T34.new("4f"), -14)
+      exist:incmk(T34.new("2f"), -15)
+      exist:incmk(T34.new("1f"), -15)
+      exist:incmk(T34.new("4f"), -15)
       for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -14)
+        exist:incmk(T34.new(i .. "y"), -15)
       end
     end
   end
   
   if status >= 6 then
     for i = 2, 8 do
-      exist:incmk(T34.new(i .. "p"), 44)
-      exist:incmk(T34.new(i .. "s"), 44)
-      exist:incmk(T34.new(i .. "m"), 44)
+      exist:incmk(T34.new(i .. "p"), 45)
+      exist:incmk(T34.new(i .. "s"), 45)
+      exist:incmk(T34.new(i .. "m"), 45)
     end
   end
 end
@@ -120,7 +120,7 @@ function checkinit()
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   
-  if who ~= self or iter > 88 then
+  if who ~= self or iter > 87 then
     return true
   end
 
@@ -179,7 +179,7 @@ function ondraw()
     nd = hands:ctaka5() + hands:ct(t:dora())
   end
 
-  local dormk = ((nd - 2) * -44) - (4 * junme) - 24
+  local dormk = ((nd - 2) * -45) - (4 * junme) - 24
   
   if who ~= self or rinshan then
     return
@@ -199,7 +199,7 @@ function ondraw()
       end
     else
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, 100 - junmk)
+        mount:lighta(t, 90 - junmk)
       end
     end
   end
