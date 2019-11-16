@@ -23,7 +23,7 @@ function ondraw()
       tenjun = tenjun + 1
       if ctx.riichi == 0 then
         for _, t in ipairs(hands:effa()) do
-          mount:lighta(t, 66 * tenjun - 33)
+          mount:lighta(t, 66 * tenjun)
         end
       else
         for _, t in ipairs(hands:effa()) do
