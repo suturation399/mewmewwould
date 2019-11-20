@@ -31,7 +31,7 @@ function ondraw()
   end
   
   if who ~= self then
-    if ctx.riichi == 0 then
+    if ctx.riichi ~= 0 then
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, junme * 5 * (6 - step))
       end
