@@ -133,46 +133,50 @@ function checkinit()
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   
-  if who ~= self or iter > 87 then
+  if iter > 99 then
     return true
   end
 
+  if who ~= self then
+    return true
+  end
+  
   if status <= 1 then
-    return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("1y")) == 2
+    return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("1y")) == 2
   end
 
   if status == 2 then
-    return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("2y")) == 2
+    return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("2y")) == 2
   end
 
   if status == 3 then
-    return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("3y")) == 2
+    return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("3y")) == 2
   end
 
   if status == 4 then
     if sw == 1 then
-      return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("1f")) == 2
+      return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("1f")) == 2
     end
     if sw == 2 then
-      return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("2f")) == 2
+      return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("2f")) == 2
     end
     if sw == 3 then
-      return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("3f")) == 2
+      return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("3f")) == 2
     end
     if sw == 4 then
-      return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("4f")) == 2
+      return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("4f")) == 2
     end
   end
 
   if status == 5 then
     if rw == 1 then
-      return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("1f")) == 2
+      return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("1f")) == 2
     end
     if rw == 2 then
-      return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("2f")) == 2
+      return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("2f")) == 2
     end
     if rw == 3 then
-      return init:step4() <= 4 and init:step7() == 4 and init:ct(T34.new("3f")) == 2
+      return init:step4() <= 3 and init:step7() == 4 and init:ct(T34.new("3f")) == 2
     end
   end
 
