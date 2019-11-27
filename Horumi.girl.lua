@@ -209,10 +209,10 @@ function ondraw()
       end
     else
       for _, t in ipairs(river) do
-        mount:lighta(t, -18)
+        mount:lighta(t, -24)
       end
       for _, t in ipairs(game:gethand(who):effa()) do
-        mount:lighta(t, -12)
+        mount:lighta(t, -18)
       end
       for i = 3, 7 do
         mount:lighta(T34.new(i .. "m"), 9)
