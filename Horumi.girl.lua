@@ -211,7 +211,7 @@ function ondraw()
       for _, t in ipairs(river) do
         mount:lighta(t, -18)
       end
-      for _, t in ipairs(hand:effa()) do
+      for _, t in ipairs(game:gethand(who):effa()) do
         mount:lighta(t, -12)
       end
       for i = 3, 7 do
