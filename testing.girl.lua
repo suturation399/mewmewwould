@@ -1,7 +1,20 @@
 doge = 0
+sp = 54
 
 function ondice()
-  doge = rand:gen(24)
+  local extra = game:getextraround()
+
+  if extra == 0 then
+    sp = 26
+  end
+  if extra == 1 then
+    sp = 15
+  end
+  if extra >= 2 then
+    sp = 9
+  end
+  
+  doge = rand:gen(sp)
 end
 
 function onmonkey()
@@ -125,47 +138,47 @@ function checkinit()
   end
 
   if status <= 1 then
-    return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("1y")) == 2
+    return init:step4() < init:step7() and init:ct(T34.new("1y")) == 2
   end
 
   if status == 2 then
-    return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("2y")) == 2
+    return init:step4() < init:step7() and init:ct(T34.new("2y")) == 2
   end
 
   if status == 3 then
-    return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("3y")) == 2
+    return init:step4() < init:step7() and init:ct(T34.new("3y")) == 2
   end
 
   if status == 4 then
     if sw == 1 then
-      return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("1f")) == 2
+      return init:step4() < init:step7() and init:ct(T34.new("1f")) == 2
     end
     if sw == 2 then
-      return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("2f")) == 2
+      return init:step4() < init:step7() and init:ct(T34.new("2f")) == 2
     end
     if sw == 3 then
-      return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("3f")) == 2
+      return init:step4() < init:step7() and init:ct(T34.new("3f")) == 2
     end
     if sw == 4 then
-      return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("4f")) == 2
+      return init:step4() < init:step7() and init:ct(T34.new("4f")) == 2
     end
   end
 
   if status == 5 then
     if rw == 1 then
-      return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("1f")) == 2
+      return init:step4() < init:step7() and init:ct(T34.new("1f")) == 2
     end
     if rw == 2 then
-      return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("2f")) == 2
+      return init:step4() < init:step7() and init:ct(T34.new("2f")) == 2
     end
     if rw == 3 then
-      return init:step() >= 3 and init:step() <= 4 and init:ct(T34.new("3f")) == 2
+      return init:step4() < init:step7() and init:ct(T34.new("3f")) == 2
     end
   end
 
   if status >= 6 then
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  return ny <= 3 and init:step() >= 3 and init:step() <= 4
+  return ny <= 3 and init:step() <= 4
   end
 end
 
@@ -181,10 +194,14 @@ function ondraw()
 
   local dormk = ((nd - 2) * -45) - (4 * junme) - 24
   
-  if who ~= self or rinshan then
+  if rinshan then
     return
   end
 
+  if who ~= self then
+    return
+  end
+  
   if who == self then
     junme = junme + 1
     if steps >= 1 then
