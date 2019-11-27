@@ -5,7 +5,7 @@ function ondice()
   local extra = game:getextraround()
 
   if extra == 0 then
-    sp = 26
+    sp = 33
   end
   if extra == 1 then
     sp = 15
@@ -178,13 +178,16 @@ function checkinit()
 
   if status >= 6 then
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  return ny <= 3 and init:step() <= 4
+  return ny <= 3 and init:step4() <= 4 and init:step7() == 5
   end
 end
 
 function ondraw()
   local drids = mount:getdrids()
   local hands = game:gethand(self)
+  local handr = game:gethand(self:right())
+  local handc = game:gethand(self:cross())
+  local handl = game:gethand(self:left())
   local steps = hands:step(self)
   local junmk = junme * 4
 
@@ -199,24 +202,76 @@ function ondraw()
   end
 
   if who ~= self then
-    return
+    local river = game:getriver(who)
+    if steps >= 1 then
+      for _, t in ipairs(river) do
+        mount:lighta(t, 18)
+      end
+    else
+      for _, t in ipairs(river) do
+        mount:lighta(t, -18)
+      end
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, -12)
+      end
+      for i = 3, 7 do
+        mount:lighta(T34.new(i .. "m"), 9)
+        mount:lighta(T34.new(i .. "p"), 9)
+        mount:lighta(T34.new(i .. "s"), 9)
+      end
+    end
   end
   
   if who == self then
     junme = junme + 1
+    if handr:ready() then
+      for _, t in ipairs(game:getriver(self:right())) do
+        mount:lighta(t, 27)
+      end
+    end
+    if handc:ready() then
+      for _, t in ipairs(game:getriver(self:cross())) do
+        mount:lighta(t, 27)
+      end
+    end
+    if handl:ready() then
+      for _, t in ipairs(game:getriver(self:left())) do
+        mount:lighta(t, 27)
+      end
+    end
     if steps >= 1 then
       mount:lighta(T37.new("0p"), dormk)
       mount:lighta(T37.new("0s"), dormk)
       mount:lighta(T37.new("0m"), dormk)
-      for _, t in ipairs(drids) do
-        mount:lighta(t:dora(), dormk)
-      end
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, junmk)
+        mount:lighta(t, junme * -4 * 2)
+      end
+      for _, t in ipairs(hands:effa4()) do
+        mount:lighta(t, junme * 4 * 3)
       end
     else
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, 96 - junmk)
+      end
+      for i = 2, 8 do
+        mount:lighta(T34.new(i .. "m"), -9)
+        mount:lighta(T34.new(i .. "p"), -9)
+        mount:lighta(T34.new(i .. "s"), -9)
+      end
+      if handr:ready() then
+        for _, t in ipairs(handr:effa()) do
+          mount:lighta(t, -18)
+        end
+      end
+      if handc:ready() then
+        for _, t in ipairs(handc:effa()) do
+          mount:lighta(t, -18)
+        end
+      end
+      if handl:ready() then
+        for _, t in ipairs(handl:effa()) do
+          mount:lighta(t, -18)
+        end
       end
     end
   end
