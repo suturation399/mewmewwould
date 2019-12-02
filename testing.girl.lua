@@ -1,27 +1,17 @@
-doge = 0
-sp = 54
+dogem = 0
+dogep = 0
+doges = 0
 
 function ondice()
-  local extra = game:getextraround()
-
-  if extra == 0 then
-    sp = 33
-  end
-  if extra == 1 then
-    sp = 15
-  end
-  if extra >= 2 then
-    sp = 9
-  end
-  
-  doge = rand:gen(sp)
+  dogem = rand:gen(7)
+  dogep = rand:gen(7)
+  doges = rand:gen(7)
 end
 
 function onmonkey()
-  status = doge
-  local sw = game:getselfwind(self)
-  local rw = game:getroundwind()
-  local exist = exists[self:index()]
+  cutm = dogem
+  cutp = dogep
+  cuts = doges
   
   if status <= 1 then
     exist:incmk(T34.new("1y"), 144)
