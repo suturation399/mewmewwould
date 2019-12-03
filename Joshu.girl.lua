@@ -19,49 +19,42 @@ function onmonkey()
   local cutmk = -472
   
   if cutm <= 1 then
-    print("2m")
     existself:incmk(T34.new("2m"), cutmk)
     existl:incmk(T34.new("2m"), cutmk)
     existc:incmk(T34.new("2m"), cutmk)
     existr:incmk(T34.new("2m"), cutmk)
   end
   if cutm == 2 then
-    print("3m")
     existself:incmk(T34.new("3m"), cutmk)
     existl:incmk(T34.new("3m"), cutmk)
     existc:incmk(T34.new("3m"), cutmk)
     existr:incmk(T34.new("3m"), cutmk)
   end
   if cutm == 3 then
-    print("4m")
     existself:incmk(T34.new("4m"), cutmk)
     existl:incmk(T34.new("4m"), cutmk)
     existc:incmk(T34.new("4m"), cutmk)
     existr:incmk(T34.new("4m"), cutmk)
   end
   if cutm == 4 then
-    print("5m")
     existself:incmk(T34.new("5m"), cutmk)
     existl:incmk(T34.new("5m"), cutmk)
     existc:incmk(T34.new("5m"), cutmk)
     existr:incmk(T34.new("5m"), cutmk)
   end
   if cutm == 5 then
-    print("6m")
     existself:incmk(T34.new("6m"), cutmk)
     existl:incmk(T34.new("6m"), cutmk)
     existc:incmk(T34.new("6m"), cutmk)
     existr:incmk(T34.new("6m"), cutmk)
   end
   if cutm == 6 then
-    print("7m")
     existself:incmk(T34.new("7m"), cutmk)
     existl:incmk(T34.new("7m"), cutmk)
     existc:incmk(T34.new("7m"), cutmk)
     existr:incmk(T34.new("7m"), cutmk)
   end
   if cutm >= 7 then
-    print("8m")
     existself:incmk(T34.new("8m"), cutmk)
     existl:incmk(T34.new("8m"), cutmk)
     existc:incmk(T34.new("8m"), cutmk)
@@ -69,49 +62,42 @@ function onmonkey()
   end
   
   if cutp <= 1 then
-    print("2p")
     existself:incmk(T34.new("2p"), cutmk)
     existl:incmk(T34.new("2p"), cutmk)
     existc:incmk(T34.new("2p"), cutmk)
     existr:incmk(T34.new("2p"), cutmk)
   end
   if cutp == 2 then
-    print("3p")
     existself:incmk(T34.new("3p"), cutmk)
     existl:incmk(T34.new("3p"), cutmk)
     existc:incmk(T34.new("3p"), cutmk)
     existr:incmk(T34.new("3p"), cutmk)
   end
   if cutp == 3 then
-    print("4p")
     existself:incmk(T34.new("4p"), cutmk)
     existl:incmk(T34.new("4p"), cutmk)
     existc:incmk(T34.new("4p"), cutmk)
     existr:incmk(T34.new("4p"), cutmk)
   end
   if cutp == 4 then
-    print("5p")
     existself:incmk(T34.new("5p"), cutmk)
     existl:incmk(T34.new("5p"), cutmk)
     existc:incmk(T34.new("5p"), cutmk)
     existr:incmk(T34.new("5p"), cutmk)
   end
   if cutp == 5 then
-    print("6p")
     existself:incmk(T34.new("6p"), cutmk)
     existl:incmk(T34.new("6p"), cutmk)
     existc:incmk(T34.new("6p"), cutmk)
     existr:incmk(T34.new("6p"), cutmk)
   end
   if cutp == 6 then
-    print("7p")
     existself:incmk(T34.new("7p"), cutmk)
     existl:incmk(T34.new("7p"), cutmk)
     existc:incmk(T34.new("7p"), cutmk)
     existr:incmk(T34.new("7p"), cutmk)
   end
   if cutp >= 7 then
-    print("8p")
     existself:incmk(T34.new("8p"), cutmk)
     existl:incmk(T34.new("8p"), cutmk)
     existc:incmk(T34.new("8p"), cutmk)
@@ -119,49 +105,42 @@ function onmonkey()
   end
   
   if cuts <= 1 then
-    print("2s")
     existself:incmk(T34.new("2s"), cutmk)
     existl:incmk(T34.new("2s"), cutmk)
     existc:incmk(T34.new("2s"), cutmk)
     existr:incmk(T34.new("2s"), cutmk)
   end
   if cuts == 2 then
-    print("3s")
     existself:incmk(T34.new("3s"), cutmk)
     existl:incmk(T34.new("3s"), cutmk)
     existc:incmk(T34.new("3s"), cutmk)
     existr:incmk(T34.new("3s"), cutmk)
   end
   if cuts == 3 then
-    print("4s")
     existself:incmk(T34.new("4s"), cutmk)
     existl:incmk(T34.new("4s"), cutmk)
     existc:incmk(T34.new("4s"), cutmk)
     existr:incmk(T34.new("4s"), cutmk)
   end
   if cuts == 4 then
-    print("5s")
     existself:incmk(T34.new("5s"), cutmk)
     existl:incmk(T34.new("5s"), cutmk)
     existc:incmk(T34.new("5s"), cutmk)
     existr:incmk(T34.new("5s"), cutmk)
   end
   if cuts == 5 then
-    print("6s")
     existself:incmk(T34.new("6s"), cutmk)
     existl:incmk(T34.new("6s"), cutmk)
     existc:incmk(T34.new("6s"), cutmk)
     existr:incmk(T34.new("6s"), cutmk)
   end
   if cuts == 6 then
-    print("7s")
     existself:incmk(T34.new("7s"), cutmk)
     existl:incmk(T34.new("7s"), cutmk)
     existc:incmk(T34.new("7s"), cutmk)
     existr:incmk(T34.new("7s"), cutmk)
   end
   if cuts >= 7 then
-    print("8s")
     existself:incmk(T34.new("8s"), cutmk)
     existl:incmk(T34.new("8s"), cutmk)
     existc:incmk(T34.new("8s"), cutmk)
