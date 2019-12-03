@@ -12,157 +12,157 @@ function onmonkey()
   cutm = dogem
   cutp = dogep
   cuts = doges
-  local exists = exists[self:index()]
+  local existself = exists[self:index()]
   local existl = exists[self:left():index()]
   local existc = exists[self:cross():index()]
   local existr = exists[self:right():index()]
   local cutmk = -472
   
-  if cutm == 1 then
+  if cutm <= 1 then
     print("2m")
-    exists:incmk(T34.new("2m"), cutmk)
+    existself:incmk(T34.new("2m"), cutmk)
     existl:incmk(T34.new("2m"), cutmk)
     existc:incmk(T34.new("2m"), cutmk)
     existr:incmk(T34.new("2m"), cutmk)
   end
   if cutm == 2 then
     print("3m")
-    exists:incmk(T34.new("3m"), cutmk)
+    existself:incmk(T34.new("3m"), cutmk)
     existl:incmk(T34.new("3m"), cutmk)
     existc:incmk(T34.new("3m"), cutmk)
     existr:incmk(T34.new("3m"), cutmk)
   end
   if cutm == 3 then
     print("4m")
-    exists:incmk(T34.new("4m"), cutmk)
+    existself:incmk(T34.new("4m"), cutmk)
     existl:incmk(T34.new("4m"), cutmk)
     existc:incmk(T34.new("4m"), cutmk)
     existr:incmk(T34.new("4m"), cutmk)
   end
   if cutm == 4 then
     print("5m")
-    exists:incmk(T34.new("5m"), cutmk)
+    existself:incmk(T34.new("5m"), cutmk)
     existl:incmk(T34.new("5m"), cutmk)
     existc:incmk(T34.new("5m"), cutmk)
     existr:incmk(T34.new("5m"), cutmk)
   end
   if cutm == 5 then
     print("6m")
-    exists:incmk(T34.new("6m"), cutmk)
+    existself:incmk(T34.new("6m"), cutmk)
     existl:incmk(T34.new("6m"), cutmk)
     existc:incmk(T34.new("6m"), cutmk)
     existr:incmk(T34.new("6m"), cutmk)
   end
   if cutm == 6 then
     print("7m")
-    exists:incmk(T34.new("7m"), cutmk)
+    existself:incmk(T34.new("7m"), cutmk)
     existl:incmk(T34.new("7m"), cutmk)
     existc:incmk(T34.new("7m"), cutmk)
     existr:incmk(T34.new("7m"), cutmk)
   end
-  if cutm == 7 then
+  if cutm >= 7 then
     print("8m")
-    exists:incmk(T34.new("8m"), cutmk)
+    existself:incmk(T34.new("8m"), cutmk)
     existl:incmk(T34.new("8m"), cutmk)
     existc:incmk(T34.new("8m"), cutmk)
     existr:incmk(T34.new("8m"), cutmk)
   end
   
-  if cutp == 1 then
+  if cutp <= 1 then
     print("2p")
-    exists:incmk(T34.new("2p"), cutmk)
+    existself:incmk(T34.new("2p"), cutmk)
     existl:incmk(T34.new("2p"), cutmk)
     existc:incmk(T34.new("2p"), cutmk)
     existr:incmk(T34.new("2p"), cutmk)
   end
   if cutp == 2 then
     print("3p")
-    exists:incmk(T34.new("3p"), cutmk)
+    existself:incmk(T34.new("3p"), cutmk)
     existl:incmk(T34.new("3p"), cutmk)
     existc:incmk(T34.new("3p"), cutmk)
     existr:incmk(T34.new("3p"), cutmk)
   end
   if cutp == 3 then
     print("4p")
-    exists:incmk(T34.new("4p"), cutmk)
+    existself:incmk(T34.new("4p"), cutmk)
     existl:incmk(T34.new("4p"), cutmk)
     existc:incmk(T34.new("4p"), cutmk)
     existr:incmk(T34.new("4p"), cutmk)
   end
   if cutp == 4 then
     print("5p")
-    exists:incmk(T34.new("5p"), cutmk)
+    existself:incmk(T34.new("5p"), cutmk)
     existl:incmk(T34.new("5p"), cutmk)
     existc:incmk(T34.new("5p"), cutmk)
     existr:incmk(T34.new("5p"), cutmk)
   end
   if cutp == 5 then
     print("6p")
-    exists:incmk(T34.new("6p"), cutmk)
+    existself:incmk(T34.new("6p"), cutmk)
     existl:incmk(T34.new("6p"), cutmk)
     existc:incmk(T34.new("6p"), cutmk)
     existr:incmk(T34.new("6p"), cutmk)
   end
   if cutp == 6 then
     print("7p")
-    exists:incmk(T34.new("7p"), cutmk)
+    existself:incmk(T34.new("7p"), cutmk)
     existl:incmk(T34.new("7p"), cutmk)
     existc:incmk(T34.new("7p"), cutmk)
     existr:incmk(T34.new("7p"), cutmk)
   end
-  if cutp == 7 then
+  if cutp >= 7 then
     print("8p")
-    exists:incmk(T34.new("8p"), cutmk)
+    existself:incmk(T34.new("8p"), cutmk)
     existl:incmk(T34.new("8p"), cutmk)
     existc:incmk(T34.new("8p"), cutmk)
     existr:incmk(T34.new("8p"), cutmk)
   end
   
-  if cuts == 1 then
+  if cuts <= 1 then
     print("2s")
-    exists:incmk(T34.new("2s"), cutmk)
+    existself:incmk(T34.new("2s"), cutmk)
     existl:incmk(T34.new("2s"), cutmk)
     existc:incmk(T34.new("2s"), cutmk)
     existr:incmk(T34.new("2s"), cutmk)
   end
   if cuts == 2 then
     print("3s")
-    exists:incmk(T34.new("3s"), cutmk)
+    existself:incmk(T34.new("3s"), cutmk)
     existl:incmk(T34.new("3s"), cutmk)
     existc:incmk(T34.new("3s"), cutmk)
     existr:incmk(T34.new("3s"), cutmk)
   end
   if cuts == 3 then
     print("4s")
-    exists:incmk(T34.new("4s"), cutmk)
+    existself:incmk(T34.new("4s"), cutmk)
     existl:incmk(T34.new("4s"), cutmk)
     existc:incmk(T34.new("4s"), cutmk)
     existr:incmk(T34.new("4s"), cutmk)
   end
   if cuts == 4 then
     print("5s")
-    exists:incmk(T34.new("5s"), cutmk)
+    existself:incmk(T34.new("5s"), cutmk)
     existl:incmk(T34.new("5s"), cutmk)
     existc:incmk(T34.new("5s"), cutmk)
     existr:incmk(T34.new("5s"), cutmk)
   end
   if cuts == 5 then
     print("6s")
-    exists:incmk(T34.new("6s"), cutmk)
+    existself:incmk(T34.new("6s"), cutmk)
     existl:incmk(T34.new("6s"), cutmk)
     existc:incmk(T34.new("6s"), cutmk)
     existr:incmk(T34.new("6s"), cutmk)
   end
   if cuts == 6 then
     print("7s")
-    exists:incmk(T34.new("7s"), cutmk)
+    existself:incmk(T34.new("7s"), cutmk)
     existl:incmk(T34.new("7s"), cutmk)
     existc:incmk(T34.new("7s"), cutmk)
     existr:incmk(T34.new("7s"), cutmk)
   end
-  if cuts == 7 then
+  if cuts >= 7 then
     print("8s")
-    exists:incmk(T34.new("8s"), cutmk)
+    existself:incmk(T34.new("8s"), cutmk)
     existl:incmk(T34.new("8s"), cutmk)
     existc:incmk(T34.new("8s"), cutmk)
     existr:incmk(T34.new("8s"), cutmk)
@@ -181,13 +181,13 @@ function checkinit()
   end
   
   if who == self then
-    return init:step4() > init:step7()
+    return init:step7() == 5
   end
 end
 
 function ondraw()
   local hand = game:gethand(who)
-  local effas = hand:effa()
+  local hands = game:gethand(self)
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
@@ -265,59 +265,49 @@ function ondraw()
   if who == self then
     junme = junme + 1
     for _, t in ipairs(hand:effa()) do
-      mount:lighta(t, junme * 5)
+      mount:lighta(t, junme * -5 * 2)
+      mount:lightb(t, junme * -5 * 2)
     end
     for _, t in ipairs(hand:effa4()) do
-      mount:lighta(t, junme * -10)
+      mount:lighta(t, junme * 5 * 3)
+      mount:lightb(t, junme * 5 * 3)
     end
-    if hand:ready() then
-      if handr:ready() then
+    if handr:ready() then
+      if hands:ready() then
         for _, t in ipairs(handr:effa()) do
-          print(t, "有危險")
           mount:lighta(t, -27)
+          print(t, "有危險")
+        end
+      else
+        for _, t in ipairs(handr:effa()) do
+          mount:lighta(t, 472)
+          print(t, "有危險")
         end
       end
-      if handc:ready() then
+    end
+    if handc:ready() then
+      if hands:ready() then
         for _, t in ipairs(handc:effa()) do
-          print(t, "有危險")
           mount:lighta(t, -27)
+          print(t, "有危險")
+        end
+      else
+        for _, t in ipairs(handc:effa()) do
+          mount:lighta(t, 472)
+          print(t, "有危險")
         end
       end
-      if handl:ready() then
+    end
+    if handl:ready() then
+      if hands:ready() then
         for _, t in ipairs(handl:effa()) do
-          print(t, "有危險")
           mount:lighta(t, -27)
-        end
-      end
-    else
-      if handr:ready() then
-        for _, t in ipairs(handr:effa()) do
           print(t, "有危險")
-          if mount:remaina(handr:effa()) >= 2 and hand:ct(T34.new(handr:effa())) < 2 then
-            mount:lighta(t, 472)
-          else
-            mount:lighta(t, -47)
-          end
         end
-      end
-      if handc:ready() then
-        for _, t in ipairs(handr:effa()) do
+      else
+        for _, t in ipairs(handl:effa()) do
+          mount:lighta(t, 472)
           print(t, "有危險")
-          if mount:remaina(handr:effa()) >= 2 and hand:ct(T34.new(handr:effa())) < 2 then
-            mount:lighta(t, 472)
-          else
-            mount:lighta(t, -47)
-          end
-        end
-      end
-      if handl:ready() then
-        for _, t in ipairs(handr:effa()) do
-          print(t, "有危險")
-          if mount:remaina(handr:effa()) >= 2 and hand:ct(T34.new(handr:effa())) < 2 then
-            mount:lighta(t, 472)
-          else
-            mount:lighta(t, -47)
-          end
         end
       end
     end
