@@ -195,67 +195,130 @@ function ondraw()
   
   if mount:remainpii() == 70 then
     if cutm <= 1 then
-      mount:loadb(T37.new("2m"), 4)
+      mount:loadb(T37.new("2m"), 1)
+      mount:loadb(T37.new("2m"), 1)
+      mount:loadb(T37.new("2m"), 1)
+      mount:loadb(T37.new("2m"), 1)
     end
     if cutm == 2 then
-      mount:loadb(T37.new("3m"), 4)
+      mount:loadb(T37.new("3m"), 1)
+      mount:loadb(T37.new("3m"), 1)
+      mount:loadb(T37.new("3m"), 1)
+      mount:loadb(T37.new("3m"), 1)
     end
     if cutm == 3 then
-      mount:loadb(T37.new("4m"), 4)
+      mount:loadb(T37.new("4m"), 1)
+      mount:loadb(T37.new("4m"), 1)
+      mount:loadb(T37.new("4m"), 1)
+      mount:loadb(T37.new("4m"), 1)
     end
     if cutm == 4 then
-      mount:loadb(T37.new("5m"), 4)
+      mount:loadb(T37.new("5m"), 1)
+      mount:loadb(T37.new("5m"), 1)
+      mount:loadb(T37.new("5m"), 1)
+      mount:loadb(T37.new("5m"), 1)
     end
     if cutm == 5 then
-      mount:loadb(T37.new("6m"), 4)
+      mount:loadb(T37.new("6m"), 1)
+      mount:loadb(T37.new("6m"), 1)
+      mount:loadb(T37.new("6m"), 1)
+      mount:loadb(T37.new("6m"), 1)
     end
     if cutm == 6 then
-      mount:loadb(T37.new("7m"), 4)
+      mount:loadb(T37.new("7m"), 1)
+      mount:loadb(T37.new("7m"), 1)
+      mount:loadb(T37.new("7m"), 1)
+      mount:loadb(T37.new("7m"), 1)
     end
     if cutm >= 7 then
-      mount:loadb(T37.new("8m"), 4)
+      mount:loadb(T37.new("8m"), 1)
+      mount:loadb(T37.new("8m"), 1)
+      mount:loadb(T37.new("8m"), 1)
+      mount:loadb(T37.new("8m"), 1)
     end
     if cutp <= 1 then
-      mount:loadb(T37.new("2p"), 4)
+      mount:loadb(T37.new("2p"), 1)
+      mount:loadb(T37.new("2p"), 1)
+      mount:loadb(T37.new("2p"), 1)
+      mount:loadb(T37.new("2p"), 1)
     end
     if cutp == 2 then
-      mount:loadb(T37.new("3p"), 4)
+      mount:loadb(T37.new("3p"), 1)
+      mount:loadb(T37.new("3p"), 1)
+      mount:loadb(T37.new("3p"), 1)
+      mount:loadb(T37.new("3p"), 1)
     end
     if cutp == 3 then
-      mount:loadb(T37.new("4p"), 4)
+      mount:loadb(T37.new("4p"), 1)
+      mount:loadb(T37.new("4p"), 1)
+      mount:loadb(T37.new("4p"), 1)
+      mount:loadb(T37.new("4p"), 1)
     end
     if cutp == 4 then
-      mount:loadb(T37.new("5p"), 4)
+      mount:loadb(T37.new("5p"), 1)
+      mount:loadb(T37.new("5p"), 1)
+      mount:loadb(T37.new("5p"), 1)
+      mount:loadb(T37.new("5p"), 1)
     end
     if cutp == 5 then
-      mount:loadb(T37.new("6p"), 4)
+      mount:loadb(T37.new("6p"), 1)
+      mount:loadb(T37.new("6p"), 1)
+      mount:loadb(T37.new("6p"), 1)
+      mount:loadb(T37.new("6p"), 1)
     end
     if cutp == 6 then
-      mount:loadb(T37.new("7p"), 4)
+      mount:loadb(T37.new("7p"), 1)
+      mount:loadb(T37.new("7p"), 1)
+      mount:loadb(T37.new("7p"), 1)
+      mount:loadb(T37.new("7p"), 1)
     end
     if cutp >= 7 then
-      mount:loadb(T37.new("8p"), 4)
+      mount:loadb(T37.new("8p"), 1)
+      mount:loadb(T37.new("8p"), 1)
+      mount:loadb(T37.new("8p"), 1)
+      mount:loadb(T37.new("8p"), 1)
     end
     if cuts <= 1 then
-      mount:loadb(T37.new("2s"), 4)
+      mount:loadb(T37.new("2s"), 1)
+      mount:loadb(T37.new("2s"), 1)
+      mount:loadb(T37.new("2s"), 1)
+      mount:loadb(T37.new("2s"), 1)
     end
     if cuts == 2 then
-      mount:loadb(T37.new("3s"), 4)
+      mount:loadb(T37.new("3s"), 1)
+      mount:loadb(T37.new("3s"), 1)
+      mount:loadb(T37.new("3s"), 1)
+      mount:loadb(T37.new("3s"), 1)
     end
     if cuts == 3 then
-      mount:loadb(T37.new("4s"), 4)
+      mount:loadb(T37.new("4s"), 1)
+      mount:loadb(T37.new("4s"), 1)
+      mount:loadb(T37.new("4s"), 1)
+      mount:loadb(T37.new("4s"), 1)
     end
     if cuts == 4 then
-      mount:loadb(T37.new("5s"), 4)
+      mount:loadb(T37.new("5s"), 1)
+      mount:loadb(T37.new("5s"), 1)
+      mount:loadb(T37.new("5s"), 1)
+      mount:loadb(T37.new("5s"), 1)
     end
     if cuts == 5 then
-      mount:loadb(T37.new("6s"), 4)
+      mount:loadb(T37.new("6s"), 1)
+      mount:loadb(T37.new("6s"), 1)
+      mount:loadb(T37.new("6s"), 1)
+      mount:loadb(T37.new("6s"), 1)
     end
     if cuts == 6 then
-      mount:loadb(T37.new("7s"), 4)
+      mount:loadb(T37.new("7s"), 1)
+      mount:loadb(T37.new("7s"), 1)
+      mount:loadb(T37.new("7s"), 1)
+      mount:loadb(T37.new("7s"), 1)
     end
     if cuts >= 7 then
-      mount:loadb(T37.new("8s"), 4)
+      mount:loadb(T37.new("8s"), 1)
+      mount:loadb(T37.new("8s"), 1)
+      mount:loadb(T37.new("8s"), 1)
+      mount:loadb(T37.new("8s"), 1)
     end
   end
     
@@ -276,42 +339,57 @@ function ondraw()
     if handr:ready() then
       if hands:ready() then
         for _, t in ipairs(handr:effa()) do
-          mount:lighta(t, -27)
-          print(t, "有危險")
+          if mount:remaina(t) >= 1 then
+            mount:loadb(t, 1)
+            mount:lighta(t, -27)
+            print(t, "有危險")
+          end
         end
       else
         for _, t in ipairs(handr:effa()) do
-          mount:loadb(t, 2)
-          mount:lightb(t, 4720)
-          print(t, "有危險")
+          if mount:remaina(t) >= 1 then
+            mount:loadb(t, 1)
+            mount:lightb(t, 844)
+            print(t, "有危險")
+          end
         end
       end
     end
     if handc:ready() then
       if hands:ready() then
         for _, t in ipairs(handc:effa()) do
-          mount:lighta(t, -27)
-          print(t, "有危險")
+          if mount:remaina(t) >= 1 then
+            mount:loadb(t, 1)
+            mount:lighta(t, -27)
+            print(t, "有危險")
+          end
         end
       else
         for _, t in ipairs(handc:effa()) do
-          mount:loadb(t, 2)
-          mount:lightb(t, 4720)
-          print(t, "有危險")
+          if mount:remaina(t) >= 1 then
+            mount:loadb(t, 1)
+            mount:lightb(t, 844)
+            print(t, "有危險")
+          end
         end
       end
     end
     if handl:ready() then
       if hands:ready() then
         for _, t in ipairs(handl:effa()) do
-          mount:lighta(t, -27)
-          print(t, "有危險")
+          if mount:remaina(t) >= 1 then
+            mount:loadb(t, 1)
+            mount:lighta(t, -27)
+            print(t, "有危險")
+          end
         end
       else
         for _, t in ipairs(handl:effa()) do
-          mount:loadb(t, 2)
-          mount:lightb(t, 4720)
-          print(t, "有危險")
+          if mount:remaina(t) >= 1 then
+            mount:loadb(t, 1)
+            mount:lightb(t, 844)
+            print(t, "有危險")
+          end
         end
       end
     end
