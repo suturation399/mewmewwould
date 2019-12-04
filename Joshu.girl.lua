@@ -294,7 +294,7 @@ function ondraw()
       else
         for _, t in ipairs(handr:effa()) do
           mount:loadb(t, 1)
-          mount:lightb(t, 472)
+          mount:lightb(t, 4720)
           print(t, "有危險")
         end
       end
@@ -308,7 +308,7 @@ function ondraw()
       else
         for _, t in ipairs(handc:effa()) do
           mount:loadb(t, 1)
-          mount:lightb(t, 472)
+          mount:lightb(t, 4720)
           print(t, "有危險")
         end
       end
@@ -322,7 +322,7 @@ function ondraw()
       else
         for _, t in ipairs(handl:effa()) do
           mount:loadb(t, 1)
-          mount:lightb(t, 472)
+          mount:lightb(t, 4720)
           print(t, "有危險")
         end
       end
