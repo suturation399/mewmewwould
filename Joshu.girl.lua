@@ -51,7 +51,7 @@ function ondraw()
     end
     if not hands:ready() then
       for _, t in ipairs(T34.all) do
-        mount:lightb(t, 100000)
+        mount:lightb(t, 1000)
       end
     end
   end
