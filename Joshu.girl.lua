@@ -29,7 +29,16 @@ function ondraw()
       for _, t in ipairs(handr:effa()) do
         print(t, "有危險")
         if mount:remaina(t) >= 1 then
-          mount:loadb(t, mount:remaina(t))
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
         end
       end
     end
@@ -37,7 +46,16 @@ function ondraw()
       for _, t in ipairs(handc:effa()) do
         print(t, "有危險")
         if mount:remaina(t) >= 1 then
-          mount:loadb(t, mount:remaina(t))
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
         end
       end
     end
@@ -45,7 +63,16 @@ function ondraw()
       for _, t in ipairs(handl:effa()) do
         print(t, "有危險")
         if mount:remaina(t) >= 1 then
-          mount:loadb(t, mount:remaina(t))
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
+        end
+        if mount:remaina(t) >= 1 then
+          mount:loadb(t, 1)
         end
       end
     end
