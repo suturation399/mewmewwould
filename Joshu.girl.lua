@@ -1,7 +1,7 @@
 function checkinit()
   junme = 0
   
-  if who == self and iter > 500 then
+  if who == self and iter > 100 then
     return true
   end
 
