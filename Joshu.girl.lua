@@ -20,8 +20,22 @@ function ondraw()
   end
   
   if who ~= self then
-    if hand:ready() then
-      for _, t in ipairs(hand:effa()) do
+    if handr:ready() then
+      for _, t in ipairs(handr:effa()) do
+        if mount:remaina(t) >= 1 then
+          mount:lighta(t, -100000)
+        end
+      end
+    end
+    if handc:ready() then
+      for _, t in ipairs(handc:effa()) do
+        if mount:remaina(t) >= 1 then
+          mount:lighta(t, -100000)
+        end
+      end
+    end
+    if handl:ready() then
+      for _, t in ipairs(handl:effa()) do
         if mount:remaina(t) >= 1 then
           mount:lighta(t, -100000)
         end
