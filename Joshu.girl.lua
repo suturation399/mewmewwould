@@ -38,7 +38,7 @@ function ondraw()
     if handr:ready() then
       for _, t in ipairs(handr:effa()) do
         print(t, "有危險")
-        if (not hands:step() ~= 0 and mount:remaina(t) >= 1) then
+        if hands:step() ~= 0 and mount:remaina(t) >= 1 then
            mount:lighta(t, 100000)
         else
           mount:lighta(t, -100)
@@ -48,7 +48,7 @@ function ondraw()
     if handc:ready() then
       for _, t in ipairs(handc:effa()) do
         print(t, "有危險")
-        if (not hands:step() ~= 0 and mount:remaina(t) >= 1) then
+        if hands:step() ~= 0 and mount:remaina(t) >= 1 then
            mount:lighta(t, 100000)
         else
           mount:lighta(t, -100)
@@ -58,7 +58,7 @@ function ondraw()
     if handl:ready() then
       for _, t in ipairs(handl:effa()) do
         print(t, "有危險")
-        if (not hands:step() ~= 0 and mount:remaina(t) >= 1) then
+        if hands:step() ~= 0 and mount:remaina(t) >= 1 then
            mount:lighta(t, 100000)
         else
           mount:lighta(t, -100)
