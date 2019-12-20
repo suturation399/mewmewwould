@@ -1,11 +1,5 @@
-function checkinit()
+function onmonkey()
   junme = 0
-  
-  if who == self and iter > 100 then
-    return true
-  end
-
-  return init:step() >= 5
 end
 
 function ondraw()
