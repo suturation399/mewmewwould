@@ -112,6 +112,15 @@
 > 晴海是看到高中聯賽比賽後對麻將產生興趣  
 > 漸漸打得多後，察覺到自己也有不錯的打雀天賦。  
 
+## Tori S. Aschenbach
+> Tori是日本某國會議員的女兒，看到高中聯賽比賽後對麻將產生興趣  
+
++ 永恆純淨Internal white：
+	+ ...
+
++ 末日救贖Doomsday redmption：
+	+ ...
+
 ## Archimonde
 > Archimonde是世青賽德國代表隊先鋒 
 
