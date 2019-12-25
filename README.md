@@ -115,10 +115,10 @@
 ## Tori S. Aschenbach
 > Tori是日本某國會議員的女兒，看到高中聯賽比賽後對麻將產生興趣  
 
-+ 永恆純淨Internal white：
++ 永恆純淨：
 	+ ...
 
-+ 末日救贖Doomsday redmption：
++ 末日救贖：
 	+ ...
 
 ## Archimonde
