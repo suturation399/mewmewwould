@@ -13,26 +13,12 @@ function onmonkey()
   if extra < 3 then
     if status <= 1 then
       for i = 1, 9 do
-        exist:incmk(T34.new(i .. "p"), -39)
-        exist:incmk(T34.new(i .. "s"), -39)
-      end
-      for i = 1, 4 do
-        exist:incmk(T34.new(i .. "f"), -39)
-      end
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -39)
+        exist:incmk(T34.new(i .. "m"), 66)
       end
     end
     if status == 2 then
       for i = 1, 9 do
-        exist:incmk(T34.new(i .. "m"), -39)
-        exist:incmk(T34.new(i .. "s"), -39)
-      end
-      for i = 1, 4 do
-        exist:incmk(T34.new(i .. "f"), -39)
-      end
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -39)
+        exist:incmk(T34.new(i .. "p"), 66)
       end
     end
     if status >= 3 then
