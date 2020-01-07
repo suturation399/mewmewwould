@@ -14,8 +14,8 @@
 ## 近期重要更新
 
 ## 7-1-2020
-新增 Tori S. Aschenbach
-+ [Tori S. Aschenbach](#Tori S. Aschenbach)
+新增 Tori Aschenbach
++ [Tori Aschenbach](#Tori Aschenbach)
 
 ### 11-12-2019
 + [禾生壌宗](#禾生壌宗)
@@ -39,7 +39,7 @@
 + [冷たい透華](#冷たい透華)
 + [禾生壌宗](#禾生壌宗)
 + [細呂木晴海](#細呂木晴海)
-+ [Tori S. Aschenbach](#Tori S. Aschenbach)
++ [Tori Aschenbach](#Tori Aschenbach)
 + [Archimonde](#Archimonde)
 + [Velhari](#Velhari)
 + [Kiljaeden](#Kiljaeden)
@@ -114,7 +114,7 @@
 > 晴海是看到高中聯賽比賽後對麻將產生興趣  
 > 漸漸打得多後，察覺到自己也有不錯的打雀天賦。  
 
-## Tori S. Aschenbach
+## Tori Aschenbach
 > Tori是日本某國會議員的女兒，看到高中聯賽比賽後對麻將產生興趣  
 
 + 永恆純淨：
