@@ -13,6 +13,10 @@
 
 ## 近期重要更新
 
+## 7-1-2020
+新增 Tori S. Aschenbach
++ [Tori S. Aschenbach](#Tori S. Aschenbach)
+
 ### 11-12-2019
 + [禾生壌宗](#禾生壌宗)
 
@@ -22,9 +26,6 @@
 新增 禾生壌宗
 + [禾生壌宗](#禾生壌宗)
 
-### 27-11-2019
-新增 細呂木晴海
-+ [細呂木晴海](#細呂木晴海)
 
 ## 人物列表
 
@@ -38,6 +39,7 @@
 + [冷たい透華](#冷たい透華)
 + [禾生壌宗](#禾生壌宗)
 + [細呂木晴海](#細呂木晴海)
++ [Tori S. Aschenbach](#Tori S. Aschenbach)
 + [Archimonde](#Archimonde)
 + [Velhari](#Velhari)
 + [Kiljaeden](#Kiljaeden)
