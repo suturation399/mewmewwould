@@ -62,13 +62,13 @@ function checkinit()
   end
   
   if status <= 1 then
-    return (init:closed():ct("p") == 0 and init:closed():ct("s") == 0 and init:ct(T34.new("1m")) >= extra and init:ct(T34.new("9m")) >= extra)
+    return (init:closed():ct("p") == 0 and init:closed():ct("s") == 0)
   end
   if status == 2 then
-    return (init:closed():ct("m") == 0 and init:closed():ct("s") == 0 and init:ct(T34.new("1p")) >= extra and init:ct(T34.new("9p")) >= extra)
+    return (init:closed():ct("m") == 0 and init:closed():ct("s") == 0)
   end
   if status >= 3 then
-    return (init:closed():ct("p") == 0 and init:closed():ct("m") == 0 and init:ct(T34.new("1s")) >= extra and init:ct(T34.new("9s")) >= extra)
+    return (init:closed():ct("p") == 0 and init:closed():ct("m") == 0)
   end
 end
 
