@@ -48,7 +48,7 @@ function ondraw()
           print("危險牌", t, "摸牌前理論殘枚數", ntenpair)
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpair)
-            mount:lightb(t, 307 * ntenpair)
+            mount:lightb(t, 307 * 4)
           else
             mount:lighta(t, -31)
             mount:lightb(t, -307)
@@ -64,7 +64,7 @@ function ondraw()
           print("危險牌", t, "摸牌前理論殘枚數", ntenpaic)
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpaic)
-            mount:lightb(t, 307 * ntenpaic)
+            mount:lightb(t, 307 * 4)
           else
             mount:lighta(t, -31)
             mount:lightb(t, -307)
@@ -80,7 +80,7 @@ function ondraw()
           print("危險牌為", t, "摸牌前理論殘枚數", ntenpail)
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpail)
-            mount:lightb(t, 307 * ntenpail)
+            mount:lightb(t, 307 * 4)
           else
             mount:lighta(t, -31)
             mount:lightb(t, -307)
