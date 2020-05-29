@@ -33,7 +33,7 @@ function ondraw()
     if steps <= 1 then
       for _, t in ipairs(effas) do
         local ntenpai = mount:remaina(t)
-        print(t, "牌山殘枚數", ntenpai)
+        print(t, "理論殘枚數", ntenpai)
       end
     end
     if junme >= 3 then
@@ -45,39 +45,48 @@ function ondraw()
       if handr:ready() then
         for _, t in ipairs(handr:effa()) do
           local ntenpair = mount:remaina(t)
-          print("危險牌", t, "摸牌前常規牌山殘枚數", ntenpair)
+          print("危險牌", t, "摸牌前理論殘枚數", ntenpair)
           if steps ~= 0 then
-            mount:lighta(t, 307)
-            mount:lightb(t, 307)
+            mount:lighta(t, 307 * ntenpair)
+            mount:lightb(t, 307 * ntenpair)
           else
             mount:lighta(t, -31)
-            mount:lightb(t, -31)
+            mount:lightb(t, -307)
+            for _, t in ipairs(effas) do
+              mount:lighta(t, junme * 3 * ntenpair)
+            end
           end
         end
       end
       if handc:ready() then
         for _, t in ipairs(handc:effa()) do
           local ntenpaic = mount:remaina(t)
-          print("危險牌", t, "摸牌前常規牌山殘枚數", ntenpaic)
+          print("危險牌", t, "摸牌前理論殘枚數", ntenpaic)
           if steps ~= 0 then
-            mount:lighta(t, 307)
-            mount:lightb(t, 307)
+            mount:lighta(t, 307 * ntenpaic)
+            mount:lightb(t, 307 * ntenpaic)
           else
             mount:lighta(t, -31)
-            mount:lightb(t, -31)
+            mount:lightb(t, -307)
+            for _, t in ipairs(effas) do
+              mount:lighta(t, junme * 3 * ntenpaic)
+            end
           end
         end
       end
       if handl:ready() then
         for _, t in ipairs(handl:effa()) do
           local ntenpail = mount:remaina(t)
-          print("危險牌為", t, "摸牌前常規牌山殘枚數", ntenpail)
+          print("危險牌為", t, "摸牌前理論殘枚數", ntenpail)
           if steps ~= 0 then
-            mount:lighta(t, 307)
-            mount:lightb(t, 307)
+            mount:lighta(t, 307 * ntenpail)
+            mount:lightb(t, 307 * ntenpail)
           else
             mount:lighta(t, -31)
-            mount:lightb(t, -31)
+            mount:lightb(t, -307)
+            for _, t in ipairs(effas) do
+              mount:lighta(t, junme * 3 * ntenpail)
+            end
           end
         end
       end
