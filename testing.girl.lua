@@ -57,7 +57,6 @@ function ondraw()
       if handc:ready() then
         for _, t in ipairs(handc:effa()) do
           local ntenpaic = mount:remaina(t)
-          print("預計危險牌為", t)
           print("預計危險牌為", t, "預計摸牌前牌山殘枚數為", ntenpaic)
           if steps ~= 0 then
             mount:lighta(t, 307)
@@ -69,7 +68,6 @@ function ondraw()
       if handl:ready() then
         for _, t in ipairs(handl:effa()) do
           local ntenpail = mount:remaina(t)
-          print("預計危險牌為", t)
           print("預計危險牌為", t, "預計摸牌前牌山殘枚數為", ntenpail)
           if steps ~= 0 then
             mount:lighta(t, 307)
