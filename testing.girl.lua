@@ -27,7 +27,6 @@ function ondraw()
   
   if who == self then
     junme = junme + 1
-    print("摸牌前向聽數為", steps)
     for _, t in ipairs(effas) do
       mount:lighta(t, junme * 3)
     end
@@ -37,20 +36,22 @@ function ondraw()
         print(t, "預計牌山殘枚數為", ntenpai)
       end
     end
-    if junme >= 4 then
+    if junme >= 3 then
       print("預計下家向聽數為", handr:step())
       print("預計對家向聽數為", handc:step())
       print("預計上家向聽數為", handl:step())
     end
-    if junme >= 9 then
+    if junme >= 6 then
       if handr:ready() then
         for _, t in ipairs(handr:effa()) do
           local ntenpair = mount:remaina(t)
           print("預計危險牌為", t, "預計摸牌前牌山殘枚數為", ntenpair)
           if steps ~= 0 then
             mount:lighta(t, 307)
+            mount:lightb(t, 307)
           else
             mount:lighta(t, -31)
+            mount:lightb(t, -31)
           end
         end
       end
@@ -60,8 +61,10 @@ function ondraw()
           print("預計危險牌為", t, "預計摸牌前牌山殘枚數為", ntenpaic)
           if steps ~= 0 then
             mount:lighta(t, 307)
+            mount:lightb(t, 307)
           else
             mount:lighta(t, -31)
+            mount:lightb(t, -31)
           end
         end
       end
@@ -71,8 +74,10 @@ function ondraw()
           print("預計危險牌為", t, "預計摸牌前牌山殘枚數為", ntenpail)
           if steps ~= 0 then
             mount:lighta(t, 307)
+            mount:lightb(t, 307)
           else
             mount:lighta(t, -31)
+            mount:lightb(t, -31)
           end
         end
       end
