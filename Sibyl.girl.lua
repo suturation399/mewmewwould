@@ -46,15 +46,15 @@ function ondraw()
         for _, t in ipairs(handr:effa()) do
           local ntenpair = mount:remaina(t)
           print("危險牌", t, "摸牌前理論殘枚數", ntenpair)
+          for _, t in ipairs(effas) do
+            mount:lighta(t, junme * 3 * ntenpair)
+          end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpair)
             mount:lightb(t, 307 * 4)
           else
             mount:lighta(t, -31)
-            mount:lightb(t, -307)
-            for _, t in ipairs(effas) do
-              mount:lighta(t, junme * 3 * ntenpair)
-            end
+            mount:lightb(t, -307 * 4)
           end
         end
       end
@@ -62,15 +62,15 @@ function ondraw()
         for _, t in ipairs(handc:effa()) do
           local ntenpaic = mount:remaina(t)
           print("危險牌", t, "摸牌前理論殘枚數", ntenpaic)
+          for _, t in ipairs(effas) do
+            mount:lighta(t, junme * 3 * ntenpaic)
+          end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpaic)
             mount:lightb(t, 307 * 4)
           else
             mount:lighta(t, -31)
-            mount:lightb(t, -307)
-            for _, t in ipairs(effas) do
-              mount:lighta(t, junme * 3 * ntenpaic)
-            end
+            mount:lightb(t, -307 * 4)
           end
         end
       end
@@ -78,15 +78,15 @@ function ondraw()
         for _, t in ipairs(handl:effa()) do
           local ntenpail = mount:remaina(t)
           print("危險牌為", t, "摸牌前理論殘枚數", ntenpail)
+          for _, t in ipairs(effas) do
+            mount:lighta(t, junme * 3 * ntenpail)
+          end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpail)
             mount:lightb(t, 307 * 4)
           else
             mount:lighta(t, -31)
-            mount:lightb(t, -307)
-            for _, t in ipairs(effas) do
-              mount:lighta(t, junme * 3 * ntenpail)
-            end
+            mount:lightb(t, -307 * 4)
           end
         end
       end
