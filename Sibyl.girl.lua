@@ -28,7 +28,8 @@ function ondraw()
   if who == self then
     junme = junme + 1
     for _, t in ipairs(effas) do
-      mount:lighta(t, junme * 3)
+      local neffas = mount:remaina(t)
+      mount:lighta(t, junme * neffas * 4)
     end
     if steps <= 1 then
       for _, t in ipairs(effas) do
@@ -47,7 +48,7 @@ function ondraw()
           local ntenpair = mount:remaina(t)
           print("危險牌", t, "摸牌前理論殘枚數", ntenpair)
           for _, t in ipairs(effas) do
-            mount:lighta(t, junme * 3 + junme * 3 * ntenpair)
+            mount:lighta(t, junme * 4 + junme * 4 * ntenpair)
           end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpair)
@@ -63,7 +64,7 @@ function ondraw()
           local ntenpaic = mount:remaina(t)
           print("危險牌", t, "摸牌前理論殘枚數", ntenpaic)
           for _, t in ipairs(effas) do
-            mount:lighta(t, junme * 3 + junme * 3 * ntenpaic)
+            mount:lighta(t, junme * 4 + junme * 4 * ntenpaic)
           end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpaic)
@@ -79,7 +80,7 @@ function ondraw()
           local ntenpail = mount:remaina(t)
           print("危險牌為", t, "摸牌前理論殘枚數", ntenpail)
           for _, t in ipairs(effas) do
-            mount:lighta(t, junme * 3 + junme * 3 * ntenpail)
+            mount:lighta(t, junme * 4 + junme * 4 * ntenpail)
           end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpail)
