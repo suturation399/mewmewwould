@@ -42,7 +42,6 @@ function ondraw()
       print("對家向聽數", handc:step())
       print("上家向聽數", handl:step())
     end
-    if junme >= 6 then
       if handr:ready() then
         for _, t in ipairs(handr:effa()) do
           local ntenpair = mount:remaina(t)
