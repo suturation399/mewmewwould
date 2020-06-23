@@ -41,7 +41,6 @@ function ondraw()
       print("下家向聽數", handr:step())
       print("對家向聽數", handc:step())
       print("上家向聽數", handl:step())
-    end
       if handr:ready() then
         for _, t in ipairs(handr:effa()) do
           local ntenpair = mount:remaina(t)
