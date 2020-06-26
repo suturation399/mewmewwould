@@ -224,7 +224,7 @@ function ondraw()
         end
       end
     end
-    if no hands:ismenzen() then
+    if not hands:ismenzen() then
       if hands:ct(T34.new("1y")) > 0 and hands:ct(T34.new("1y")) < 3 and mount:remaina(T34.new("1y")) then
         mount:lighta(T34.new("1y"), 307)
       end
@@ -266,7 +266,7 @@ function ondraw()
       mount:lighta(T34.new("9s"), -30)
     end
   else
-    if no hands:ismenzen() then
+    if not hands:ismenzen() then
       for _, t in ipairs(hand:effa()) do
         mount:lighta(t, -15)
       end
