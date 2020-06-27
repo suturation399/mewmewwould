@@ -12,8 +12,21 @@ function ondraw()
   if who == self then
     for _, t in ipairs(effas) do
       local neffas = mount:remaina(t)
-      mount:lighta(t, (neffas * -1 + 8) * 20)
-    end
+      if neffas <= 0 then
+        mount:lighta(t, 0)
+      else
+        if neffas == 1 then
+          mount:lighta(t, 307)
+        end
+        if neffas == 2 then
+          mount:lighta(t, 73)
+        end
+        if neffas == 3 then
+          mount:lighta(t, 17)
+        end
+        if neffas == 4 then
+          mount:lighta(t, 4)
+        end
     if (mount:remainpii() <= 1 or rinshan) and hands:step() <= 1 then
       for _, t in ipairs(effas) do
         mount:lighta(t, 307)
