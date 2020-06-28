@@ -1,15 +1,3 @@
-function onmonkey()
-  junme = 0
-end
-
-function checkinit()
-  if who ~= self or iter > 3 then
-    return true
-  end
-  
-  return init:step() <= 4
-end
-
 function ondraw()
   local hands = game:gethand(self)
   local effas = hands:effa()
@@ -26,11 +14,10 @@ function ondraw()
   end
   
   if who == self then
-    junme = junme + 1
     for _, t in ipairs(effas) do
       local neffas = mount:remaina(t)
-      local ne = neffas * -1 + 8
-      mount:lighta(t, ne * 30)
+      local ne = neffas * -1 + 5
+      mount:lighta(t, 4^ne)
     end
   end
 end
