@@ -193,12 +193,19 @@ function ondraw()
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
+  local hand = game:gethand(who)
   local ctx = game:getformctx(self)
   local rule = game:getrule()
   local drids = mount:getdrids()
   
-  if who ~= self or rinshan then
+  if (who ~= self and hand:step() > 0) or rinshan then
     return
+  end
+ 
+  if who ~= self and hand:step() == 0 then
+    for _, t in ipairs(T34.all) do
+      mount:lighta(t, 307)
+    end
   end
   
   if who == self then
@@ -222,7 +229,7 @@ function ondraw()
           local ntenpair = mount:remaina(t)
           print("危險牌", t, "摸牌前理論殘枚數", ntenpair)
           for _, t in ipairs(effas) do
-            mount:lighta(t, junme * 4 + junme * 4 * ntenpair)
+            mount:lighta(t, junme * 4 + junme * 4 * ntenpair * (1 - ctx.riichi))
           end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpair)
@@ -238,7 +245,7 @@ function ondraw()
           local ntenpaic = mount:remaina(t)
           print("危險牌", t, "摸牌前理論殘枚數", ntenpaic)
           for _, t in ipairs(effas) do
-            mount:lighta(t, junme * 4 + junme * 4 * ntenpaic)
+            mount:lighta(t, junme * 4 + junme * 4 * ntenpaic * (1 - ctx.riichi))
           end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpaic)
@@ -254,7 +261,7 @@ function ondraw()
           local ntenpail = mount:remaina(t)
           print("危險牌為", t, "摸牌前理論殘枚數", ntenpail)
           for _, t in ipairs(effas) do
-            mount:lighta(t, junme * 4 + junme * 4 * ntenpail)
+            mount:lighta(t, junme * 4 + junme * 4 * ntenpail * (1 - ctx.riichi))
           end
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpail)
