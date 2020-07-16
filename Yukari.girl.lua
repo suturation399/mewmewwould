@@ -5,7 +5,6 @@ function ondice()
 end
 
 function onmonkey()
-  junme = 0
   status = doge
   local existself = exists[self:index()]
   local existl = exists[self:left():index()]
@@ -321,6 +320,7 @@ end
 
 function checkinit()
   status = doge
+  junme = 0
   
   if iter > 130 then
     return true
