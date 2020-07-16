@@ -500,8 +500,8 @@ function ondraw()
       mount:lighta(T34.new("7m"), -307)
     end
     if status == 5 then
-      mount:lighta(T34.new("3m"), -307)
-      mount:lighta(T34.new("6m"), -307)
+      mount:lighta(T34.new("5m"), -307)
+      mount:lighta(T34.new("8m"), -307)
     end
     if status == 6 then
       mount:lighta(T34.new("6m"), -307)
@@ -551,7 +551,7 @@ function ondraw()
       mount:lighta(T34.new("5s"), -307)
       mount:lighta(T34.new("8s"), -307)
     end
-    if status == 18 then
+    if status >= 18 then
       mount:lighta(T34.new("6s"), -307)
       mount:lighta(T34.new("9s"), -307)
     end
@@ -575,8 +575,8 @@ function ondraw()
       mount:lighta(T34.new("7m"), -307)
     end
     if status == 5 then
-      mount:lighta(T34.new("3m"), -307)
-      mount:lighta(T34.new("6m"), -307)
+      mount:lighta(T34.new("5m"), -307)
+      mount:lighta(T34.new("8m"), -307)
     end
     if status == 6 then
       mount:lighta(T34.new("6m"), -307)
@@ -626,7 +626,7 @@ function ondraw()
       mount:lighta(T34.new("5s"), -307)
       mount:lighta(T34.new("8s"), -307)
     end
-    if status == 18 then
+    if status >= 18 then
       mount:lighta(T34.new("6s"), -307)
       mount:lighta(T34.new("9s"), -307)
     end
