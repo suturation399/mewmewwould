@@ -478,124 +478,89 @@ function ondraw()
   local steps = hands:step(self)
   local junmk = junme * 4
   
-  if who ~= self or rinshan then
+  if rinshan then
     return
+  end
+  
+  if who ~= self then
+    if status <= 1 then
+      mount:lighta(T34.new("1m"), -307)
+      mount:lighta(T34.new("4m"),-307)
+    end
+    if status == 2 then
+      mount:lighta(T34.new("2m"), -307)
+      mount:lighta(T34.new("5m"), -307)
+    end
+    if status == 3 then
+      mount:lighta(T34.new("3m"), -307)
+      mount:lighta(T34.new("6m"), -307)
+    end
+    if status == 4 then
+      mount:lighta(T34.new("4m"), -307)
+      mount:lighta(T34.new("7m"), -307)
+    end
+    if status == 5 then
+      mount:lighta(T34.new("3m"), -307)
+      mount:lighta(T34.new("6m"),-307)
+    end
+    if status == 6 then
+      mount:lighta(T34.new("6m"), -307)
+      mount:lighta(T34.new("9m"), -307)
+    end
+    if status == 7 then
+      mount:lighta(T34.new("1p"), -307)
+      mount:lighta(T34.new("4p"), -307)
+    end
+    if status == 8 then
+      mount:lighta(T34.new("2p"), -307)
+      mount:lighta(T34.new("5p"), -307)
+    end
+    if status == 9 then
+      mount:lighta(T34.new("3p"), -307)
+      mount:lighta(T34.new("6p"), -307)
+    end
+    if status == 10 then
+      mount:lighta(T34.new("4p"), -307)
+      mount:lighta(T34.new("7p"), -307)
+    end
+    if status == 11 then
+      mount:lighta(T34.new("5p"), -307)
+      mount:lighta(T34.new("8p"), -307)
+    end
+    if status == 12 then
+      mount:lighta(T34.new("6p"), -307)
+      mount:lighta(T34.new("9p"), -307)
+    end
+    if status == 13 then
+      mount:lighta(T34.new("1s"), -307)
+      mount:lighta(T34.new("4s"), -307)
+    end
+    if status == 14 then
+      mount:lighta(T34.new("2s"), -307)
+      mount:lighta(T34.new("5s"), -307)
+    end
+    if status == 15 then
+      mount:lighta(T34.new("3s"), -307)
+      mount:lighta(T34.new("6s"), -307)
+    end
+    if status == 16 then
+      mount:lighta(T34.new("4s"), -307)
+      mount:lighta(T34.new("7s"), -307)
+    end
+    if status == 17 then
+      mount:lighta(T34.new("5s"), -307)
+      mount:lighta(T34.new("8s"), -307)
+    end
+    if status == 18 then
+      mount:lighta(T34.new("6s"), -307)
+      mount:lighta(T34.new("9s"), -307)
+    end
   end
   
   if who == self then
     junme = junme + 1
     for _, t in ipairs(hands:effa()) do
       mount:lighta(t, junmk)
-    end
-    if junme <= 1 then
-      if status <= 1 then
-        mount:loadb(T34.new("1m"), 1)
-        mount:loadb(T34.new("4m"), 1)
-        mount:lighta(T34.new("1m"), 307)
-        mount:lighta(T34.new("4m"), 307)
-      end
-      if status == 2 then
-        mount:loadb(T34.new("2m"), 1)
-        mount:loadb(T34.new("5m"), 1)
-        mount:lighta(T34.new("2m"), 307)
-        mount:lighta(T34.new("5m"), 307)
-      end
-      if status == 3 then
-        mount:loadb(T34.new("3m"), 1)
-        mount:loadb(T34.new("6m"), 1)
-        mount:lighta(T34.new("3m"), 307)
-        mount:lighta(T34.new("6m"), 307)
-      end
-      if status == 4 then
-        mount:loadb(T34.new("4m"), 1)
-        mount:loadb(T34.new("7m"), 1)
-        mount:lighta(T34.new("4m"), 307)
-        mount:lighta(T34.new("7m"), 307)
-      end
-      if status == 5 then
-        mount:loadb(T34.new("5m"), 1)
-        mount:loadb(T34.new("8m"), 1)
-        mount:lighta(T34.new("3m"), 307)
-        mount:lighta(T34.new("6m"), 307)
-      end
-      if status == 6 then
-        mount:loadb(T34.new("6m"), 1)
-        mount:loadb(T34.new("9m"), 1)
-        mount:lighta(T34.new("6m"), 307)
-        mount:lighta(T34.new("9m"), 307)
-      end
-      if status == 7 then
-        mount:loadb(T34.new("1p"), 1)
-        mount:loadb(T34.new("4p"), 1)
-        mount:lighta(T34.new("1p"), 307)
-        mount:lighta(T34.new("4p"), 307)
-      end
-      if status == 8 then
-        mount:loadb(T34.new("2p"), 1)
-        mount:loadb(T34.new("5p"), 1)
-        mount:lighta(T34.new("2p"), 307)
-        mount:lighta(T34.new("5p"), 307)
-      end
-      if status == 9 then
-        mount:loadb(T34.new("3p"), 1)
-        mount:loadb(T34.new("6p"), 1)
-        mount:lighta(T34.new("3p"), 307)
-        mount:lighta(T34.new("6p"), 307)
-      end
-      if status == 10 then
-        mount:loadb(T34.new("4p"), 1)
-        mount:loadb(T34.new("7p"), 1)
-        mount:lighta(T34.new("4p"), 307)
-        mount:lighta(T34.new("7p"), 307)
-      end
-      if status == 11 then
-        mount:loadb(T34.new("5p"), 1)
-        mount:loadb(T34.new("8p"), 1)
-        mount:lighta(T34.new("5p"), 307)
-        mount:lighta(T34.new("8p"), 307)
-      end
-      if status == 12 then
-        mount:loadb(T34.new("6p"), 1)
-        mount:loadb(T34.new("9p"), 1)
-        mount:lighta(T34.new("6p"), 307)
-        mount:lighta(T34.new("9p"), 307)
-      end
-      if status == 13 then
-        mount:loadb(T34.new("1s"), 1)
-        mount:loadb(T34.new("4s"), 1)
-        mount:lighta(T34.new("1s"), 307)
-        mount:lighta(T34.new("4s"), 307)
-      end
-      if status == 14 then
-        mount:loadb(T34.new("2s"), 1)
-        mount:loadb(T34.new("5s"), 1)
-        mount:lighta(T34.new("2s"), 307)
-        mount:lighta(T34.new("5s"), 307)
-      end
-      if status == 15 then
-        mount:loadb(T34.new("3s"), 1)
-        mount:loadb(T34.new("6s"), 1)
-        mount:lighta(T34.new("3s"), 307)
-        mount:lighta(T34.new("6s"), 307)
-      end
-      if status == 16 then
-        mount:loadb(T34.new("4s"), 1)
-        mount:loadb(T34.new("7s"), 1)
-        mount:lighta(T34.new("4s"), 307)
-        mount:lighta(T34.new("7s"), 307)
-      end
-      if status == 17 then
-        mount:loadb(T34.new("5s"), 1)
-        mount:loadb(T34.new("8s"), 1)
-        mount:lighta(T34.new("5s"), 307)
-        mount:lighta(T34.new("8s"), 307)
-      end
-      if status == 18 then
-        mount:loadb(T34.new("6s"), 1)
-        mount:loadb(T34.new("9s"), 1)
-        mount:lighta(T34.new("6s"), 307)
-        mount:lighta(T34.new("9s"), 307)
-      end
     end
   end
 end
