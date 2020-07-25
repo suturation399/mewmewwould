@@ -214,37 +214,24 @@ function ondraw()
       local neffas = mount:remaina(t)
       mount:lighta(t, junme * neffas * 4)
     end
-    if steps <= 1 then
-      for _, t in ipairs(effas) do
-        local ntenpai = mount:remaina(t)
-        print(t, "理論殘枚數", ntenpai)
-      end
-    end
-    if junme >= 3 then
-      print("下家向聽數", handr:step())
-      print("對家向聽數", handc:step())
-      print("上家向聽數", handl:step())
-      if handr:ready() then
-        for _, t in ipairs(handr:effa()) do
+    if handr:ready() then
+      for _, t in ipairs(handr:effa()) do
+        for _, t in ipairs(effas) do
           local ntenpair = mount:remaina(t)
-          print("危險牌", t, "摸牌前理論殘枚數", ntenpair)
-          for _, t in ipairs(effas) do
-            mount:lighta(t, junme * 4 + junme * 4 * ntenpair * (1 - ctx.riichi))
-          end
-          if steps ~= 0 then
-            mount:lighta(t, 307 * ntenpair)
-            mount:lightb(t, 307 * 2)
-          else
-            mount:lighta(t, -31)
-            mount:lightb(t, -307 * 4)
-          end
+          mount:lighta(t, junme * 4 + junme * 4 * ntenpair * (1 - ctx.riichi))
+        end
+        if steps ~= 0 then
+          mount:lighta(t, 307 * ntenpair)
+          mount:lightb(t, 307 * 2)
+        else
+          mount:lighta(t, -31)
+          mount:lightb(t, -307 * 4)
         end
       end
       if handc:ready() then
         for _, t in ipairs(handc:effa()) do
-          local ntenpaic = mount:remaina(t)
-          print("危險牌", t, "摸牌前理論殘枚數", ntenpaic)
           for _, t in ipairs(effas) do
+            local ntenpaic = mount:remaina(t)
             mount:lighta(t, junme * 4 + junme * 4 * ntenpaic * (1 - ctx.riichi))
           end
           if steps ~= 0 then
@@ -258,9 +245,8 @@ function ondraw()
       end
       if handl:ready() then
         for _, t in ipairs(handl:effa()) do
-          local ntenpail = mount:remaina(t)
-          print("危險牌為", t, "摸牌前理論殘枚數", ntenpail)
           for _, t in ipairs(effas) do
+            local ntenpail = mount:remaina(t)
             mount:lighta(t, junme * 4 + junme * 4 * ntenpail * (1 - ctx.riichi))
           end
           if steps ~= 0 then
@@ -271,6 +257,54 @@ function ondraw()
             mount:lightb(t, -307 * 4)
           end
         end
+      end
+    end
+  end
+end
+
+function ongameevent()
+  if event.type == "drawn" then
+    read(mount, game, who)
+  end
+end
+
+function read(mount, game, who)
+  local hands = game:gethand(self)
+  local handl = game:gethand(self:left())
+  local handc = game:gethand(self:cross())
+  local handr = game:gethand(self:right())
+  local mount = game:getmount()
+  local drids = mount:getdrids()
+  
+  if event.args.who == self then
+    if handr:step() >= 1 then
+      print("下家向聽數", handr:step())
+    else
+      for _, t in ipairs(handr:effa()) do
+        local ntenpair = mount:remaina(t)
+        print("下家聽", t, "理論殘枚數", ntenpair)
+      end
+    end
+    if handc:step() >= 1 then
+      print("對家向聽數", handc:step())
+    else
+      for _, t in ipairs(handc:effa()) do
+        local ntenpaic = mount:remaina(t)
+        print("對家聽", t, "理論殘枚數", ntenpaic)
+      end
+    end
+    if handl:step() >= 1 then
+      print("上家向聽數", handl:step())
+    else
+      for _, t in ipairs(handl:effa()) do
+        local ntenpail = mount:remaina(t)
+        print("上家聽", t, "理論殘枚數", ntenpail)
+      end
+    end
+    if hands:step() <= 1 then
+      for _, t in ipairs(hands:effa()) do
+        local ntenpai = mount:remaina(t)
+        print("有效牌", t, "理論殘枚數", ntenpai)
       end
     end
   end
