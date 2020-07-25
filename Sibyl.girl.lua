@@ -219,13 +219,13 @@ function ondraw()
         for _, t in ipairs(effas) do
           local ntenpair = mount:remaina(t)
           mount:lighta(t, junme * 4 + junme * 4 * ntenpair * (1 - ctx.riichi))
-        end
-        if steps ~= 0 then
-          mount:lighta(t, 307 * ntenpair)
-          mount:lightb(t, 307 * 2)
-        else
-          mount:lighta(t, -31)
-          mount:lightb(t, -307 * 4)
+          if steps ~= 0 then
+            mount:lighta(t, 307 * ntenpair)
+            mount:lightb(t, 307 * 2)
+          else
+            mount:lighta(t, -31)
+            mount:lightb(t, -307 * 4)
+          end
         end
       end
       if handc:ready() then
@@ -233,13 +233,13 @@ function ondraw()
           for _, t in ipairs(effas) do
             local ntenpaic = mount:remaina(t)
             mount:lighta(t, junme * 4 + junme * 4 * ntenpaic * (1 - ctx.riichi))
-          end
-          if steps ~= 0 then
-            mount:lighta(t, 307 * ntenpaic)
-            mount:lightb(t, 307 * 2)
-          else
-            mount:lighta(t, -31)
-            mount:lightb(t, -307 * 4)
+            if steps ~= 0 then
+              mount:lighta(t, 307 * ntenpaic)
+              mount:lightb(t, 307 * 2)
+            else
+              mount:lighta(t, -31)
+              mount:lightb(t, -307 * 4)
+            end
           end
         end
       end
@@ -248,13 +248,13 @@ function ondraw()
           for _, t in ipairs(effas) do
             local ntenpail = mount:remaina(t)
             mount:lighta(t, junme * 4 + junme * 4 * ntenpail * (1 - ctx.riichi))
-          end
-          if steps ~= 0 then
-            mount:lighta(t, 307 * ntenpail)
-            mount:lightb(t, 307 * 2)
-          else
-            mount:lighta(t, -31)
-            mount:lightb(t, -307 * 4)
+            if steps ~= 0 then
+              mount:lighta(t, 307 * ntenpail)
+              mount:lightb(t, 307 * 2)
+            else
+              mount:lighta(t, -31)
+              mount:lightb(t, -307 * 4)
+            end
           end
         end
       end
