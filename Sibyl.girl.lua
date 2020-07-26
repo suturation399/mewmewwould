@@ -216,9 +216,9 @@ function ondraw()
     end
     if handr:ready() then
       for _, t in ipairs(handr:effa()) do
-        for _, t in ipairs(effas) do
-          local ntenpair = mount:remaina(t)
-          mount:lighta(t, junme * 4 + junme * 4 * ntenpair * (1 - ctx.riichi))
+        local ntenpair = mount:remaina(t)
+        for _, s in ipairs(effas) do
+        mount:lighta(s, junme * 4 + junme * 4 * ntenpair * (1 - ctx.riichi))
           if steps ~= 0 then
             mount:lighta(t, 307 * ntenpair)
             mount:lightb(t, 307 * 2)
@@ -230,9 +230,9 @@ function ondraw()
       end
       if handc:ready() then
         for _, t in ipairs(handc:effa()) do
-          for _, t in ipairs(effas) do
-            local ntenpaic = mount:remaina(t)
-            mount:lighta(t, junme * 4 + junme * 4 * ntenpaic * (1 - ctx.riichi))
+          local ntenpaic = mount:remaina(t)
+          for _, s in ipairs(effas) do
+            mount:lighta(s, junme * 4 + junme * 4 * ntenpaic * (1 - ctx.riichi))
             if steps ~= 0 then
               mount:lighta(t, 307 * ntenpaic)
               mount:lightb(t, 307 * 2)
@@ -245,9 +245,9 @@ function ondraw()
       end
       if handl:ready() then
         for _, t in ipairs(handl:effa()) do
-          for _, t in ipairs(effas) do
-            local ntenpail = mount:remaina(t)
-            mount:lighta(t, junme * 4 + junme * 4 * ntenpail * (1 - ctx.riichi))
+          local ntenpail = mount:remaina(t)
+          for _, s in ipairs(effas) do
+            mount:lighta(s, junme * 4 + junme * 4 * ntenpail * (1 - ctx.riichi))
             if steps ~= 0 then
               mount:lighta(t, 307 * ntenpail)
               mount:lightb(t, 307 * 2)
