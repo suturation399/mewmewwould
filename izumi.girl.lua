@@ -165,7 +165,7 @@ function checkinit()
 
   if status >= 6 then
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  return ny <= 3 and init:step() >= 3 and init:step() <= 4
+    return ny <= 3 and init:step() >= 3 and init:step() <= 4
   end
 end
 
