@@ -194,7 +194,7 @@ function ondraw()
   local ctx = game:getformctx(self)
   local rule = game:getrule()
   local drids = mount:getdrids()
-  local junmk = 61 - junme * 3
+  local junmk = 67 - junme * 3
   local omk = junme * 4 * hand:step()
   local amk = junme * 4 * (6 - hand:step())
   
