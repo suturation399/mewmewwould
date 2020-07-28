@@ -11,7 +11,7 @@ function onmonkey()
   if status >= 3 then
     print("感覺這局餅子會一直來呢")
     for i = 1, 9 do
-      exist:incmk(T34.new(i .. "p"), 33)
+      exist:incmk(T34.new(i .. "p"), 66)
       exist:incmk(T34.new(i .. "m"), -13)
       exist:incmk(T34.new(i .. "s"), -13)
     end
