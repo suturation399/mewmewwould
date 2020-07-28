@@ -174,6 +174,7 @@ function ondraw()
   local hands = game:gethand(self)
   local steps = hands:step(self)
   local junmk = junme * 4
+  local ctx = game:getformctx(self)
 
   for _, t in ipairs(drids) do
     nd = hands:ctaka5() + hands:ct(t:dora())
@@ -181,7 +182,7 @@ function ondraw()
 
   local dormk = ((nd - 2) * -45) - (4 * junme) - 24
   
-  if who ~= self or rinshan then
+  if who ~= self or rinshan or ctx.ippatsu then
     return
   end
 
