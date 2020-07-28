@@ -8,7 +8,7 @@ function onmonkey()
   status = doge
   local exist = exists[self:index()]
   
-  if status >= 3 then
+  if status == 3 then
     print("感覺這局餅子會一直來呢")
     for i = 1, 9 do
       exist:incmk(T34.new(i .. "p"), 66)
@@ -23,7 +23,7 @@ function onmonkey()
 end
 
 function checkinit()
-  if who ~= self or iter > 33 then
+  if who ~= self or iter > 66 then
     return true
   end
 
@@ -31,7 +31,7 @@ function checkinit()
   local inm = init:closed():ct("m")
   local ins = init:closed():ct("s")
   
-  if status >= 3 then
+  if status == 3 then
     return inp >= 8 and inm <= 2 and inp <= 2
   else
     return inp >= inm and inp >= ins
