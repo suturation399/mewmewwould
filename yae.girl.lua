@@ -204,8 +204,14 @@ function ondraw()
   end
   
   if who == self then
-    for _, t in ipairs(hands:effa4()) do
-      mount:lighta(t, junmk)
+    if hands:step() == ctx.riichi then
+      for _, t in ipairs(hands:effa4()) do
+        mount:lighta(t, -5)
+      end
+    else
+      for _, t in ipairs(hands:effa4()) do
+        mount:lighta(t, junmk)
+      end
     end
   end
   
