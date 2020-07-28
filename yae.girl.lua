@@ -194,9 +194,9 @@ function ondraw()
   local ctx = game:getformctx(self)
   local rule = game:getrule()
   local drids = mount:getdrids()
-  local junmk = 88 - junme * 4
-  local omk = junme * 5 * hand:step()
-  local amk = junme * 5 * (6 - hand:step())
+  local junmk = 82 - junme * 4
+  local omk = junme * 4 * hand:step()
+  local amk = junme * 4 * (6 - hand:step())
   
   
   if rinshan or ctx.ippatsu then
@@ -210,7 +210,7 @@ function ondraw()
   end
   
   if who ~= self then
-    if ctx.riichi == 0 then
+    if ctx.riichi ~= 0 then
       for _, t in ipairs(effas) do
         local ntenpai = mount:remaina(t)
         if ntenpai > 1 then
