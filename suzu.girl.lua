@@ -92,6 +92,44 @@ function onmonkey()
         exists[self:index()]:incmk(T34.new(t), mk)
       end
     end
+    if status <= 1 then
+      exist:incmk(T34.new("1y"), 144)
+    end
+    
+    if status == 2 then
+      exist:incmk(T34.new("2y"), 144)
+    end
+
+    if status == 3 then
+      exist:incmk(T34.new("3y"), 144)
+    end
+
+    if status == 4 then
+      if sw == 1 then
+        exist:incmk(T34.new("1f"), 144)
+      end
+      if sw == 2 then
+        exist:incmk(T34.new("2f"), 144)
+      end
+      if sw == 3 then
+        exist:incmk(T34.new("3f"), 144)
+      end
+      if sw == 4 then
+        exist:incmk(T34.new("4f"), 144)
+      end
+    end
+  
+    if status == 5 then
+      if rw == 1 then
+        exist:incmk(T34.new("1f"), 144)
+      end
+      if rw == 2 then
+        exist:incmk(T34.new("2f"), 144)
+      end
+      if rw >= 3 then
+        exist:incmk(T34.new("3f"), 144)
+      end
+    end
   end
 end
 
@@ -141,7 +179,7 @@ function checkinit()
       end
       if rw == 3 then
         return init:step() >= 3 and init:step() <= 4 and init:step7() >= 4 and init:ct(T34.new("3f")) == 2
-     end
+      end
     end
 
     if status >= 6 then
@@ -149,4 +187,50 @@ function checkinit()
       return ny <= 3 and init:step() >= 3 and init:step() <= 4
     end
   else
+    local nottf = init:ct(T34.new("1m")) + init:ct(T34.new("2m")) + init:ct(T34.new("3m")) + init:ct(T34.new("4m")) + init:ct(T34.new("5m")) + init:ct(T34.new("1p")) + init:ct(T34.new("2p")) + init:ct(T34.new("3p")) + init:ct(T34.new("4p")) + init:ct(T34.new("5p")) + init:ct(T34.new("1s")) + init:ct(T34.new("2s")) + init:ct(T34.new("3s")) + init:ct(T34.new("4s")) + init:ct(T34.new("5s"))
     
+    if status <= 1 then
+      return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("1y")) >= 2 and nottf <= 3
+    end
+  
+    if status == 2 then
+      return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("2y")) >= 2 and nottf <= 3
+    end
+
+    if status == 3 then
+      return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("3y")) >= 2 and nottf <= 3
+    end
+
+    if status == 4 then
+      if sw == 1 then
+        return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("1f")) >= 2 and nottf <= 3
+      end
+      if sw == 2 then
+        return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("2f")) >= 2 and nottf <= 3
+      end
+      if sw == 3 then
+        return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("3f")) >= 2 and nottf <= 3
+      end
+      if sw == 4 then
+        return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("4f")) >= 2 and nottf <= 3
+      end
+    end
+
+    if status == 5 then
+      if rw == 1 then
+        return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("1f")) >= 2 and nottf <= 3
+      end
+      if rw == 2 then
+        return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("2f")) >= 2 and nottf <= 3
+      end
+      if rw == 3 then
+        return init:step4() <= 3 and init:step7() >= 4 and init:ct(T34.new("3f")) >= 2 and nottf <= 3
+      end
+    end
+    
+    if status >= 6 then
+      return init:step() <= 3 and init:ct(T34.new("1f")) >= 2 and nottf <= 3
+    end
+  end
+end
+
