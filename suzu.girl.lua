@@ -23,6 +23,7 @@ powers = {
 
 doge = 0
 bakuhatsu = 0
+keypair = null
 
 function ondice()
   doge = rand:gen(50)
@@ -137,8 +138,12 @@ function checkinit()
   junme = 0
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
+  local suits = { "m", "p", "s" }
+  local ssk = 0
+  local sak = 0
+  local ok = 1
   
-  if who ~= self or iter > 86 then
+  if who ~= self or iter > 186 then
     return true
   end
   
@@ -229,8 +234,75 @@ function checkinit()
     end
     
     if status >= 6 then
-      return init:step() <= 3 and init:ct(T34.new("1f")) >= 2 and nottf <= 3
+      for i=2,7,1 do
+        for _, suit in ipairs(suits) do
+          if init:ct(T34.new(i-1 .. suit)) >0 and ok == 1 then
+            ssk = ssk + 1
+          elseif ok == 1 then
+            keypair = T34.new(i-1 .. suit)
+          end
+          if init:ct(T34.new(i .. suit)) >0 and ok == 1 then
+            ssk = ssk + 1
+          elseif ok == 1 then
+            keypair = T34.new(i .. suit)
+          end
+          if init:ct(T34.new(i+1 .. suit)) >0 and ok == 1 then
+            ssk = ssk + 1
+          elseif ok == 1 then
+            keypair = T34.new(i+1 .. suit)
+          end
+        end
+        if ssk > 7 then
+          ok = 0
+        end
+        if ssk <= 7 then
+          ssk = 0
+        end
+      end
+      for _, t in ipairs(T34.all) do
+        if init:ct(t) > 2 then
+          sak = sak + 3
+        end
+        if init:ct(t) == 2 and ok == 1 then
+          sak = sak + 1
+          keypair = t
+        end
+      end
+      if sak > 6 then
+        ok = 0
+      end
+      if sak <= 6 then
+        sak = 0
+      end
+      if init:step7() <= 3 then
+        ok = 0
+      end
     end
+    return init:step() <= 3 and nottf <= 3 and ok = 0
   end
 end
 
+function ondraw()
+  local hands = game:gethand(self)
+  local steps = hands:step(self)
+  local drids = mount:getdrids()
+  
+  if who ~= self or rinshan then
+    return
+  end
+
+  if who == self then
+    junme = junme + 1
+    for _, t in ipairs(hands:effa()) do
+      mount:lighta(t, junme * 3)
+    end
+    if bakuhatsu >= 1 then
+      for tars, mk in pairs(powers) do
+        for _, t in ipairs(tars) do
+          mount:lighta(T34.new(t), mk)
+        end
+      end
+    end
+  end
+end
+      
