@@ -47,9 +47,9 @@ function checkinit()
     if sak <= 5 then
       sak = 0
     end
-	
-	for _, suit in ipairs(suits) do
-        for i=2,7,1 do
+
+    for _, suit in ipairs(suits) do
+      for i=2,7,1 do
         if init:ct(T34.new((i-1) .. suit)) > 1 and init:ct(T34.new((i) .. suit)) > 1 and init:ct(T34.new((i+1) .. suit)) > 1 then
 			ok = 0
 		end
