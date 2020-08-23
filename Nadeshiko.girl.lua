@@ -21,32 +21,32 @@ function checkinit()
       if init:ct(T34.new(i .. suit)) >0 then
         ssk = ssk + 1
       end
-        if init:ct(T34.new(i+1 .. suit)) >0 then
-				ssk = ssk + 1
-			end
-		end
-		if ssk > 6 then
-			ok = 0
-		end
-		if ssk <= 6 then
-			ssk = 0
-		end
-	end
-  
-	for _, t in ipairs(T34.all) do
-        if init:ct(t) > 2 then
-	     sak = sak + 3
-	    end
-        if init:ct(t) == 2 then
-	     sak = sak + 1
-	    end
+      if init:ct(T34.new(i+1 .. suit)) >0 then
+        ssk = ssk + 1
+      end
     end
-	if sak > 5 then
-		ok = 0
-	end
-	if sak <= 5 then
-		sak = 0
-	end
+    if ssk > 6 then
+      ok = 0
+    end
+    if ssk <= 6 then
+      ssk = 0
+    end
+  end
+  
+  for _, t in ipairs(T34.all) do
+    if init:ct(t) > 2 then
+      sak = sak + 3
+    end
+      if init:ct(t) == 2 then
+        sak = sak + 1
+      end
+    end
+    if sak > 5 then
+      ok = 0
+    end
+    if sak <= 5 then
+      sak = 0
+    end
 	
 	for _, suit in ipairs(suits) do
         for i=2,7,1 do
