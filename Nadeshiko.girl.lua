@@ -1,129 +1,76 @@
-doge = 0
-sp = 25
-
-function ondice()
-  local extra = game:getextraround()
-
-  if extra == 0 then
-    sp = 25
-  end
-  if extra == 1 then
-    sp = 16
-  end
-  if extra >= 2 then
-    sp = 8
+function checkinit()
+	
+  if who ~= self or iter > 170 then
+    return true
   end
   
-  doge = rand:gen(sp)
-end
-
-function onmonkey()
-  status = doge
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
-  local exist = exists[self:index()]
-  
-  if status <= 1 then
-    exist:incmk(T34.new("1y"), 144)
-    exist:incmk(T34.new("2y"), -15)
-    exist:incmk(T34.new("3y"), -15)
-    for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), -15)
-    end
-  end
-  
-  if status == 2 then
-    exist:incmk(T34.new("2y"), 144)
-    exist:incmk(T34.new("1y"), -15)
-    exist:incmk(T34.new("3y"), -15)
-    for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), -15)
-    end
-  end
+  local suits = { "m", "p", "s" }
+  local ssk = 0
+  local sak = 0
+  local rp = 0
+  local ty = 0
+  local ok = 1
 
-  if status == 3 then
-    exist:incmk(T34.new("3y"), 144)
-    exist:incmk(T34.new("1y"), -15)
-    exist:incmk(T34.new("2y"), -15)
-    for i = 1, 4 do
-      exist:incmk(T34.new(i .. "f"), -15)
-    end
-  end
-
-  if status == 4 then
-    if sw == 1 then
-      exist:incmk(T34.new("1f"), 144)
-      exist:incmk(T34.new("2f"), -15)
-      exist:incmk(T34.new("3f"), -15)
-      exist:incmk(T34.new("4f"), -15)
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -15)
-      end
-    end
-    if sw == 2 then
-      exist:incmk(T34.new("2f"), 144)
-      exist:incmk(T34.new("1f"), -15)
-      exist:incmk(T34.new("3f"), -15)
-      exist:incmk(T34.new("4f"), -15)
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -15)
-      end
-    end
-    if sw == 3 then
-      exist:incmk(T34.new("3f"), 144)
-      exist:incmk(T34.new("2f"), -15)
-      exist:incmk(T34.new("1f"), -15)
-      exist:incmk(T34.new("4f"), -15)
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -15)
-      end
-    end
-    if sw == 4 then
-      exist:incmk(T34.new("4f"), 144)
-      exist:incmk(T34.new("2f"), -15)
-      exist:incmk(T34.new("3f"), -15)
-      exist:incmk(T34.new("1f"), -15)
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -15)
-      end
-    end
-  end
+  for i=2,7,1 do
+    for _, suit in ipairs(suits) do
+			if init:ct(T34.new(i-1 .. suit)) >0 then
+				ssk = ssk + 1
+			end
+			if init:ct(T34.new(i .. suit)) >0 then
+				ssk = ssk + 1
+			end
+			if init:ct(T34.new(i+1 .. suit)) >0 then
+				ssk = ssk + 1
+			end
+		end
+		if ssk > 6 then
+			ok = 0
+		end
+		if ssk <= 6 then
+			ssk = 0
+		end
+	end
   
-  if status == 5 then
-    if rw == 1 then
-      exist:incmk(T34.new("1f"), 144)
-      exist:incmk(T34.new("2f"), -15)
-      exist:incmk(T34.new("3f"), -15)
-      exist:incmk(T34.new("4f"), -15)
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -15)
-      end
+	for _, t in ipairs(T34.all) do
+        if init:ct(t) > 2 then
+	     sak = sak + 3
+	    end
+        if init:ct(t) == 2 then
+	     sak = sak + 1
+	    end
     end
-    if rw == 2 then
-      exist:incmk(T34.new("2f"), 144)
-      exist:incmk(T34.new("1f"), -15)
-      exist:incmk(T34.new("3f"), -15)
-      exist:incmk(T34.new("4f"), -15)
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -15)
-      end
+	if sak > 5 then
+		ok = 0
+	end
+	if sak <= 5 then
+		sak = 0
+	end
+	
+	for _, suit in ipairs(suits) do
+        for i=2,7,1 do
+        if init:ct(T34.new((i-1) .. suit)) > 1 and init:ct(T34.new((i) .. suit)) > 1 and init:ct(T34.new((i+1) .. suit)) > 1 then
+			ok = 0
+		end
+	end
+	end
+	
+    if init:closed():ct("p") > 9 or init:closed():ct("s") > 9 or init:closed():ct("m") > 9 then
+    	ok = 0
     end
-    if rw >= 3 then
-      exist:incmk(T34.new("3f"), 144)
-      exist:incmk(T34.new("2f"), -15)
-      exist:incmk(T34.new("1f"), -15)
-      exist:incmk(T34.new("4f"), -15)
-      for i = 1, 3 do
-        exist:incmk(T34.new(i .. "y"), -15)
-      end
-    end
-  end
-  
-  if status >= 6 then
-    for i = 2, 8 do
-      exist:incmk(T34.new(i .. "p"), 45)
-      exist:incmk(T34.new(i .. "s"), 45)
-      exist:incmk(T34.new(i .. "m"), 45)
-    end
-  end
+	
+    for i=0,3,1 do
+		for _, suit in ipairs(suits) do
+			ty = ty + init:ct(T34.new(5-i .. suit))
+		end
+		if ty > 9 then
+			ok = 0
+		end
+		if ty <= 9 then
+			ty = 0
+		end
+	end
+		
+  return ok == 0
 end
