@@ -15,13 +15,13 @@ function checkinit()
 
   for i=2,7,1 do
     for _, suit in ipairs(suits) do
-			if init:ct(T34.new(i-1 .. suit)) >0 then
-				ssk = ssk + 1
-			end
-			if init:ct(T34.new(i .. suit)) >0 then
-				ssk = ssk + 1
-			end
-			if init:ct(T34.new(i+1 .. suit)) >0 then
+      if init:ct(T34.new(i-1 .. suit)) >0 then
+        ssk = ssk + 1
+      end
+      if init:ct(T34.new(i .. suit)) >0 then
+        ssk = ssk + 1
+      end
+        if init:ct(T34.new(i+1 .. suit)) >0 then
 				ssk = ssk + 1
 			end
 		end
