@@ -1,7 +1,7 @@
 mkByCt = {
   [0] = 0,
-  [1] = 130,
-  [2] = 230,
+  [1] = 230,
+  [2] = 330,
   [3] = -330,
   [4] = 0,
 }
@@ -12,13 +12,13 @@ sak = 0
 
 
 function ondice()
-  doge = rand:gen(50)
+  doge = rand:gen(40)
   
   if bakuhatsu ~= 0 then
     bakuhatsu = bakuhatsu + 1
   end
   
-  if doge >= 38 then
+  if doge >= 29 then
     bakuhatsu = bakuhatsu + 1
   end
   
@@ -61,7 +61,7 @@ function checkinit()
   local ty = 0
   local ok = 1
   
-  if bakuhatsu == 0 or who ~= self or iter > 99 then
+  if bakuhatsu == 0 or who ~= self or iter > 330 then
     return true
   end
   
