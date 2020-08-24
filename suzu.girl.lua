@@ -1,13 +1,27 @@
+mkByCt = {
+  [0] = 0,
+  [1] = 130,
+  [2] = 230,
+  [3] = -330,
+  [4] = 0,
+}
+
 doge = 0
-bakuhatsu = 1
+bakuhatsu = 0
+sak = 0
 
 
 function ondice()
   doge = rand:gen(50)
   
-  if doge >= 0 then
+  if bakuhatsu ~= 0 then
     bakuhatsu = bakuhatsu + 1
   end
+  
+  if doge >= 38 then
+    bakuhatsu = bakuhatsu + 1
+  end
+  
 end
 
 function onmonkey()
@@ -17,8 +31,7 @@ function onmonkey()
   local rw = game:getroundwind()
   local exist = exists[self:index()]
   
-  if bakuhatsu ~= 1 then
-    print("感覺似乎不錯呢")
+  if bakuhatsu ~= 0 then
     exist:incmk(T34.new("6m"), 80)
     exist:incmk(T34.new("7m"), 130)
     exist:incmk(T34.new("8m"), 230)
@@ -31,21 +44,24 @@ function onmonkey()
     exist:incmk(T34.new("7s"), 130)
     exist:incmk(T34.new("8s"), 230)
     exist:incmk(T34.new("9s"), 330)
+    if bakuhatsu == 1 then
+      print("感覺似乎不錯呢")
+    end
   end
 end
 
 function checkinit()
+  sak = 0
   local hands = game:gethand(self)
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local suits = { "m", "p", "s" }
   local ssk = 0
-  local sak = 0
   local rp = 0
   local ty = 0
   local ok = 1
   
-  if bakuhatsu == 1 or who ~= self or iter > 99 then
+  if bakuhatsu == 0 or who ~= self or iter > 99 then
     return true
   end
   
@@ -65,11 +81,19 @@ function checkinit()
         ssk = ssk + 1
       end
     end
-    if ssk > 7 then
+    if ssk > 8 then
       ok = 0
     end
-    if ssk <= 7 then
+    if ssk <= 8 then
       ssk = 0
+    end
+  end
+  
+  for _, suit in ipairs(suits) do
+    for i=2,7,1 do
+      if init:ct(T34.new((i-1) .. suit)) > 1 and init:ct(T34.new((i) .. suit)) > 1 and init:ct(T34.new((i+1) .. suit)) > 1 then
+        ok = 0
+      end
     end
   end
   
@@ -80,22 +104,17 @@ function checkinit()
     if init:ct(t) == 2 then
       sak = sak + 1
     end
-    if init:ct(t) == 4 then
-      sak = sak - 1
-    end
   end
-  if sak > 7 then
+  if sak > 8 then
     ok = 0
   end
-  if sak <= 7 then
+  if sak <= 8 then
     sak = 0
   end
   
-  for _, suit in ipairs(suits) do
-    for i=2,7,1 do
-      if init:ct(T34.new((i-1) .. suit)) > 1 and init:ct(T34.new((i) .. suit)) > 1 and init:ct(T34.new((i+1) .. suit)) > 1 then
-        ok = 0
-      end
+  for _, t in ipairs(T34.all) do
+    if init:ct(t) == 4 then
+      ok = 1
     end
   end
   
@@ -116,14 +135,25 @@ function ondraw()
 
   if who == self then
     junme = junme + 1
-    for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, junme * 4 * bakuhatsu)
-    end
-    if bakuhatsu ~= 1 then
-      for i = 1, 5 do
-        mount:lighta(T34.new(i .. "m"), junme * - 9 * bakuhatsu)
-        mount:lighta(T34.new(i .. "p"), junme * - 9 * bakuhatsu)
-        mount:lighta(T34.new(i .. "s"), junme * - 9 * bakuhatsu)
+    if bakuhatsu ~= 0 then
+      for _, t in ipairs(hands:effa()) do
+        mount:lighta(t, junme * 4)
+      end
+      if sak == 0 then 
+        for i = 1, 5 do
+          mount:lighta(T34.new(i .. "m"), junme * - 9)
+          mount:lighta(T34.new(i .. "p"), junme * - 9)
+          mount:lighta(T34.new(i .. "s"), junme * - 9)
+        end
+        for _, t in ipairs(T34.all) do
+          if hands:ct(t) == 3 then
+            mount:lighta(t, -330)
+          end
+        end
+      else
+        for _, t in ipairs(T34.all) do
+          mount:lighta(t, mkByCt[hands:ct(t)])
+        end
       end
     end
   end
