@@ -5,7 +5,7 @@ bakuhatsu = 1
 function ondice()
   doge = rand:gen(50)
   
-  if doge >= 1 then
+  if doge >= 0 then
     bakuhatsu = bakuhatsu + 1
   end
 end
@@ -17,8 +17,6 @@ function onmonkey()
   local rw = game:getroundwind()
   local exist = exists[self:index()]
   
-  print(status)
-  print(bakuhatsu)
   if bakuhatsu ~= 1 then
     print("感覺似乎不錯呢")
     exist:incmk(T34.new("6m"), 80)
@@ -47,7 +45,7 @@ function checkinit()
   local ty = 0
   local ok = 1
   
-  if bakuhatsu == 1 or who ~= self or iter > 330 then
+  if bakuhatsu == 1 or who ~= self or iter > 99 then
     return true
   end
   
@@ -67,10 +65,10 @@ function checkinit()
         ssk = ssk + 1
       end
     end
-    if ssk > 8 then
+    if ssk > 7 then
       ok = 0
     end
-    if ssk <= 8 then
+    if ssk <= 7 then
       ssk = 0
     end
   end
@@ -82,11 +80,14 @@ function checkinit()
     if init:ct(t) == 2 then
       sak = sak + 1
     end
+    if init:ct(t) == 4 then
+      sak = sak - 1
+    end
   end
-  if sak > 8 then
+  if sak > 7 then
     ok = 0
   end
-  if sak <= 8 then
+  if sak <= 7 then
     sak = 0
   end
   
@@ -100,7 +101,7 @@ function checkinit()
   
   local ns = init:ct(T34.new("1m")) + init:ct(T34.new("2m")) + init:ct(T34.new("3m")) + init:ct(T34.new("4m")) + init:ct(T34.new("5m")) + init:ct(T34.new("1p")) + init:ct(T34.new("2p")) + init:ct(T34.new("3p")) + init:ct(T34.new("4p")) + init:ct(T34.new("5p")) + init:ct(T34.new("1s")) + init:ct(T34.new("2s")) + init:ct(T34.new("3s")) + init:ct(T34.new("4s")) + init:ct(T34.new("5s"))
   
-  return ok == 0 and ns <= 2
+  return ok == 0 and ns == 2
 end
 
 
@@ -120,9 +121,9 @@ function ondraw()
     end
     if bakuhatsu ~= 1 then
       for i = 1, 5 do
-        mount:lighta(T34.new(i .. "m"), junme * - 9)
-        mount:lighta(T34.new(i .. "p"), junme * - 9)
-        mount:lighta(T34.new(i .. "s"), junme * - 9)
+        mount:lighta(T34.new(i .. "m"), junme * - 9 * bakuhatsu)
+        mount:lighta(T34.new(i .. "p"), junme * - 9 * bakuhatsu)
+        mount:lighta(T34.new(i .. "s"), junme * - 9 * bakuhatsu)
       end
     end
   end
