@@ -1,24 +1,24 @@
 mkByCt = {
   [0] = 0,
-  [1] = 230,
-  [2] = 330,
+  [1] = 330,
+  [2] = 430,
   [3] = -330,
   [4] = 0,
 }
 
 doge = 0
 bakuhatsu = 0
-sak = 0
-
+haipai = 0
 
 function ondice()
   doge = rand:gen(40)
+  haipai = 0
   
   if bakuhatsu ~= 0 then
     bakuhatsu = bakuhatsu + 1
   end
   
-  if doge >= 29 then
+  if doge >= 28 then
     bakuhatsu = bakuhatsu + 1
   end
   
@@ -33,15 +33,15 @@ function onmonkey()
   
   if bakuhatsu ~= 0 then
     exist:incmk(T34.new("6m"), 80)
-    exist:incmk(T34.new("7m"), 130)
+    exist:incmk(T34.new("7m"), 230)
     exist:incmk(T34.new("8m"), 230)
     exist:incmk(T34.new("9m"), 330)
     exist:incmk(T34.new("6p"), 80)
-    exist:incmk(T34.new("7p"), 130)
+    exist:incmk(T34.new("7p"), 230)
     exist:incmk(T34.new("8p"), 230)
     exist:incmk(T34.new("9p"), 330)
     exist:incmk(T34.new("6s"), 80)
-    exist:incmk(T34.new("7s"), 130)
+    exist:incmk(T34.new("7s"), 230)
     exist:incmk(T34.new("8s"), 230)
     exist:incmk(T34.new("9s"), 330)
     if bakuhatsu == 1 then
@@ -51,12 +51,12 @@ function onmonkey()
 end
 
 function checkinit()
-  sak = 0
   local hands = game:gethand(self)
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local suits = { "m", "p", "s" }
   local ssk = 0
+  local sak = 0
   local rp = 0
   local ty = 0
   local ok = 1
@@ -65,8 +65,9 @@ function checkinit()
     return true
   end
   
-  if hands:step7() <= 2 then
+  if hands:step7() <= 2 and hands:step4() >= 4 then
     ok = 0
+    haipai = 4
   end
   
   for i=2,7,1 do
@@ -83,6 +84,7 @@ function checkinit()
     end
     if ssk > 8 then
       ok = 0
+      haipai = 1
     end
     if ssk <= 8 then
       ssk = 0
@@ -93,6 +95,7 @@ function checkinit()
     for i=2,7,1 do
       if init:ct(T34.new((i-1) .. suit)) > 1 and init:ct(T34.new((i) .. suit)) > 1 and init:ct(T34.new((i+1) .. suit)) > 1 then
         ok = 0
+        haipai = 3
       end
     end
   end
@@ -107,6 +110,7 @@ function checkinit()
   end
   if sak > 8 then
     ok = 0
+    haipai = 2
   end
   if sak <= 8 then
     sak = 0
@@ -139,7 +143,7 @@ function ondraw()
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, junme * 4)
       end
-      if sak == 0 then 
+      if haipai == 2 then
         for i = 1, 5 do
           mount:lighta(T34.new(i .. "m"), junme * - 9)
           mount:lighta(T34.new(i .. "p"), junme * - 9)
