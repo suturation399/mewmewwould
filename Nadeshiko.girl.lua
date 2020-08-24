@@ -51,26 +51,25 @@ function checkinit()
     for _, suit in ipairs(suits) do
       for i=2,7,1 do
         if init:ct(T34.new((i-1) .. suit)) > 1 and init:ct(T34.new((i) .. suit)) > 1 and init:ct(T34.new((i+1) .. suit)) > 1 then
-			ok = 0
-		end
-	end
-	end
-	
+          ok = 0
+        end
+      end
+    end
     if init:closed():ct("p") > 9 or init:closed():ct("s") > 9 or init:closed():ct("m") > 9 then
-    	ok = 0
+      ok = 0
+    end
+
+    for i=0,3,1 do
+      for _, suit in ipairs(suits) do
+        ty = ty + init:ct(T34.new(5-i .. suit))
+      end
+      if ty > 9 then
+        ok = 0
+      end
+      if ty <= 9 then
+        ty = 0
+      end
     end
 	
-    for i=0,3,1 do
-		for _, suit in ipairs(suits) do
-			ty = ty + init:ct(T34.new(5-i .. suit))
-		end
-		if ty > 9 then
-			ok = 0
-		end
-		if ty <= 9 then
-			ty = 0
-		end
-	end
-		
   return ok == 0
 end
