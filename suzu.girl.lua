@@ -16,7 +16,7 @@ end
 
 function onmonkey()
   status = doge
-  junme = 0
+  junme = 1
   local sw = game:getselfwind(self)
   local rw = game:getroundwind()
   local exist = exists[self:index()]
