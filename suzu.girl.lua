@@ -8,7 +8,7 @@ function ondice()
     bakuhatsu = bakuhatsu + 1
   end
   
-  if doge >= 37 then
+  if doge >= 27 then
     bakuhatsu = bakuhatsu + 1
   end
   
@@ -44,7 +44,7 @@ function checkinit()
   local hands = game:gethand(self)
   local ok = 0
   
-  if bakuhatsu == 0 or who ~= self or iter > 330 then
+  if bakuhatsu == 0 or who ~= self or iter > 99 then
     return true
   end
   
@@ -56,7 +56,7 @@ function checkinit()
   
   local ns = init:ct(T34.new("1m")) + init:ct(T34.new("2m")) + init:ct(T34.new("3m")) + init:ct(T34.new("4m")) + init:ct(T34.new("5m")) + init:ct(T34.new("1p")) + init:ct(T34.new("2p")) + init:ct(T34.new("3p")) + init:ct(T34.new("4p")) + init:ct(T34.new("5p")) + init:ct(T34.new("1s")) + init:ct(T34.new("2s")) + init:ct(T34.new("3s")) + init:ct(T34.new("4s")) + init:ct(T34.new("5s"))
   
-  return ok == 0 and ns <= 2
+  return ok == 0 and ns >= 1 and ns <= 3
 end
 
 
