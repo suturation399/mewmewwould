@@ -8,7 +8,7 @@ function ondice()
     bakuhatsu = bakuhatsu + 1
   end
   
-  if doge >= 27 then
+  if doge >= 0 then
     bakuhatsu = bakuhatsu + 1
   end
   
@@ -71,18 +71,24 @@ function ondraw()
 
   if who == self then
     junme = junme + 1
-    if bakuhatsu ~= 0 then
+    if bakuhatsu == 0 then
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, junme * 4)
       end
-      for i = 1, 5 do
-        mount:lighta(T34.new(i .. "m"), junme * -9)
-        mount:lighta(T34.new(i .. "p"), junme * -9)
-        mount:lighta(T34.new(i .. "s"), junme * -9)
+    else
+      for _, t in ipairs(hands:effa()) do
+        mount:lighta(t, junme * 5)
       end
-      for _, t in ipairs(T34.all) do
-        if hands:ct(t) == 3 then
-          mount:lighta(t, -330)
+      for i = 1, 5 do
+        mount:lighta(T34.new(i .. "m"), junme * -12)
+        mount:lighta(T34.new(i .. "p"), junme * -12)
+        mount:lighta(T34.new(i .. "s"), junme * -12)
+      end
+      if hands:step() ~= 0 then
+        for _, t in ipairs(T34.all) do
+          if hands:ct(t) == 3 then
+            mount:lighta(t, -330)
+          end
         end
       end
     end
