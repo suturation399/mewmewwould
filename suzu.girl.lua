@@ -143,7 +143,7 @@ function ondraw()
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, junme * 4)
       end
-      if haipai == 2 then
+      if haipai ~= 2 then
         for i = 1, 5 do
           mount:lighta(T34.new(i .. "m"), junme * - 9)
           mount:lighta(T34.new(i .. "p"), junme * - 9)
