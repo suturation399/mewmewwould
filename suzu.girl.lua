@@ -73,7 +73,7 @@ function ondraw()
     junme = junme + 1
     if bakuhatsu == 0 then
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, junme * 4)
+        mount:lighta(t, junme * 3)
       end
     else
       for _, t in ipairs(hands:effa()) do
