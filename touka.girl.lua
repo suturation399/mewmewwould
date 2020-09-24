@@ -28,7 +28,7 @@ function checkinit()
   end
   
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  local onone = init:ct(T34.new("1f")) <= 1 and init:ct(T34.new("2f")) <= 1 and init:ct(T34.new("3f")) <= 1 and init:ct(T34.new("4f")) <= 1 and init:ct(T34.new("1y")) <= 1 and init:ct(T34.new("1y")) <= 1 and init:ct(T34.new("1y")) <= 1
+  local onone = init:ct(T34.new("1f")) <= 1 and init:ct(T34.new("2f")) <= 1 and init:ct(T34.new("3f")) <= 1 and init:ct(T34.new("4f")) <= 1 and init:ct(T34.new("1y")) <= 1 and init:ct(T34.new("2y")) <= 1 and init:ct(T34.new("3y")) <= 1
   
   return onone and ny >= 3
 end
@@ -122,6 +122,12 @@ function ondraw()
         end
       end
     end
+  end
+end
+
+function ongameevent()
+  if event.type == "drawn" then
+    read(mount, game, who)
   end
 end
 
