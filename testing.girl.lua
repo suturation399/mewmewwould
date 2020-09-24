@@ -48,82 +48,13 @@ function ondraw()
     return
   end
   
-  if who == self then
-    junme = junme + 1
-    if bakuhatsu == 0 then
-      if steps >= 1 then
-        for _, t in ipairs(hands:effa()) do
-          mount:lighta(t, junme * 4)
-        end
-      else
-        for _, t in ipairs(hands:effa()) do
-          local form = Form.new(hand, T37.new(t:id34()), ctx, rule, drids)
-          if ctx.riichi ~= 0 and form:han() >= 5 and ctx.ippatsu then
-            mount:lighta(t, 1000)
-          else
-            mount:lighta(t, 96 - junme * 4)
-          end
-        end
-      end
-    else
+  if hakuhatsu ~= 0 then
+    if who == self then
+      junme = junme + 1
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, junme * 5)
       end
-      if steps == 0 then
-        if handr:ready() then
-          for _, t in ipairs(handr:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
-          end
-        end
-        if handc:ready() then
-          for _, t in ipairs(handc:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
-          end
-        end
-        if handl:ready() then
-          for _, t in ipairs(handl:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
-          end
-        end
-      end
-    end
-  end
-  
-  if who ~= self then
-    if bakuhatsu ~= 0 then
-      if hand:ct(T34.new("1f")) ~= 0 then
-        mount:lighta(T34.new("1f"), -250)
-      end
-      if hand:ct(T34.new("2f")) ~= 0 then
-        mount:lighta(T34.new("2f"), -250)
-      end
-      if hand:ct(T34.new("3f")) ~= 0 then
-        mount:lighta(T34.new("3f"), -250)
-      end
-      if hand:ct(T34.new("3f")) ~= 0 then
-        mount:lighta(T34.new("3f"), -250)
-      end
-      if hand:ct(T34.new("1y")) ~= 0 then
-        mount:lighta(T34.new("1y"), -250)
-      end
-      if hand:ct(T34.new("2y")) ~= 0 then
-        mount:lighta(T34.new("2y"), -250)
-      end
-      if hand:ct(T34.new("3y")) ~= 0 then
-        mount:lighta(T34.new("3y"), -250)
-      end
-      if hand:ready() then
-        for _, t in ipairs(hand:effa()) do
-          mount:lighta(t, -250)
-          mount:lightb(t, -250)
-        end
-      end
-    end
-  end
-end
+    
 
 function ongameevent()
   if event.type == "drawn" then
