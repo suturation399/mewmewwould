@@ -54,7 +54,7 @@ function ondraw()
     return
   end
   
-  if hakuhatsu ~= 0 then
+  if bakuhatsu ~= 0 then
     if hand:ct(T34.new("1f")) ~= 0 then
       mount:lighta(T34.new("1f"), -500)
     end
