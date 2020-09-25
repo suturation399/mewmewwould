@@ -8,7 +8,7 @@ function ondice()
     bakuhatsu = bakuhatsu + 1
   end
   
-  if doge >= 45 then
+  if doge >= 0 then
     bakuhatsu = bakuhatsu + 1
   end
 end
@@ -24,7 +24,7 @@ end
 function checkinit()
   local ok = 0
   
-  if bakuhatsu ~= 0 or iter > 250 then
+  if bakuhatsu == 0 or iter > 500 then
     return true
   end
   
@@ -37,7 +37,7 @@ function checkinit()
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
   local onone = init:ct(T34.new("1f")) <= 1 and init:ct(T34.new("2f")) <= 1 and init:ct(T34.new("3f")) <= 1 and init:ct(T34.new("4f")) <= 1 and init:ct(T34.new("1y")) <= 1 and init:ct(T34.new("2y")) <= 1 and init:ct(T34.new("3y")) <= 1
   
-  return onone and ny >= 3
+  return onone and ny >= 3 and ok == 0
 end
 
 function ondraw()
@@ -56,29 +56,30 @@ function ondraw()
   
   if hakuhatsu ~= 0 then
     if hand:ct(T34.new("1f")) ~= 0 then
-      mount:lighta(T34.new("1f"), -250)
+      mount:lighta(T34.new("1f"), -500)
     end
     if hand:ct(T34.new("2f")) ~= 0 then
-      mount:lighta(T34.new("2f"), -250)
+      mount:lighta(T34.new("2f"), -500)
     end
     if hand:ct(T34.new("3f")) ~= 0 then
-      mount:lighta(T34.new("3f"), -250)
+      mount:lighta(T34.new("3f"), -500)
     end
     if hand:ct(T34.new("3f")) ~= 0 then
-      mount:lighta(T34.new("3f"), -250)
+      mount:lighta(T34.new("3f"), -500)
     end
     if hand:ct(T34.new("1y")) ~= 0 then
-      mount:lighta(T34.new("1y"), -250)
+      mount:lighta(T34.new("1y"), -500)
     end
     if hand:ct(T34.new("2y")) ~= 0 then
-      mount:lighta(T34.new("2y"), -250)
+      mount:lighta(T34.new("2y"), -500)
     end
     if hand:ct(T34.new("3y")) ~= 0 then
-      mount:lighta(T34.new("3y"), -250)
+      mount:lighta(T34.new("3y"), -500)
     end
     for _, t in ipairs(T34.all) do
       if hand:ct(t) == 3 then
-        mount:lighta(t, -250)
+        mount:lighta(t, -500)
+        mount:lightb(t, -1000)
       end
     end
     if who == self then
@@ -88,34 +89,34 @@ function ondraw()
       end
       for _, t in ipairs(T34.all) do
         if hands:ct(t) == 3 then
-          mount:lighta(t, -250)
+          mount:lighta(t, -500)
         end
       end
       if hands:step() == 0 then
         if handr:step() == 0 then
           for _, t in ipairs(handr:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
+            mount:lighta(t, -500)
+            mount:lightb(t, -1000)
           end
         end
         if handc:step() == 0 then
           for _, t in ipairs(handc:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
+            mount:lighta(t, -500)
+            mount:lightb(t, -1000)
           end
         end
         if handl:step() == 0 then
           for _, t in ipairs(handl:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
+            mount:lighta(t, -500)
+            mount:lightb(t, -1000)
           end
         end
       end
     else
       if hand:step() == 0 then
         for _, t in ipairs(hand:effa()) do
-          mount:lighta(t, -250)
-          mount:lightb(t, -250)
+          mount:lighta(t, -500)
+          mount:lightb(t, -1000)
         end
       end
     end
