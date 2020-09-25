@@ -1,5 +1,4 @@
 doge = 0
-ok = 0
 bakuhatsu = 0
 
 function ondice()
@@ -23,8 +22,16 @@ function onmonkey()
 end
 
 function checkinit()
+  local ok = 0
+  
   if bakuhatsu ~= 0 or iter > 250 then
     return true
+  end
+  
+  for _, t in ipairs(T34.all) do
+    if init:ct(t) == 4 then
+      ok = 1
+    end
   end
   
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
@@ -35,12 +42,11 @@ end
 
 function ondraw()
   local drids = mount:getdrids()
-  local hand = game:gethand()
+  local hand = game:gethand(who)
   local hands = game:gethand(self)
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
-  local steps = hands:step(self)
   local ctx = game:getformctx(self)
   local rule = game:getrule()
   
@@ -48,10 +54,75 @@ function ondraw()
     return
   end
   
-  if who == self then
-    junme = junme + 1
-    if bakuhatsu == 0 then
-      if steps >= 1 then
+  if hakuhatsu ~= 0 then
+    if hand:ct(T34.new("1f")) ~= 0 then
+      mount:lighta(T34.new("1f"), -250)
+    end
+    if hand:ct(T34.new("2f")) ~= 0 then
+      mount:lighta(T34.new("2f"), -250)
+    end
+    if hand:ct(T34.new("3f")) ~= 0 then
+      mount:lighta(T34.new("3f"), -250)
+    end
+    if hand:ct(T34.new("3f")) ~= 0 then
+      mount:lighta(T34.new("3f"), -250)
+    end
+    if hand:ct(T34.new("1y")) ~= 0 then
+      mount:lighta(T34.new("1y"), -250)
+    end
+    if hand:ct(T34.new("2y")) ~= 0 then
+      mount:lighta(T34.new("2y"), -250)
+    end
+    if hand:ct(T34.new("3y")) ~= 0 then
+      mount:lighta(T34.new("3y"), -250)
+    end
+    for _, t in ipairs(T34.all) do
+      if hand:ct(t) == 3 then
+        mount:lighta(t, -250)
+      end
+    end
+    if who == self then
+      junme = junme + 1
+      for _, t in ipairs(hands:effa()) do
+        mount:lighta(t, junme * 5)
+      end
+      for _, t in ipairs(T34.all) do
+        if hands:ct(t) == 3 then
+          mount:lighta(t, -250)
+        end
+      end
+      if hands:step() == 0 then
+        if handr:step() == 0 then
+          for _, t in ipairs(handr:effa()) do
+            mount:lighta(t, -250)
+            mount:lightb(t, -250)
+          end
+        end
+        if handc:step() == 0 then
+          for _, t in ipairs(handc:effa()) do
+            mount:lighta(t, -250)
+            mount:lightb(t, -250)
+          end
+        end
+        if handl:step() == 0 then
+          for _, t in ipairs(handl:effa()) do
+            mount:lighta(t, -250)
+            mount:lightb(t, -250)
+          end
+        end
+      end
+    else
+      if hand:step() == 0 then
+        for _, t in ipairs(hand:effa()) do
+          mount:lighta(t, -250)
+          mount:lightb(t, -250)
+        end
+      end
+    end
+  else
+    if who == self then
+      junme = junme + 1
+      if hands:step() ~= 0 then
         for _, t in ipairs(hands:effa()) do
           mount:lighta(t, junme * 4)
         end
@@ -63,62 +134,6 @@ function ondraw()
           else
             mount:lighta(t, 96 - junme * 4)
           end
-        end
-      end
-    else
-      for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, junme * 5)
-      end
-      if steps == 0 then
-        if handr:ready() then
-          for _, t in ipairs(handr:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
-          end
-        end
-        if handc:ready() then
-          for _, t in ipairs(handc:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
-          end
-        end
-        if handl:ready() then
-          for _, t in ipairs(handl:effa()) do
-            mount:lighta(t, -250)
-            mount:lightb(t, -250)
-          end
-        end
-      end
-    end
-  end
-  
-  if who ~= self then
-    if bakuhatsu ~= 0 then
-      if hand:ct(T34.new("1f")) ~= 0 then
-        mount:lighta(T34.new("1f"), -250)
-      end
-      if hand:ct(T34.new("2f")) ~= 0 then
-        mount:lighta(T34.new("2f"), -250)
-      end
-      if hand:ct(T34.new("3f")) ~= 0 then
-        mount:lighta(T34.new("3f"), -250)
-      end
-      if hand:ct(T34.new("3f")) ~= 0 then
-        mount:lighta(T34.new("3f"), -250)
-      end
-      if hand:ct(T34.new("1y")) ~= 0 then
-        mount:lighta(T34.new("1y"), -250)
-      end
-      if hand:ct(T34.new("2y")) ~= 0 then
-        mount:lighta(T34.new("2y"), -250)
-      end
-      if hand:ct(T34.new("3y")) ~= 0 then
-        mount:lighta(T34.new("3y"), -250)
-      end
-      if hand:ready() then
-        for _, t in ipairs(hand:effa()) do
-          mount:lighta(t, -250)
-          mount:lightb(t, -250)
         end
       end
     end
