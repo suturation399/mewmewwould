@@ -64,8 +64,8 @@ function ondraw()
     if hand:ct(T34.new("3f")) ~= 0 then
       mount:lighta(T34.new("3f"), -500)
     end
-    if hand:ct(T34.new("3f")) ~= 0 then
-      mount:lighta(T34.new("3f"), -500)
+    if hand:ct(T34.new("4f")) ~= 0 then
+      mount:lighta(T34.new("4f"), -500)
     end
     if hand:ct(T34.new("1y")) ~= 0 then
       mount:lighta(T34.new("1y"), -500)
