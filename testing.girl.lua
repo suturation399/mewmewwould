@@ -8,7 +8,7 @@ function ondice()
     bakuhatsu = bakuhatsu + 1
   end
   
-  if doge >= 0 then
+  if doge >= 45 then
     bakuhatsu = bakuhatsu + 1
   end
 end
@@ -41,20 +41,20 @@ function checkinit()
 end
 
 function ondraw()
-  local drids = mount:getdrids()
   local hand = game:gethand(who)
   local hands = game:gethand(self)
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
-  local ctx = game:getformctx(self)
+  local formctx = game:getformctx(self)
   local rule = game:getrule()
+  local drids = mount:getdrids()
   
   if rinshan then
     return
   end
   
-  if hakuhatsu ~= 0 then
+  if bakuhatsu ~= 0 then
     if hand:ct(T34.new("1f")) ~= 0 then
       mount:lighta(T34.new("1f"), -500)
     end
@@ -64,8 +64,8 @@ function ondraw()
     if hand:ct(T34.new("3f")) ~= 0 then
       mount:lighta(T34.new("3f"), -500)
     end
-    if hand:ct(T34.new("3f")) ~= 0 then
-      mount:lighta(T34.new("3f"), -500)
+    if hand:ct(T34.new("4f")) ~= 0 then
+      mount:lighta(T34.new("4f"), -500)
     end
     if hand:ct(T34.new("1y")) ~= 0 then
       mount:lighta(T34.new("1y"), -500)
@@ -127,10 +127,16 @@ function ondraw()
         for _, t in ipairs(hands:effa()) do
           mount:lighta(t, junme * 4)
         end
+        mount:lighta(T37.new("0p"), 250)
+        mount:lighta(T37.new("0s"), 250)
+        mount:lighta(T37.new("0m"), 250)
+        for _, t in ipairs(drids) do
+          mount:lighta(t:dora(), 250)
+        end
       else
         for _, t in ipairs(hands:effa()) do
-          local form = Form.new(hand, T37.new(t:id34()), ctx, rule, drids)
-          if ctx.riichi ~= 0 and form:han() >= 5 and ctx.ippatsu then
+          local form = Form.new(hand, T37.new(t:id34()), formctx, game:getrule())
+          if formctx.riichi ~= 0 and form:gain() >= 8000 then
             mount:lighta(t, 1000)
           else
             mount:lighta(t, 96 - junme * 4)
