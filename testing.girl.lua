@@ -136,13 +136,15 @@ function ondraw()
       else
         if formctx.riichi ~= 0 then
           for _, t in ipairs(hands:effa()) do
-          local form = Form.new(hands, t, formctx, game:getrule())
-            if form:gain() >= 8000 then
+          local form = Form.new(hands, formctx, rule)
+            if form:han() >= 6 then
               mount:lighta(t, 1000)
             end
           end
         else
-          mount:lighta(t, 96 - junme * 4)
+          for _, t in ipairs(hands:effa()) do
+            mount:lighta(t, 96 - junme * 4)
+          end
         end
       end
     end
