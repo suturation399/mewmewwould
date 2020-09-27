@@ -44,7 +44,7 @@ function ondraw()
     end
   end
   
-    ryou(mount, game, who)
+  ryou(mount, game, who)
 end
 
 function ryou (mount, game, who)
