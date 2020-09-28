@@ -1,4 +1,3 @@
-  
 ok = 0
 
 function checkinit()
@@ -13,7 +12,7 @@ function checkinit()
 
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
   
-  if ny <= 3 and init:step() <= 4 then
+  if ny <=  and init:step() <= 4 then
     ok = 1
   end
   
@@ -28,7 +27,7 @@ function ondraw()
   local ctx = game:getformctx(self)
   local rule = game:getrule()
   local drids = mount:getdrids()
-  local junmk = 67 - junme * 3
+  local junmk = 67 - junme * 6
   local omk = junme * 4 * hand:step()
   local amk = junme * 4 * (6 - hand:step())
   
@@ -72,7 +71,7 @@ function ryou (mount, game, who)
     return
   end
 
-  local mk = 134 - junme * 6
+  local mk = 134 - junme * 12
   local hand = game:gethand(self)
   local closed = hand:closed()
   local dream = Hand.new(hand)
