@@ -114,7 +114,7 @@ function ryou (mount, game, who)
     for i = 2,8 do
       for _, suit in ipairs(suits) do
         if hand:step() >= 1 and closed:ct(T34.new(i .. suit)) == 2 and (closed:ct(T34.new(i+1 .. suit)) > 0 and closed:ct(T34.new(i-1 .. suit)) > 0) then
-          mount:lighta(T34.new(i .. suit), mk)
+          mount:lighta(T34.new(i .. suit), mk * 0.5)
         end
       end
     end
@@ -122,7 +122,7 @@ function ryou (mount, game, who)
     mount:lighta(bestpair, mk)
   
     if hand:step() == 1 and bestcount >= 3 then
-      mount:lighta(bestpair, 5*mk)
+      mount:lighta(bestpair, 5 * mk)
     end
   end
 end 
