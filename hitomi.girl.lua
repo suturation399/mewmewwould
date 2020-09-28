@@ -12,7 +12,7 @@ function ondraw()
   local steps = hands:step(self)
   local drids = mount:getdrids()
   local junmk = junme * 3
-  local jdomk = 200 - junme * 10
+  local jdomk = 150 - junme * 7
 
   if who ~= self or rinshan then
     return
@@ -25,9 +25,6 @@ function ondraw()
     mount:lighta(T37.new("0m"), jdomk)
     for _, t in ipairs(drids) do
       mount:lighta(t:dora(), jdomk)
-    end
-    for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, junmk)
     end
     if (junme == 1 and steps >= 5) or junme == 12 then
       print("不管怎樣都是政治的錯")
@@ -53,7 +50,7 @@ function ryou (mount, game, who)
     return
   end
 
-  local mk = 11 * junme
+  local mk = 9 * junme
   local hand = game:gethand(self)
   local closed = hand:closed()
   local dream = Hand.new(hand)
