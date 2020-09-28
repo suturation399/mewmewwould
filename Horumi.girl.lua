@@ -213,10 +213,10 @@ function ondraw()
       end
     else
       for _, t in ipairs(river) do
-        mount:lighta(t, -24)
+        mount:lighta(t, -18)
       end
       for _, t in ipairs(game:gethand(who):effa()) do
-        mount:lighta(t, -18)
+        mount:lighta(t, -24)
       end
       for i = 3, 7 do
         mount:lighta(T34.new(i .. "m"), 9)
@@ -229,53 +229,32 @@ function ondraw()
   if who == self then
     junme = junme + 1
     if handr:ready() then
-      for _, t in ipairs(game:getriver(self:right())) do
-        mount:lighta(t, 33)
+      for _, t in ipairs(handr:effa()) do
+        mount:lighta(t, -27)
       end
     end
     if handc:ready() then
-      for _, t in ipairs(game:getriver(self:cross())) do
-        mount:lighta(t, 33)
+      for _, t in ipairs(handc:effa()) do
+        mount:lighta(t, -27)
       end
     end
     if handl:ready() then
-      for _, t in ipairs(game:getriver(self:left())) do
-        mount:lighta(t, 33)
+      for _, t in ipairs(handl:effa()) do
+        mount:lighta(t, -27)
       end
     end
     if steps >= 1 then
       mount:lighta(T37.new("0p"), dormk)
       mount:lighta(T37.new("0s"), dormk)
       mount:lighta(T37.new("0m"), dormk)
-      for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, junme * -5 * 2)
-      end
-      for _, t in ipairs(hands:effa4()) do
-        mount:lighta(t, junme * 5 * 3)
-      end
     else
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, 102 - junmk)
+        mount:lighta(t, 113 - junmk)
       end
       for i = 2, 8 do
         mount:lighta(T34.new(i .. "m"), -9)
         mount:lighta(T34.new(i .. "p"), -9)
         mount:lighta(T34.new(i .. "s"), -9)
-      end
-      if handr:ready() then
-        for _, t in ipairs(handr:effa()) do
-          mount:lighta(t, -27)
-        end
-      end
-      if handc:ready() then
-        for _, t in ipairs(handc:effa()) do
-          mount:lighta(t, -27)
-        end
-      end
-      if handl:ready() then
-        for _, t in ipairs(handl:effa()) do
-          mount:lighta(t, -27)
-        end
       end
     end
   end
@@ -289,8 +268,11 @@ function ryou (mount, game, who)
     return
   end
 
-  local mk = 16 * junme
+  local mk = 15 * junme
   local hand = game:gethand(self)
+  local handl = game:gethand(self:left())
+  local handc = game:gethand(self:cross())
+  local handr = game:gethand(self:right())
   local closed = hand:closed()
   local dream = Hand.new(hand)
   local allpair = {}
@@ -340,7 +322,7 @@ function ryou (mount, game, who)
             for _, no in ipairs(dream:effa()) do
               comingcount = comingcount + 1
             end
-            if comingcount > bestcount then
+            if comingcount > bestcount and (handr:step() ~= 0 or (handr:step() == 0 and cut ~= handr:effa())) and (handc:step() ~= 0 or (handc:step() == 0 and cut ~= handc:effa())) and (handl:step() ~= 0 or (handl:step() == 0 and cut ~= handl:effa())) then
               bestpair = t
               bestcut = cut
               bestcount = comingcount
@@ -349,19 +331,11 @@ function ryou (mount, game, who)
         end
       end
     end
-  
-    for i = 2,8 do
-      for _, suit in ipairs(suits) do
-        if hand:step() >= 1 and closed:ct(T34.new(i .. suit)) == 2 and (closed:ct(T34.new(i+1 .. suit)) > 0 and closed:ct(T34.new(i-1 .. suit)) > 0) then
-          mount:lighta(T34.new(i .. suit), mk)
-        end
-      end
-    end
-
+    
     mount:lighta(bestpair, mk)
   
     if hand:step() == 1 and bestcount >= 3 then
-      mount:lighta(bestpair, 5*mk)
+      mount:lighta(bestpair, 5 * mk)
     end
   end
 end 
