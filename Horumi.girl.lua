@@ -330,7 +330,7 @@ function ryou (mount, game, who)
         if t ~= hand:effa() then
           mount:lighta(t, -35)
         else
-          mount:lighta(t, 5 * mk)
+          mount:lighta(t, 15 * mk)
         end
       end
     end
@@ -339,7 +339,7 @@ function ryou (mount, game, who)
         if t ~= hand:effa() then
           mount:lighta(t, -35)
         else
-          mount:lighta(t, 5 * mk)
+          mount:lighta(t, 15 * mk)
         end
       end
     end
@@ -348,7 +348,7 @@ function ryou (mount, game, who)
         if t ~= hand:effa() then
           mount:lighta(t, -35)
         else
-          mount:lighta(t, 5 * mk)
+          mount:lighta(t, 15 * mk)
         end
       end
     end
