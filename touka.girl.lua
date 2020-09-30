@@ -84,7 +84,6 @@ function ondraw()
     end
     if who == self then
       junme = junme + 1
-      ryou(mount, game, who)
     else
       if hand:step() == 0 then
         for _, t in ipairs(hand:effa()) do
@@ -112,11 +111,13 @@ function ondraw()
       end
     end
   end
+  
+  ryou(mount, game, who)
 end
 
 function ryou (mount, game, who)
   
-  if who ~= self then
+  if who ~= self or bakuhatsu == 0 then
     return
   end
 
