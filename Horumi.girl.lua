@@ -296,13 +296,13 @@ function ryou (mount, game, who)
       allrange = allrange + 1
     end
   end
-
+  
   if handr:ready() then
     for _, t in ipairs(handr:effa()) do
       if t ~= hand:effa() then
         mount:lighta(t, -35)
       else
-        mount:lighta(t, 50 * mk)
+        mount:lighta(t, 35 * mk)
       end
     end
   end
@@ -311,7 +311,7 @@ function ryou (mount, game, who)
       if t ~= hand:effa() then
         mount:lighta(t, -35)
       else
-        mount:lighta(t, 50 * mk)
+        mount:lighta(t, 35 * mk)
       end
     end
   end
@@ -320,7 +320,7 @@ function ryou (mount, game, who)
       if t ~= hand:effa() then
         mount:lighta(t, -35)
       else
-        mount:lighta(t, 50 * mk)
+        mount:lighta(t, 35 * mk)
       end
     end
   end
@@ -332,33 +332,69 @@ function ryou (mount, game, who)
           dream = Hand.new(hand)
           dream:draw(t)
           dream:swapout(cut)
+          if dream:step() < hand:step() then
+            local comingcount = 0
+            for _, no in ipairs(dream:effa()) do
+              comingcount = comingcount + 1
+            end
+            if handr:step() ~= 0 and handl:step() ~= 0 and handc:step() ~= 0 then
+              if comingcount > bestcount then
+                bestpair = t
+                bestcut = cut
+                bestcount = comingcount
+              end
+            else
+              if handr:step() == 0 then
+                if cut ~= handr:effa() then
+                  worstpair = t
+                  bestcut = cut
+                end
+              end
+              if handc:step() == 0 then
+                if cut ~= handc:effa() then
+                  bestpair = t
+                  bestcut = cut
+                end
+              end
+              if handl:step() == 0 then
+                if cut ~= handl:effa() then
+                  bestpair = t
+                  bestcut = cut
+                end
+              end
+            end
+          end
           if dream:step() <= hand:step() then
             local comingcount = 0
             for _, no in ipairs(dream:effa()) do
               comingcount = comingcount + 1
             end
-            if handr:ready() or handr:ready() or handr:ready() then
-              if (handr:step() ~= 0 or (handr:step() == 0 and cut ~= handr:effa())) and (handc:step() ~= 0 or (handc:step() == 0 and cut ~= handc:effa())) and (handl:step() ~= 0 or (handl:step() == 0 and cut ~= handl:effa())) then
-                bestpair = t
-                bestcut = cut
-                bestcount = comingcount
-              else
-                worstpair = t
-                worstcut = cut
+            if comingcount > bestcount then
+              if handr:step() == 0 then
+                if cut == handr:effa() then
+                  worstpair = t
+                  worstcut = cut
+                end
               end
-            else
-              if comingcount > bestcount then
-                bestpair = t
-                bestcut = cut
-                bestcount = comingcount
+              if handc:step() == 0 then
+                if cut == handc:effa() then
+                  worstpair = t
+                  worstcut = cut
+                end
+              end
+              if handl:step() == 0 then
+                if cut == handl:effa() then
+                  worstpair = t
+                  worstcut = cut
+                end
               end
             end
           end
         end
       end
     end
-    
-    if handr:step() ~= 0 and handc:step() ~= 0 and handl:step() ~= 0 then
+  
+    if handr:step() ~= 0 and handl:step() ~= 0 and handc:step() ~= 0 then
       for i = 2,8 do
         for _, suit in ipairs(suits) do
           if hand:step() >= 1 and closed:ct(T34.new(i .. suit)) == 2 and (closed:ct(T34.new(i+1 .. suit)) > 0 and closed:ct(T34.new(i-1 .. suit)) > 0) then
@@ -367,7 +403,7 @@ function ryou (mount, game, who)
         end
       end
     end
-    
+
     mount:lighta(bestpair, mk)
     mount:lighta(worstpair, -35)
   
