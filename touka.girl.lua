@@ -8,7 +8,7 @@ function ondice()
     bakuhatsu = bakuhatsu + 1
   end
   
-  if doge >= 35 then
+  if doge >= 44 then
     bakuhatsu = bakuhatsu + 1
   end
 end
