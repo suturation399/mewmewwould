@@ -102,7 +102,7 @@ function ondraw()
       else
         for _, t in ipairs(hands:effa()) do
           local form = Form.new(hand, T37.new(t:id34()), ctx, rule, drids)
-          if ctx.riichi ~= 0 and form:han() >= 6 and ctx.ippatsu then
+          if ctx.riichi ~= 0 and form:han() >= 6 then
             mount:lighta(t, 1000)
           else
             mount:lighta(t, 96 - junme * 4)
