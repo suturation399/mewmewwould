@@ -217,7 +217,7 @@ function ryou (mount, game, who)
             else
               if handr:step() == 0 then
                 if cut ~= handr:effa() then
-                  worstpair = t
+                  bestpair = t
                   bestcut = cut
                 end
               end
