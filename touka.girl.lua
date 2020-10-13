@@ -167,31 +167,37 @@ function ryou (mount, game, who)
   
   if handr:ready() then
     for _, t in ipairs(handr:effa()) do
-      if t ~= hand:effa() then
-        mount:lighta(t, -500)
-        mount:lightb(t, -1000)
-      else
-        mount:lighta(t, 35 * mk)
+      for _, ea in ipairs(hand:effa()) do
+        if t == ea then
+          mount:lighta(t, 35 * mk)
+        else
+          mount:lighta(t, -500)
+          mount:lightb(t, -1000)
+        end
       end
     end
   end
   if handc:ready() then
     for _, t in ipairs(handc:effa()) do
-      if t ~= hand:effa() then
-        mount:lighta(t, -500)
-        mount:lightb(t, -1000)
-      else
-        mount:lighta(t, 35 * mk)
+      for _, ea in ipairs(hand:effa()) do
+        if t == ea then
+          mount:lighta(t, 35 * mk)
+        else
+          mount:lighta(t, -500)
+          mount:lightb(t, -1000)
+        end
       end
     end
   end
   if handl:ready() then
     for _, t in ipairs(handl:effa()) do
-      if t ~= hand:effa() then
-        mount:lighta(t, -500)
-        mount:lightb(t, -1000)
-      else
-        mount:lighta(t, 35 * mk)
+      for _, ea in ipairs(hand:effa()) do
+        if t == ea then
+          mount:lighta(t, 35 * mk)
+        else
+          mount:lighta(t, -500)
+          mount:lightb(t, -1000)
+        end
       end
     end
   end
