@@ -320,6 +320,7 @@ function ryou (mount, game, who)
     end
   end
   if handl:ready() then
+    for _, t in ipairs(handl:effa()) do
       for _, ea in ipairs(hand:effa()) do
         if t == ea then
           mount:lighta(t, 35 * mk)
