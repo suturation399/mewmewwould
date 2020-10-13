@@ -299,28 +299,28 @@ function ryou (mount, game, who)
   
   if handr:ready() then
     for _, t in ipairs(handr:effa()) do
-      if t ~= hand:effa() then
-        mount:lighta(t, -35)
-      else
+      if hand:effa() == t  then
         mount:lighta(t, 35 * mk)
+      else
+        mount:lighta(t, -35)
       end
     end
   end
   if handc:ready() then
     for _, t in ipairs(handc:effa()) do
-      if t ~= hand:effa() then
-        mount:lighta(t, -35)
-      else
+      if hand:effa() == t  then
         mount:lighta(t, 35 * mk)
+      else
+        mount:lighta(t, -35)
       end
     end
   end
   if handl:ready() then
     for _, t in ipairs(handl:effa()) do
-      if t ~= hand:effa() then
-        mount:lighta(t, -35)
-      else
+      if hand:effa() == t  then
         mount:lighta(t, 35 * mk)
+      else
+        mount:lighta(t, -35)
       end
     end
   end
@@ -346,7 +346,7 @@ function ryou (mount, game, who)
             else
               if handr:step() == 0 then
                 if cut ~= handr:effa() then
-                  worstpair = t
+                  bestpair = t
                   bestcut = cut
                 end
               end
