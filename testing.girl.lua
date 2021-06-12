@@ -30,7 +30,7 @@ function checkinit()
   local rw = game:getroundwind()
   ok = 0
   
-  if who ~= self or iter > 187 then
+  if who ~= self or iter > 176 then
     return true
   end
   
@@ -83,8 +83,22 @@ function len (mount, game, who)
   local handl = game:gethand(self:left())
   local effas = hand:effa()
   
-  if who == self:right() then
-    if handr:step() ~= 0 then
+  if doge <= 10 then
+    if hand:step() <= hands:step() then
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, -97)
+        mount:lightb(t, -97)
+      end
+    else
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, 2)
+      end
+    end
+  else
+    if hand:step() > handr:step() or hand:step() > handc:step() or hand:step() > handl:step() then
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, 28 * junme)
+      end
       
   
 function ryou (mount, game, who)
