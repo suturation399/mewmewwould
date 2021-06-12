@@ -1,24 +1,26 @@
 doge = 0
 sp = 45
-round = 0
+ro = 1
 
 function ondice()
-  round = round + 1
-  sp = sp - round
+  sp = sp - ro
  
   doge = rand:gen(sp)
 end
 
 function onmonkey()
   junme = 0
+  ro = ro + 1
   local exist = exists[self:index()]
   
   if doge <= 10 then
+    print("這局感覺要認真上呢")
     exist:incmk(T37.new("0p"), 34)
     exist:incmk(T37.new("0s"), 34)
     exist:incmk(T37.new("0m"), 34)
   end
   if doge >= 30 then
+    print("這局感覺不太行呢")
     exist:incmk(T37.new("0p"), -34)
     exist:incmk(T37.new("0s"), -34)
     exist:incmk(T37.new("0m"), -34)
@@ -26,22 +28,24 @@ function onmonkey()
 end
 
 function checkinit()
-  local sw = game:getselfwind(self)
-  local rw = game:getroundwind()
-  ok = 0
   
-  if who ~= self or iter > 176 then
+  if iter > 176 or (doge > 10 and doge < 30) then
     return true
   end
   
   if doge <= 10 then
-    return init:step() <= 4
+    if who == self then
+      return init:step() <= 4
+    else
+      return init:step() >= 3
+    end
   end
   if doge >= 30 then
-    return init:step() >= 5
-  end
-  if doge > 10 and doge < 30 then
-    return true
+    if who == self then
+      return init:step() >= 5
+    else
+      return init:step() <= 5
+    end
   end
 end
   
@@ -56,13 +60,26 @@ function ondraw()
     return
   end
 
-  if who == self and steps >= 1 then
+  if who == self then
     junme = junme + 1
-    mount:lighta(T37.new("0p"), jdomk)
-    mount:lighta(T37.new("0s"), jdomk)
-    mount:lighta(T37.new("0m"), jdomk)
-    for _, t in ipairs(drids) do
-      mount:lighta(t:dora(), jdomk)
+    if doge <= 10 then
+      if steps >= 1 then
+        mount:lighta(T37.new("0p"), jdomk)
+        mount:lighta(T37.new("0s"), jdomk)
+        mount:lighta(T37.new("0m"), jdomk)
+        for _, t in ipairs(drids) do
+          mount:lighta(t:dora(), jdomk)
+        end
+      else
+        for _, t in ipairs(hands:effa()) do
+          mount:lighta(t, junme * 3)
+        end
+      end
+    end
+    if doge >= 30 then
+      for _, t in ipairs(hands:effa()) do
+        mount:lighta(t, -28)
+      end
     end
   end
   
@@ -84,7 +101,7 @@ function len (mount, game, who)
   local effas = hand:effa()
   
   if doge <= 10 then
-    if hand:step() <= hands:step() then
+    if hand:step() <= hands:step() or hand:step() <= 1 then
       for _, t in ipairs(hand:effa()) do
         mount:lighta(t, -97)
         mount:lightb(t, -97)
@@ -95,12 +112,21 @@ function len (mount, game, who)
       end
     end
   else
-    if hand:step() > handr:step() or hand:step() > handc:step() or hand:step() > handl:step() then
-      for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, 28 * junme)
+    if hand:step() ~= 0 then
+      if hand:step() > handr:step() or hand:step() > handc:step() or hand:step() > handl:step() then
+        for _, t in ipairs(hand:effa()) do
+          mount:lighta(t, 28)
+        end
       end
-      
-  
+    else
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, -97)
+        mount:lightb(t, -97)
+      end
+    end
+  end
+end
+
 function ryou (mount, game, who)
     
   if who ~= self or doge > 10 then
@@ -183,3 +209,37 @@ function ryou (mount, game, who)
     end
   end
 end 
+
+function ongameevent()
+  if event.type == "drawn" then
+    read(mount, game, who)
+  end
+end
+
+function read(mount, game, who)
+  local hands = game:gethand(self)
+  local handl = game:gethand(self:left())
+  local handc = game:gethand(self:cross())
+  local handr = game:gethand(self:right())
+  local mount = game:getmount()
+  local drids = mount:getdrids()
+  local ctxs = game:getformctx(self)
+  
+  if event.args.who == self then
+    if handr:ready() then
+      for _, t in ipairs(handr:effa()) do
+        print(t, "會銃下家")
+      end
+    end
+    if handc:ready() then
+      for _, t in ipairs(handc:effa()) do
+        print(t, "會銃對家")
+      end
+    end
+    if handl:ready() then
+      for _, t in ipairs(handl:effa()) do
+        print(t, "會銃上家")
+      end
+    end
+  end
+end
