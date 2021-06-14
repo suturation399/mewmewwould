@@ -115,7 +115,7 @@ function len (mount, game, who)
     if hand:step() ~= 0 then
       if hand:step() > handr:step() or hand:step() > handc:step() or hand:step() > handl:step() then
         for _, t in ipairs(hand:effa()) do
-          mount:lighta(t, 28)
+          mount:lighta(t, 2)
         end
       end
     else
