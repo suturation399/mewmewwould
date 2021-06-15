@@ -3,7 +3,11 @@ sp = 45
 ro = 1
 
 function ondice()
-  sp = 45 - ro
+  if ro >= 5 then
+    sp = 45 - ro
+  else
+    sp = 3
+  end
  
   doge = rand:gen(sp)
 end
@@ -129,7 +133,7 @@ end
 
 function ryou (mount, game, who)
   
-  if who ~= self then
+  if who ~= self or doge <= 20 then
     return
   end
 
