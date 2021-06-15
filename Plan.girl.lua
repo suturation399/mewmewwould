@@ -3,7 +3,7 @@ sp = 45
 ro = 1
 
 function ondice()
-  if ro >= 5 then
+  if ro < 35 then
     sp = 45 - ro
   else
     sp = 3
