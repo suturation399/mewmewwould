@@ -1,244 +1,41 @@
-doge = 0
-sp = 45
-ro = 1
+junme = 0
 
-function ondice()
-  sp = sp - ro
- 
-  doge = rand:gen(sp)
-end
-
-function onmonkey()
+unction onmonkey()
   junme = 0
-  ro = ro + 1
-  local exist = exists[self:index()]
-  
-  if doge <= 10 then
-    print("這局感覺要認真上呢")
-    exist:incmk(T37.new("0p"), 34)
-    exist:incmk(T37.new("0s"), 34)
-    exist:incmk(T37.new("0m"), 34)
-  end
-  if doge >= 30 then
-    print("這局感覺不太行呢")
-    exist:incmk(T37.new("0p"), -34)
-    exist:incmk(T37.new("0s"), -34)
-    exist:incmk(T37.new("0m"), -34)
-  end
-end
-
-function checkinit()
-  
-  if iter > 176 or (doge > 10 and doge < 30) then
-    return true
-  end
-  
-  if doge <= 10 then
-    if who == self then
-      return init:step() <= 4
-    else
-      return init:step() >= 3
-    end
-  end
-  if doge >= 30 then
-    if who == self then
-      return init:step() >= 5
-    else
-      return init:step() <= 5
-    end
-  end
 end
   
 function ondraw()
+  local drids = mount:getdrids()
   local hands = game:gethand(self)
   local steps = hands:step(self)
-  local drids = mount:getdrids()
-  local junmk = junme * 3
-  local jdomk = 150 - junme * 7
+  local junmk = junme * 4
+  local ctx = game:getformctx(self)
 
-  if rinshan then
+  for _, t in ipairs(drids) do
+    nd = hands:ctaka5() + hands:ct(t:dora())
+  end
+
+  local dormk = ((nd - 2) * -45) - (4 * junme) - 24
+  
+  if who ~= self or rinshan or ctx.ippatsu then
     return
   end
 
   if who == self then
     junme = junme + 1
-    if doge <= 10 then
-      if steps >= 1 then
-        mount:lighta(T37.new("0p"), jdomk)
-        mount:lighta(T37.new("0s"), jdomk)
-        mount:lighta(T37.new("0m"), jdomk)
-        for _, t in ipairs(drids) do
-          mount:lighta(t:dora(), jdomk)
-        end
-      else
-        for _, t in ipairs(hands:effa()) do
-          mount:lighta(t, junme * 3)
-        end
+    if steps >= 1 then
+      mount:lighta(T37.new("0p"), dormk)
+      mount:lighta(T37.new("0s"), dormk)
+      mount:lighta(T37.new("0m"), dormk)
+      for _, t in ipairs(drids) do
+        mount:lighta(t:dora(), dormk)
       end
-    end
-    if doge >= 30 then
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, -28)
-      end
-    end
-  end
-  
-  len(mount, game, who)
-  ryou(mount, game, who)
-end
-  
-function len (mount, game, who)
-  
-  if who == self then
-    return
-  end
-  
-  local hand = game:gethand(who)
-  local hands = game:gethand(self)
-  local handr = game:gethand(self:right())
-  local handc = game:gethand(self:cross())
-  local handl = game:gethand(self:left())
-  local effas = hand:effa()
-  
-  if doge <= 10 then
-    if hand:step() <= hands:step() or hand:step() <= 1 then
-      for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, -97)
-        mount:lightb(t, -97)
+        mount:lighta(t, junmk)
       end
     else
-      for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, 2)
-      end
-    end
-  else
-    if hand:step() ~= 0 then
-      if hand:step() > handr:step() or hand:step() > handc:step() or hand:step() > handl:step() then
-        for _, t in ipairs(hand:effa()) do
-          mount:lighta(t, 28)
-        end
-      end
-    else
-      for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, -97)
-        mount:lightb(t, -97)
-      end
-    end
-  end
-end
-
-function ryou (mount, game, who)
-    
-  if who ~= self or doge > 10 then
-    return
-  end
-
-  local mk = 9 * junme
-  local hand = game:gethand(self)
-  local closed = hand:closed()
-  local dream = Hand.new(hand)
-  local allpair = {}
-  local allrange = 1
-  local cutpair = {}
-  local cutrange = 1
-  local bestpair = T34.new("1p")
-  local bestcut = T34.new("1p")
-  local bestcount = 0
-  local suits = { "m", "p", "s" }
-  local threeseven = {"1p","2p","3p","4p","5p","0p","6p","7p","8p","9p","1s","2s","3s","4s","5s","0s","6s","7s","8s","9s","1m","2m","3m","4m","5m","0m","6m","7m","8m","9m","1f","2f","3f","4f","1y","2y","3y"}
-
-  for _, i in ipairs(threeseven) do
-    t = T37.new(i)
-    if closed:ct(t) >= 1 then
-       cutpair[cutrange] = t
-       cutrange = cutrange + 1
-    end
-  end
-
-  for _, t in ipairs(hand:effa4 ()) do
-    allpair[allrange] = T37.new(t:id34())
-    allrange = allrange + 1
-    if t == T34.new("5p") then
-      allpair[allrange] = T37.new("0p")
-      allrange = allrange + 1
-    end
-    if t == T34.new("5s") then
-      allpair[allrange] = T37.new("0s")
-      allrange = allrange + 1
-    end
-    if t == T34.new("5m") then
-      allpair[allrange] = T37.new("0m")
-      allrange = allrange + 1
-    end
-  end
-
-  if not hand:ready() then
-    for _, t in ipairs(allpair) do
-      for _, cut in ipairs(cutpair) do
-        if mount:remaina(t) > 0 and cut ~= t then
-          dream = Hand.new(hand)
-          dream:draw(t)
-          dream:swapout(cut)
-          if dream:step() < hand:step() then
-            local comingcount = 0
-            for _, no in ipairs(dream:effa()) do
-              comingcount = comingcount + 1
-            end
-            if comingcount > bestcount then
-              bestpair = t
-              bestcut = cut
-              bestcount = comingcount
-            end
-          end
-        end
-      end
-    end
-  
-    for i = 2,8 do
-      for _, suit in ipairs(suits) do
-        if hand:step() >= 1 and closed:ct(T34.new(i .. suit)) == 2 and (closed:ct(T34.new(i+1 .. suit)) > 0 and closed:ct(T34.new(i-1 .. suit)) > 0) then
-          mount:lighta(T34.new(i .. suit), mk * 0.5)
-        end
-      end
-    end
-
-    mount:lighta(bestpair, mk)
-  
-    if hand:step() == 1 and bestcount >= 3 then
-      mount:lighta(bestpair, 5 * mk)
-    end
-  end
-end 
-
-function ongameevent()
-  if event.type == "drawn" then
-    read(mount, game, who)
-  end
-end
-
-function read(mount, game, who)
-  local hands = game:gethand(self)
-  local handl = game:gethand(self:left())
-  local handc = game:gethand(self:cross())
-  local handr = game:gethand(self:right())
-  local mount = game:getmount()
-  local drids = mount:getdrids()
-  local ctxs = game:getformctx(self)
-  
-  if event.args.who == self then
-    if handr:ready() then
-      for _, t in ipairs(handr:effa()) do
-        print(t, "會銃下家")
-      end
-    end
-    if handc:ready() then
-      for _, t in ipairs(handc:effa()) do
-        print(t, "會銃對家")
-      end
-    end
-    if handl:ready() then
-      for _, t in ipairs(handl:effa()) do
-        print(t, "會銃上家")
+      for _, t in ipairs(hands:effa()) do
+        mount:lighta(t, 96 - junmk)
       end
     end
   end
