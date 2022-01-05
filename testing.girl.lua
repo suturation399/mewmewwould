@@ -1,10 +1,12 @@
 doge = 0
+junme = 1
 
 function ondice()
   doge = rand:gen(10)
 end
 
 function onmonkey()
+  junme = 1
   status = doge
   local existself = exists[self:index()]
   local existl = exists[self:left():index()]
@@ -257,7 +259,7 @@ function ondraw()
     end
   end
   
-  if 
+  if who == self then
     junme = junme + 1
     for _, t in ipairs(hands:effa()) do
       mount:lighta(t, junmk)
