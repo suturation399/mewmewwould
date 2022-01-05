@@ -14,7 +14,7 @@ function onmonkey()
   local existr = exists[self:right():index()]
   
   if status <= 1 then
-    print("山吞147m")
+    print("斷筋殺147m")
     existl:incmk(T34.new("1m"), -307)
     existc:incmk(T34.new("1m"), -307)
     existr:incmk(T34.new("1m"), -307)
@@ -30,7 +30,7 @@ function onmonkey()
   end
   
   if status == 2 then
-    print("山吞258m")
+    print("斷筋殺258m")
     existl:incmk(T34.new("2m"), -307)
     existc:incmk(T34.new("2m"), -307)
     existr:incmk(T34.new("2m"), -307)
@@ -46,7 +46,7 @@ function onmonkey()
   end
   
   if status == 3 then
-    print("山吞369m")
+    print("斷筋殺369m")
     existl:incmk(T34.new("3m"), -307)
     existc:incmk(T34.new("3m"), -307)
     existr:incmk(T34.new("3m"), -307)
@@ -62,7 +62,7 @@ function onmonkey()
   end
   
   if status == 4 then
-    print("山吞147p")
+    print("斷筋殺147p")
     existl:incmk(T34.new("1p"), -307)
     existc:incmk(T34.new("1p"), -307)
     existr:incmk(T34.new("1p"), -307)
@@ -78,7 +78,7 @@ function onmonkey()
   end
   
 if status == 5 then
-    print("山吞258p")
+    print("斷筋殺258p")
     existl:incmk(T34.new("2p"), -307)
     existc:incmk(T34.new("2p"), -307)
     existr:incmk(T34.new("2p"), -307)
@@ -94,7 +94,7 @@ if status == 5 then
   end
   
   if status == 6 then
-    print("山吞369p")
+    print("斷筋殺369p")
     existl:incmk(T34.new("3p"), -307)
     existc:incmk(T34.new("3p"), -307)
     existr:incmk(T34.new("3p"), -307)
@@ -110,7 +110,7 @@ if status == 5 then
   end
 
   if status == 7 then
-    print("山吞147s")
+    print("斷筋殺147s")
     existl:incmk(T34.new("1s"), -307)
     existc:incmk(T34.new("1s"), -307)
     existr:incmk(T34.new("1s"), -307)
@@ -126,7 +126,7 @@ if status == 5 then
   end
   
 if status == 8 then
-    print("山吞258s")
+    print("斷筋殺258s")
     existl:incmk(T34.new("2s"), -307)
     existc:incmk(T34.new("2s"), -307)
     existr:incmk(T34.new("2s"), -307)
@@ -142,7 +142,7 @@ if status == 8 then
   end
   
   if status >= 9 then
-    print("山吞369s")
+    print("斷筋殺369s")
     existl:incmk(T34.new("3s"), -307)
     existc:incmk(T34.new("3s"), -307)
     existr:incmk(T34.new("3s"), -307)
