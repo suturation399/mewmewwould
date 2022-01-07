@@ -23,5 +23,11 @@ function ondraw()
   if updown > 1 then
     updown = updown - 2
   end
-  
-  if un
+  if status <= 5 then
+    if updown = 1 then
+      for i = 1, 9, 2 do
+        mount:lighta(T34.new(i .. "m"), )
+        mount:lighta(T34.new(i .. "p"), )
+        mount:lighta(T34.new(i .. "s"), )
+      end
+    
