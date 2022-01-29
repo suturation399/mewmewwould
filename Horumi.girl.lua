@@ -188,11 +188,13 @@ end
 
 function ondraw()
   local drids = mount:getdrids()
+  local handw = game:gethand(who)
   local hands = game:gethand(self)
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
   local steps = hands:step(self)
+  local stepw = handw:step(who)
   local junmk = junme * 5
 
   for _, t in ipairs(drids) do
@@ -207,7 +209,7 @@ function ondraw()
 
   if who ~= self then
     local river = game:getriver(who)
-    if steps >= 1 then
+    if stepw >= 1 then
       for _, t in ipairs(river) do
         mount:lighta(t, 18)
       end
