@@ -100,7 +100,7 @@ function ryou (mount, game, who)
         if t == ea then
           mount:lighta(t, 35 * mk)
         else
-          mount:lighta(t, -35 * mk)
+          mount:lighta(t, -70)
         end
       end
     end
@@ -111,7 +111,7 @@ function ryou (mount, game, who)
         if t == ea then
           mount:lighta(t, 35 * mk)
         else
-          mount:lighta(t, -35 * mk)
+          mount:lighta(t, -70)
         end
       end
     end
@@ -122,7 +122,7 @@ function ryou (mount, game, who)
         if t == ea then
           mount:lighta(t, 35 * mk)
         else
-          mount:lighta(t, -35 * mk)
+          mount:lighta(t, -70)
         end
       end
     end
@@ -208,7 +208,7 @@ function ryou (mount, game, who)
     end
 
     mount:lighta(bestpair, mk)
-    mount:lighta(worstpair, -35 * mk)
+    mount:lighta(worstpair, -35)
   
     if hand:step() == 1 and bestcount >= 3 then
       mount:lighta(bestpair, 5 * mk)
