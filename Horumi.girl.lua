@@ -413,7 +413,7 @@ function ryou (mount, game, who)
     end
 
     mount:lighta(bestpair, mk)
-    mount:lighta(worstpair, -35)
+    mount:lighta(worstpair, -1.5 * mk)
   
     if hand:step() == 1 and bestcount >= 3 then
       mount:lighta(bestpair, 5 * mk)
