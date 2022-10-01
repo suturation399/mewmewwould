@@ -1,5 +1,5 @@
 function onmonkey()
-  junme = 1
+  junme = 2
 end
 
 function checkinit()
@@ -12,6 +12,7 @@ end
 
 function ondraw()
   local junmk = junme * 5
+  local hands = game:gethand(self)
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
@@ -26,11 +27,6 @@ function ondraw()
     end
   else
     print("下家向聽數", handr:step())
-    if handr:step() == 1 then
-      for _, t in ipairs(handr:effa()) do
-        print("下家有效牌", t)
-      end
-    end
   end
   if handc:ready() then
     for _, t in ipairs(handc:effa()) do
@@ -46,7 +42,15 @@ function ondraw()
   else
     print("上家向聽數", handl:step())
   end
-  
+  if hands:ready() then
+    for _, t in ipairs(hands:effa()) do
+      mount:lighta(t, 110 - junmk)
+    end
+  else
+    for _, t in ipairs(hands:effa()) do
+      mount:lighta(t, junmk)
+    end
+  end
   war(mount, game, who)
 end
 
