@@ -1,65 +1,61 @@
 function onmonkey()
-  junme = 0
+  junme = 1
+end
+
+function checkinit()
+  if who ~= self or iter > 25 then
+    return true
+  end
+  
+  return init:step() <= 4
 end
 
 function ondraw()
-  local drids = mount:getdrids()
-  local hands = game:gethand(self)
+  local junmk = junme * 5
   local handr = game:gethand(self:right())
   local handc = game:gethand(self:cross())
   local handl = game:gethand(self:left())
-  local steps = hands:step(self)
-  local junmk = junme * 6
-
-  if rinshan then
+  
+  if rinshan or who ~= self then
     return
   end
-
-  if who ~= self then
-    local river = game:getriver(who)
-    if steps >= 1 then
-      for _, t in ipairs(river) do
-        mount:lighta(t, 21)
-      end
-    else
-      for _, t in ipairs(river) do
-        mount:lighta(t, -21)
-      end
-      for _, t in ipairs(game:gethand(who):effa()) do
-        mount:lighta(t, -27)
-      end
-      for i = 3, 7 do
-        mount:lighta(T34.new(i .. "m"), 12)
-        mount:lighta(T34.new(i .. "p"), 12)
-        mount:lighta(T34.new(i .. "s"), 12)
+  
+  if handr:ready() then
+    for _, t in ipairs(handr:effa()) do
+      print("下家聽牌", t)
+    end
+  else
+    print("下家向聽數", handr:step())
+    if handr:step() == 1 then
+      for _, t in ipairs(handr:effa()) do
+        print("下家有效牌", t)
       end
     end
   end
-  
-  if who == self then
-    junme = junme + 1
-    if steps < 1 then
-      for _, t in ipairs(hands:effa()) do
-        mount:lighta(t, 120 - junmk)
-      end
-      for i = 2, 8 do
-        mount:lighta(T34.new(i .. "m"), -9)
-        mount:lighta(T34.new(i .. "p"), -9)
-        mount:lighta(T34.new(i .. "s"), -9)
-      end
+  if handc:ready() then
+    for _, t in ipairs(handc:effa()) do
+      print("對家聽牌", t)
     end
+  else
+    print("對家向聽數", handc:step())
+  end
+  if handl:ready() then
+    for _, t in ipairs(handl:effa()) do
+      print("上家聽牌", t)
+    end
+  else
+    print("上家向聽數", handl:step())
   end
   
-  ryou(mount, game, who)
+  war(mount, game, who)
 end
 
-function ryou (mount, game, who)
-  
+function war (mount, game, who)
   if who ~= self then
     return
   end
 
-  local mk = 18 * junme
+  local mk = 15 * junme
   local hand = game:gethand(self)
   local handl = game:gethand(self:left())
   local handc = game:gethand(self:cross())
@@ -103,14 +99,12 @@ function ryou (mount, game, who)
     end
   end
   
-  if handr:ready() then
-    for _, t in ipairs(handr:effa()) do
-      for _, ea in ipairs(hand:effa()) do
-        if t == ea then
-          mount:lighta(t, 40 * mk)
-        else
-          mount:lighta(t, -40)
-        end
+  for _, t in ipairs(handr:effa()) do
+    for _, ea in ipairs(hand:effa()) do
+      if t == ea then
+        mount:lighta(t, 35 * mk)
+      else
+        mount:lighta(t, -35)
       end
     end
   end
@@ -118,9 +112,9 @@ function ryou (mount, game, who)
     for _, t in ipairs(handc:effa()) do
       for _, ea in ipairs(hand:effa()) do
         if t == ea then
-          mount:lighta(t, 40 * mk)
+          mount:lighta(t, 35 * mk)
         else
-          mount:lighta(t, -40)
+          mount:lighta(t, -35)
         end
       end
     end
@@ -129,9 +123,9 @@ function ryou (mount, game, who)
     for _, t in ipairs(handl:effa()) do
       for _, ea in ipairs(hand:effa()) do
         if t == ea then
-          mount:lighta(t, 40 * mk)
+          mount:lighta(t, 35 * mk)
         else
-          mount:lighta(t, -40)
+          mount:lighta(t, -35)
         end
       end
     end
@@ -156,11 +150,9 @@ function ryou (mount, game, who)
                 bestcount = comingcount
               end
             else
-              if handr:step() == 0 then
-                if cut ~= handr:effa() then
-                  bestpair = t
-                  bestcut = cut
-                end
+              if cut ~= handr:effa() then
+                bestpair = t
+                bestcut = cut
               end
               if handc:step() == 0 then
                 if cut ~= handc:effa() then
@@ -182,11 +174,9 @@ function ryou (mount, game, who)
               comingcount = comingcount + 1
             end
             if comingcount > bestcount then
-              if handr:step() == 0 then
-                if cut == handr:effa() then
-                  worstpair = t
-                  worstcut = cut
-                end
+              if cut == handr:effa() then
+                worstpair = t
+                worstcut = cut
               end
               if handc:step() == 0 then
                 if cut == handc:effa() then
@@ -217,10 +207,10 @@ function ryou (mount, game, who)
     end
 
     mount:lighta(bestpair, mk)
-    mount:lighta(worstpair, -40)
+    mount:lighta(worstpair, -3 * mk)
   
     if hand:step() == 1 and bestcount >= 3 then
-      mount:lighta(bestpair, 6 * mk)
+      mount:lighta(bestpair, 5 * mk)
     end
   end
 end 
