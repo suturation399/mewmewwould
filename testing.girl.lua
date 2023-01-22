@@ -6,49 +6,49 @@ function checkinit()
   local rw = game:getroundwind()
   ok = 0
   
-  if who ~= self or iter > 39 then
+  if who ~= self or iter > 12 then
     return true
   end
   
-  if init:ct(T34.new("1y")) >= 2 and init:step4() <= 5 then
+  if init:ct(T34.new("1y")) >= 2 and init:step() <= 4 then
     ok = 1
   end
   
-  if init:ct(T34.new("2y")) >= 2 and init:step4() <= 5 then
+  if init:ct(T34.new("2y")) >= 2 and init:step() <= 4 then
     ok = 1
   end
     
-  if init:ct(T34.new("3y")) >= 2 and init:step4() <= 5 then
+  if init:ct(T34.new("3y")) >= 2 and init:step() <= 4 then
     ok = 1
   end
   
   if rw == 1 or sw == 1 then
-    if init:ct(T34.new("1f")) >= 2 and init:step4() <= 5 then
+    if init:ct(T34.new("1f")) >= 2 and init:step() <= 4 then
       ok = 1
     end
   end
   
   if rw == 2 or sw == 2 then
-    if init:ct(T34.new("2f")) >= 2 and init:step4() <= 5 then
+    if init:ct(T34.new("2f")) >= 2 and init:step() <= 4 then
       ok = 1
     end
   end
   
   if rw == 3 or sw == 3 then
-    if init:ct(T34.new("3f")) >= 2 and init:step4() <= 5 then
+    if init:ct(T34.new("3f")) >= 2 and init:step() <= 4 then
       ok = 1
     end
   end
   
   if sw == 4 then
-    if init:ct(T34.new("4f")) >= 2 and init:step4() <= 5 then
+    if init:ct(T34.new("4f")) >= 2 and init:step() <= 4 then
       ok = 1
     end
   end
   
   local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
   
-  if ny <= 3 and init:step() <= 5 then
+  if ny <= 3 and init:step() <= 4 then
     ok = 1
   end
   
@@ -74,25 +74,25 @@ function ondraw()
       if mount:remaina(eas) > 1 then
         mount:lighta(eas, junmk)
       else
-        mount:lighta(eas, junmk * 3)
+        mount:lighta(eas, junmk * 4)
       end
       for _, ear in ipairs(handr:effa()) do
         if eas == ear then
-          mount:lighta(eas, junmk * 2)
+          mount:lighta(eas, junmk * 3)
         else
           mount:lighta(ear, junmk * -2)
         end
       end
       for _, eac in ipairs(handc:effa()) do
         if eas == eac then
-          mount:lighta(eas, junmk * 2)
+          mount:lighta(eas, junmk * 3)
         else
           mount:lighta(eac, junmk * -2)
         end
       end
       for _, eal in ipairs(handl:effa()) do
         if eas == eal then
-          mount:lighta(eas, junmk * 2)
+          mount:lighta(eas, junmk * 3)
         else
           mount:lighta(eal, junmk * -2)
         end
