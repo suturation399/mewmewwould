@@ -127,24 +127,21 @@ function read(mount, game, who)
   
   if event.args.who == self then
     if handr:step() < 1 then
-      print("下家感覺聽牌了")
       for _, t in ipairs(handr:effa()) do
         local ntenpair = mount:remaina(t)
-        print("下家聽", t, "山存", ntenpair, "枚")
+        print("下家聽牌", t, "山存", ntenpair, "枚")
       end
     end
     if handc:step() < 1 then
-      print("對家感覺聽牌了")
       for _, t in ipairs(handc:effa()) do
         local ntenpaic = mount:remaina(t)
-        print("對家有效牌", t, "山存", ntenpaic, "枚")
+        print("對家聽牌", t, "山存", ntenpaic, "枚")
       end
     end
     if handl:step() < 1 then
-      print("上家感覺聽牌了")
       for _, t in ipairs(handl:effa()) do
         local ntenpail = mount:remaina(t)
-        print("上家有效牌", t, "山存", ntenpail, "枚")
+        print("上家聽牌", t, "山存", ntenpail, "枚")
       end
     end
     for _, t in ipairs(hands:effa()) do
