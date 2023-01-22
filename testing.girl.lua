@@ -71,40 +71,30 @@ function ondraw()
   if who == self then
     junme = junme + 1
     for _, eas in ipairs(hands:effa()) do
+      if mount:remaina(eas) > 1 then
+        mount:lighta(eas, junmk)
+      else
+        mount:lighta(eas, junmk * 3)
+      end
       for _, ear in ipairs(handr:effa()) do
         if eas == ear then
-          if mount:remaina(eas) > 1 then
-            mount:lighta(eas, junmk * 3)
-          else
-            mount:lighta(eas, junmk * 9)
-          end
+          mount:lighta(eas, junmk * 2)
         else
-          mount:lighta(eas, junmk)
-          mount:lighta(ear, junmk * -1)
+          mount:lighta(ear, junmk * -2)
         end
       end
       for _, eac in ipairs(handc:effa()) do
         if eas == eac then
-          if mount:remaina(eas) > 1 then
-            mount:lighta(eas, junmk * 3)
-          else
-            mount:lighta(eas, junmk * 9)
-          end
+          mount:lighta(eas, junmk * 2)
         else
-          mount:lighta(eas, junmk)
-          mount:lighta(eac, junmk * -1)
+          mount:lighta(eac, junmk * -2)
         end
       end
       for _, eal in ipairs(handl:effa()) do
         if eas == eal then
-          if mount:remaina(eas) > 1 then
-            mount:lighta(eas, junmk * 3)
-          else
-            mount:lighta(eas, junmk * 9)
-          end
+          mount:lighta(eas, junmk * 2)
         else
-          mount:lighta(eas, junmk)
-          mount:lighta(eal, junmk * -1)
+          mount:lighta(eal, junmk * -2)
         end
       end
     end
