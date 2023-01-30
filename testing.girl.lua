@@ -72,7 +72,7 @@ function ondraw()
     if handr:step() ~= 0 then
       if handc:step() == 0 then
         for _, eac in ipairs(handc:effa()) do
-          mount:lighta(eac, junmk * 16)
+          mount:lighta(eac, junmk * 32 * (handr:step() - 1))
         end
       else
         for _, ear in ipairs(handr:effa()) do
@@ -87,7 +87,7 @@ function ondraw()
       end
       if handl:step() == 0 then
         for _, eal in ipairs(handl:effa()) do
-          mount:lighta(eal, junmk * 16)
+          mount:lighta(eal, junmk * 32 * (handr:step() - 1))
         end
       else
         for _, ear in ipairs(handr:effa()) do
@@ -107,7 +107,7 @@ function ondraw()
     if handc:step() ~= 0 then
       if handr:step() == 0 then
         for _, ear in ipairs(handr:effa()) do
-          mount:lighta(ear, junmk * 16)
+          mount:lighta(ear, junmk * 32 * (handc:step() - 1))
         end
       else
         for _, eac in ipairs(handc:effa()) do
@@ -122,7 +122,7 @@ function ondraw()
       end
       if handl:step() == 0 then
         for _, eal in ipairs(handl:effa()) do
-          mount:lighta(eal, junmk * 16)
+          mount:lighta(eal, junmk * 32 * (handc:step() - 1))
         end
       else
         for _, eac in ipairs(handc:effa()) do
@@ -142,7 +142,7 @@ function ondraw()
     if handl:step() ~= 0 then
       if handr:step() == 0 then
         for _, ear in ipairs(handr:effa()) do
-          mount:lighta(ear, junmk * 16)
+          mount:lighta(ear, junmk * 32 * (handl:step() - 1))
         end
       else
         for _, eal in ipairs(handl:effa()) do
@@ -157,7 +157,7 @@ function ondraw()
       end
       if handc:step() == 0 then
         for _, eac in ipairs(handc:effa()) do
-          mount:lighta(eac, junmk * 16)
+          mount:lighta(eac, junmk * 32 * (handl:step() - 1))
         end
       else
         for _, eal in ipairs(handl:effa()) do
@@ -179,21 +179,27 @@ function ondraw()
       if mount:remaina(eas) ~= 1 then
         mount:lighta(eas, junmk)
       else
-        mount:lighta(eas, junmk * 8)
+        mount:lighta(eas, junmk * 16)
       end
       for _, ear in ipairs(handr:effa()) do
         if eas == ear then
           mount:lighta(ear, junmk * 2 * (6 - handr:step()))
+        else
+          mount:lighta(ear, -2)
         end
       end
       for _, eac in ipairs(handc:effa()) do
         if eas == eac then
           mount:lighta(eac, junmk * 2 * (6 - handc:step()))
+        else
+          mount:lighta(eac, -2)
         end
       end
       for _, eal in ipairs(handl:effa()) do
         if eas == eal then
           mount:lighta(eal, junmk * 2 * (6 - handl:step()))
+        else
+          mount:lighta(eal, -2)
         end
       end
     end
@@ -218,19 +224,19 @@ function read(mount, game, who)
     if handr:step() < 1 then
       for _, t in ipairs(handr:effa()) do
         local ntenpair = mount:remaina(t)
-        print("下家聽牌", t, "山存", ntenpair, "枚")
+        print("下家聽牌", t, "應該還有", ntenpair, "枚")
       end
     end
     if handc:step() < 1 then
       for _, t in ipairs(handc:effa()) do
         local ntenpaic = mount:remaina(t)
-        print("對家聽牌", t, "山存", ntenpaic, "枚")
+        print("對家聽牌", t, "應該還有", ntenpaic, "枚")
       end
     end
     if handl:step() < 1 then
       for _, t in ipairs(handl:effa()) do
         local ntenpail = mount:remaina(t)
-        print("上家聽牌", t, "山存", ntenpail, "枚")
+        print("上家聽牌", t, "應該還有", ntenpail, "枚")
       end
     end
     for _, t in ipairs(hands:effa()) do
