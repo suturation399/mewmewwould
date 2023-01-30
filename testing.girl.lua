@@ -6,7 +6,7 @@ function checkinit()
   local rw = game:getroundwind()
   ok = 0
   
-  if who ~= self or iter > 12 then
+  if who ~= self or iter > 20 then
     return true
   end
   
@@ -62,7 +62,7 @@ function ondraw()
   local handc = game:gethand(self:cross())
   local handr = game:gethand(self:right())
   local steps = hands:step(self)
-  local junmk = junme * 3
+  local junmk = junme * 4
   
   if who ~= self or rinshan then
     return
@@ -71,28 +71,28 @@ function ondraw()
   if who == self then
     junme = junme + 1
     for _, eas in ipairs(hands:effa()) do
-      if mount:remaina(eas) > 1 then
+      if mount:remaina(eas) ~= 1 then
         mount:lighta(eas, junmk)
       else
-        mount:lighta(eas, junmk * 4)
+        mount:lighta(eas, junmk * 20)
       end
       for _, ear in ipairs(handr:effa()) do
-        if eas == ear then
-          mount:lighta(eas, junmk * 3)
+        if ear == eas then
+          mount:lighta(ear, junmk * 2 * (6 - handr:step()))
         else
           mount:lighta(ear, junmk * -2)
         end
       end
       for _, eac in ipairs(handc:effa()) do
-        if eas == eac then
-          mount:lighta(eas, junmk * 3)
+        if eac == eas then
+          mount:lighta(eac, junmk * 2 * (6 - handc:step()))
         else
           mount:lighta(eac, junmk * -2)
         end
       end
       for _, eal in ipairs(handl:effa()) do
-        if eas == eal then
-          mount:lighta(eas, junmk * 3)
+        if eal == eas then
+          mount:lighta(eal, junmk * 2 * (6 - handl:step()))
         else
           mount:lighta(eal, junmk * -2)
         end
