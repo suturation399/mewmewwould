@@ -1,58 +1,5 @@
-ok = 0
-
-function checkinit()
+function onmonkey()
   junme = 0
-  local sw = game:getselfwind(self)
-  local rw = game:getroundwind()
-  ok = 0
-  
-  if who ~= self or iter > 20 then
-    return true
-  end
-  
-  if init:ct(T34.new("1y")) >= 2 and init:step() <= 5 then
-    ok = 1
-  end
-  
-  if init:ct(T34.new("2y")) >= 2 and init:step() <= 5 then
-    ok = 1
-  end
-    
-  if init:ct(T34.new("3y")) >= 2 and init:step() <= 5 then
-    ok = 1
-  end
-  
-  if rw == 1 or sw == 1 then
-    if init:ct(T34.new("1f")) >= 2 and init:step() <= 5 then
-      ok = 1
-    end
-  end
-  
-  if rw == 2 or sw == 2 then
-    if init:ct(T34.new("2f")) >= 2 and init:step() <= 5 then
-      ok = 1
-    end
-  end
-  
-  if rw == 3 or sw == 3 then
-    if init:ct(T34.new("3f")) >= 2 and init:step() <= 5 then
-      ok = 1
-    end
-  end
-  
-  if sw == 4 then
-    if init:ct(T34.new("4f")) >= 2 and init:step() <= 5 then
-      ok = 1
-    end
-  end
-  
-  local ny = init:ct(T34.new("1m")) + init:ct(T34.new("9m")) + init:ct(T34.new("1p")) + init:ct(T34.new("9p")) + init:ct(T34.new("1s")) + init:ct(T34.new("9s")) + init:ct(T34.new("1f")) + init:ct(T34.new("2f")) + init:ct(T34.new("3f")) + init:ct(T34.new("4f")) + init:ct(T34.new("1y")) + init:ct(T34.new("2y")) + init:ct(T34.new("3y"))
-  
-  if ny <= 3 and init:step() <= 5 then
-    ok = 1
-  end
-  
-  return ok >= 1
 end
 
 function ondraw()
@@ -175,31 +122,41 @@ function ondraw()
   
   if who == self then
     junme = junme + 1
-    for _, eas in ipairs(hands:effa()) do
-      if mount:remaina(eas) ~= 1 then
-        mount:lighta(eas, junmk)
-      else
-        mount:lighta(eas, junmk * 16)
-      end
-      for _, ear in ipairs(handr:effa()) do
-        if eas == ear then
-          mount:lighta(ear, junmk * 2 * (6 - handr:step()))
+    if hands:step() ~= 0 then
+      for _, eas in ipairs(hands:effa()) do
+        if mount:remaina(eas) ~= 1 then
+          mount:lighta(eas, junmk)
         else
-          mount:lighta(ear, -2)
+          mount:lighta(eas, junmk * 16)
+        end
+        for _, ear in ipairs(handr:effa()) do
+          if eas == ear then
+            mount:lighta(ear, junmk * (6 - handr:step()))
+          else
+            mount:lighta(ear, -2)
+          end
+        end
+        for _, eac in ipairs(handc:effa()) do
+          if eas == eac then
+            mount:lighta(eac, junmk * (6 - handc:step()))
+          else
+            mount:lighta(eac, -2)
+          end
+        end
+        for _, eal in ipairs(handl:effa()) do
+          if eas == eal then
+            mount:lighta(eal, junmk * (6 - handl:step()))
+          else
+            mount:lighta(eal, -2)
+          end
         end
       end
-      for _, eac in ipairs(handc:effa()) do
-        if eas == eac then
-          mount:lighta(eac, junmk * 2 * (6 - handc:step()))
+    else
+      for _, eas in ipairs(hands:effa()) do
+        if mount:remaina(eas) ~= 1 then
+          mount:lighta(eas, 88 - junmk)
         else
-          mount:lighta(eac, -2)
-        end
-      end
-      for _, eal in ipairs(handl:effa()) do
-        if eas == eal then
-          mount:lighta(eal, junmk * 2 * (6 - handl:step()))
-        else
-          mount:lighta(eal, -2)
+          mount:lighta(eas, (88 - junmk) * 16)
         end
       end
     end
