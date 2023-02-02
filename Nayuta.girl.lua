@@ -25,7 +25,7 @@ function ondraw()
         for _, ear in ipairs(handr:effa()) do
           for _, eac in ipairs(handc:effa()) do
             if ear == eac then
-              mount:lighta(ear, 16)
+              mount:lighta(ear, junme * 2 * (6 - handc:step()))
             else
               mount:lighta(ear, -2)
             end
@@ -40,7 +40,7 @@ function ondraw()
         for _, ear in ipairs(handr:effa()) do
           for _, eal in ipairs(handl:effa()) do
             if ear == eal then
-              mount:lighta(ear, 16)
+              mount:lighta(ear, junme * 2 * (6 - handl:step()))
             else
               mount:lighta(ear, -2)
             end
@@ -60,7 +60,7 @@ function ondraw()
         for _, eac in ipairs(handc:effa()) do
           for _, ear in ipairs(handr:effa()) do
             if eac == ear then
-              mount:lighta(eac, 16)
+              mount:lighta(eac, junme * 2 * (6 - handr:step()))
             else
               mount:lighta(eac, -2)
             end
@@ -75,7 +75,7 @@ function ondraw()
         for _, eac in ipairs(handc:effa()) do
           for _, eal in ipairs(handl:effa()) do
             if eac == eal then
-              mount:lighta(eac, 16)
+              mount:lighta(eac, junme * 2 * (6 - handl:step()))
             else
               mount:lighta(eac, -2)
             end
@@ -95,7 +95,7 @@ function ondraw()
         for _, eal in ipairs(handl:effa()) do
           for _, ear in ipairs(handr:effa()) do
             if eal == ear then
-              mount:lighta(eal, 16)
+              mount:lighta(eal, junme * 2 * (6 - handr:step()))
             else
               mount:lighta(eal, -2)
             end
@@ -110,7 +110,7 @@ function ondraw()
         for _, eal in ipairs(handl:effa()) do
           for _, eac in ipairs(handc:effa()) do
             if eal == eac then
-              mount:lighta(eal, 16)
+              mount:lighta(eal, junme * 2 * (6 - handc:step()))
             else
               mount:lighta(eal, -2)
             end
