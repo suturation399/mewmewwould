@@ -11,9 +11,9 @@ lv3tars = {
 }
 
 powers = {
-  [lv5tars] = 3,
-  [lv4tars] = 2,
-  [lv3tars] = 1,
+  [lv5tars] = 4,
+  [lv4tars] = 3,
+  [lv3tars] = 2,
 }
 
 function onmonkey()
@@ -24,8 +24,8 @@ function onmonkey()
   local existr = exists[self:right():index()]
   
   for tars, mk in pairs(powers) do
-    for _, y in ipairs(tars) do
-      existself:incmk(T34.new(y), mk * 30)
+    for _, yu in ipairs(tars) do
+      existself:incmk(T34.new(yu), mk * 30)
     end
   end
   existself:incmk(T37.new("0p"), 90)
@@ -47,30 +47,24 @@ function ondraw()
     junme = junme + 1
     if steps >= 1 then
       for _, t in ipairs(hands:effa()) do
-        mount:lighta(T34.new(t), junme * 3)
-        for tars, mk in pairs(powers) do
-          for _, y in ipairs(tars) do
-            if y == t then
-              mount:lighta(T34.new(y), mk * junme * 4)
+        for _, yu in ipairs(lv5tars) do
+            if t == yu then
+              mount:lighta(T34.new(t), mk * junme * 4)
+              mount:lighta(T34.new(yu), mk * junme)
             else
-              mount:lighta(T34.new(y), junme * mk)
+              mount:lighta(T34.new(t), junme * 4)
+              mount:lighta(T34.new(yu), mk * junme)
             end
           end
         end
       end
-      mount:lighta(T37.new("0p"), 90)
-      mount:lighta(T37.new("0s"), 90)
-      mount:lighta(T37.new("0m"), 90)
     else
       for _, t in ipairs(hands:effa()) do
-        for tars, mk in pairs(powers) do
-          for _, y in ipairs(tars) do
-            if y == t then
-              mount:lighta(T34.new(t), 288 - mk * junme * 4)
-            else
-              mount:lighta(T34.new(t), 96 - junme * 4)
-            end
-          end
+        mount:lighta(t, 120 - junme * 5)
+      end
+      for tars, mk in pairs(powers) do
+        for _, yu in ipairs(tars) do
+          mount:lighta(T34.new(yu), mk * (24 - junme))
         end
       end
     end
