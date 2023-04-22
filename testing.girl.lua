@@ -34,8 +34,8 @@ function ondraw()
   mount:lighta(T37.new("0p"), 90)
   mount:lighta(T37.new("0s"), 90)
   mount:lighta(T37.new("0m"), 90)
-  mount:lighta(T34.new("0p"), )
-  mount:lighta(T34.new("0s"), )
-  mount:lighta(T34.new("0m"), 90)
+  mount:lighta(T34.new("2p"), -10)
+  mount:lighta(T34.new("4p"), -10)
+  mount:lighta(T34.new("8p"), -10)
   junme = junme + 1
     
