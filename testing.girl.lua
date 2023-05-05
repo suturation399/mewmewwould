@@ -38,4 +38,6 @@ function ondraw()
   mount:lighta(T34.new("4p"), -10)
   mount:lighta(T34.new("8p"), -10)
   junme = junme + 1
+  
+  
     
