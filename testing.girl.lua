@@ -7,8 +7,8 @@ lv4tars = {
 }
 
 powers = {
-  [lv5tars] = -2,
-  [lv4tars] = -3,
+  [lv5tars] = -3,
+  [lv4tars] = -2,
 }
 
 function onmonkey()
