@@ -17,7 +17,7 @@ function onmonkey()
   
   for tars, mk in pairs(powers) do
     for _, t in ipairs(tars) do
-      exists[self:index()]:incmk(T34.new(t), mk * 3)
+      exists[self:index()]:incmk(T34.new(t), mk * 5)
     end
   end
   existself:incmk(T37.new("0p"), 90)
