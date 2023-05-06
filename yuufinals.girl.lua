@@ -1,14 +1,19 @@
 lv5tars = {
-  "2s", "3s", "4s", "1f", "2f", "3f", "4f", "1y", "2y"
+  "1f", "2f", "3f", "4f", "1y", "2y"
 }
 
 lv4tars = {
+  "2s", "3s", "4s"
+}
+
+lv3tars = {
   "2p", "4p", "8p", "9s", "6s", "8s"
 }
 
 powers = {
-  [lv5tars] = -3,
-  [lv4tars] = -2,
+  [lv5tars] = -4,
+  [lv4tars] = -3,
+  [lv3tars] = -2,
 }
 
 function onmonkey()
@@ -36,21 +41,26 @@ function ondraw()
   end
   
   junme = junme + 1
-  for tars, mk in pairs(powers) do
-    for _, t in ipairs(tars) do
-      mount:lighta(T34.new(t), mk * junme)
-    end
-  end
   mount:lighta(T37.new("0p"), 9 * junme)
   mount:lighta(T37.new("0s"), 9 * junme)
   mount:lighta(T37.new("0m"), 9 * junme)
   if steps >= 1 then
+    for tars, mk in pairs(powers) do
+      for _, t in ipairs(tars) do
+        mount:lighta(T34.new(t), mk * junme)
+      end
+    end
     for _, t in ipairs(hands:effa()) do
       mount:lighta(t, junme * 5)
     end
   else
+    for tars, mk in pairs(powers) do
+      for _, t in ipairs(tars) do
+        mount:lighta(T34.new(t), mk * (18 - junme))
+      end
+    end
     for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, 126 - (junme * 5))
+      mount:lighta(t, 116 - (junme * 5))
     end
   end
 end
