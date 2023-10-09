@@ -1,56 +1,91 @@
-lv5tars = {
-  "2s", "3s", "4s", "1f", "2f", "3f", "4f", "1y", "2y"
-}
+function checkinit()
+  if who ~= self or iter > 100 then
+    return true
+  end
 
-lv4tars = {
-  "2p", "4p", "8p", "9s", "6s", "8s"
-}
-
-powers = {
-  [lv5tars] = -3,
-  [lv4tars] = -2,
-}
-
-function onmonkey()
-  junme = 0
-  local existself = exists[self:index()]
-  
-  for tars, mk in pairs(powers) do
-    for _, t in ipairs(tars) do
-      exists[self:index()]:incmk(T34.new(t), mk * 5)
+  -- no triplet
+  for _, t in ipairs(T34.all) do
+    if init:closed():ct(t) >= 3 then
+      return false
     end
   end
-  existself:incmk(T37.new("0p"), 90)
-  existself:incmk(T37.new("0s"), 90)
-  existself:incmk(T37.new("0m"), 90)
+
+  local yaopairct = 0
+  local yaos = {
+    "1m", "9m", "1p", "9p", "1s", "9s",
+    "1f", "2f", "3f", "4f", "1y", "2y", "3y"
+  }
+  
+  for _, str in ipairs(yaos) do
+    local t = T34.new(str)
+    if init:closed():ct(t) == 2 then
+      yaopairct = yaopairct + 1
+    end
+  end
+  
+  return yaopairct >= 2
 end
 
 function ondraw()
-  local drids = mount:getdrids()
-  local hands = game:gethand(self)
-  local steps = hands:step(self)
-  local ctx = game:getformctx(self)
-  
   if who ~= self or rinshan then
     return
   end
-  
-  junme = junme + 1
-  for tars, mk in pairs(powers) do
-    for _, t in ipairs(tars) do
-      mount:lighta(T34.new(t), mk * junme)
+
+  local hand = game:gethand(self)
+  local closed = hand:closed()
+  local barks = hand:barks()
+
+  local function isfish(meld)
+    local t = meld:type()
+    return t == "pon" or t == "daiminkan" or t == "kakan" or t == "chii"
+  end
+
+  local fishct = 0
+  for _, m in ipairs(barks) do
+    if isfish(m) then
+      fishct = fishct + 1
     end
   end
-  mount:lighta(T37.new("0p"), 9 * junme)
-  mount:lighta(T37.new("0s"), 9 * junme)
-  mount:lighta(T37.new("0m"), 9 * junme)
-  if steps >= 1 then
-    for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, junme * 5)
+
+  if fishct >= 3 then
+    accelerate(mount, hand, game:getriver(self), 500)
+  elseif not hand:ready() then
+    local needpair = 4 - fishct
+    for _, t in ipairs(T34.all) do
+      if closed:ct(t) == 2 then
+        needpair = needpair - 1
+        mount:lighta(t, -400);
+      end
     end
-  else
-    for _, t in ipairs(hands:effa()) do
-      mount:lighta(t, 126 - (junme * 5))
+
+    if needpair > 0 then
+      local nextpairs = {
+        "1m", "2m", "8m", "9m",
+        "1p", "2p", "8p", "9p",
+        "1s", "2s", "8s", "9s",
+        "1f", "2f", "3f", "4f",
+        "1y", "2y", "3y"
+      }
+
+      for _, str in ipairs(nextpairs) do
+        local t = T34.new(str)
+        if closed:ct(t) == 1 then
+          mount:lighta(t, 400)
+        end
+      end
+    end
+  end
+end
+
+function accelerate(mount, hand, river, mk)
+  local trashes = {}
+  for _, t in ipairs(river) do
+    trashes[t:id34()] = true
+  end
+
+  for _, t in ipairs(hand:effa()) do
+    if not trashes[t:id34()] then
+      mount:lighta(t, mk)
     end
   end
 end
