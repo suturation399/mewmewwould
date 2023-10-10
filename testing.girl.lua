@@ -12,7 +12,6 @@ function checkinit()
 
   local yaopairct = 0
   local yaos = {
-    "1m", "9m", "1p", "9p", "1s", "9s",
     "1f", "2f", "3f", "4f", "1y", "2y", "3y"
   }
   
@@ -60,9 +59,9 @@ function ondraw()
 
     if needpair > 0 then
       local nextpairs = {
-        "1m", "2m", "8m", "9m",
-        "1p", "2p", "8p", "9p",
-        "1s", "2s", "8s", "9s",
+        "1m", "9m",
+        "1p", "9p",
+        "1s", "9s",
         "1f", "2f", "3f", "4f",
         "1y", "2y", "3y"
       }
