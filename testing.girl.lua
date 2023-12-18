@@ -1,28 +1,52 @@
+ok = 0
+
 function checkinit()
-  if who ~= self or iter > 100 then
+  junme = 0
+  local sw = game:getselfwind(self)
+  local rw = game:getroundwind()
+  ok = 0
+  
+  if who ~= self or iter > 87 then
     return true
   end
-
-  -- no triplet
-  for _, t in ipairs(T34.all) do
-    if init:closed():ct(t) >= 3 then
-      return false
-    end
-  end
-
-  local yaopairct = 0
-  local yaos = {
-    "1f", "2f", "3f", "4f", "1y", "2y", "3y"
-  }
   
-  for _, str in ipairs(yaos) do
-    local t = T34.new(str)
-    if init:closed():ct(t) == 2 then
-      yaopairct = yaopairct + 1
-    end
+  if init:ct(T34.new("1y")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+    ok = 1
   end
   
-  return yaopairct >= 2
+  if init:ct(T34.new("2y")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+    ok = 1
+  end
+    
+  if init:ct(T34.new("3y")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+    ok = 1
+  end
+  
+  if rw == 1 or sw == 1 then
+    if init:ct(T34.new("1f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+      ok = 1
+    end
+  end
+  
+  if rw == 2 or sw == 2 then
+    if init:ct(T34.new("2f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+      ok = 1
+    end
+  end
+  
+  if rw == 3 or sw == 3 then
+    if init:ct(T34.new("3f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+      ok = 1
+    end
+  end
+  
+  if sw == 4 then
+    if init:ct(T34.new("4f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+      ok = 1
+    end
+  end
+  
+  return ok >= 1
 end
 
 function ondraw()
