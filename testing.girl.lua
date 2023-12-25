@@ -73,29 +73,10 @@ function ondraw()
   if fishct >= 3 then
     accelerate(mount, hand, game:getriver(self), 500)
   elseif not hand:ready() then
-    local needpair = 4 - fishct
-    for _, t in ipairs(T34.all) do
-      if closed:ct(t) == 2 then
-        needpair = needpair - 1
-        mount:lighta(t, -400);
-      end
-    end
 
-    if needpair > 0 then
-      local nextpairs = {
-        "1m", "9m",
-        "1p", "9p",
-        "1s", "9s",
-        "1f", "2f", "3f", "4f",
-        "1y", "2y", "3y"
-      }
 
-      for _, str in ipairs(nextpairs) do
-        local t = T34.new(str)
-        if closed:ct(t) == 1 then
-          mount:lighta(t, 400)
-        end
-      end
+
+    
     end
   end
 end
