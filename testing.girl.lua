@@ -10,38 +10,38 @@ function checkinit()
     return true
   end
   
-  if init:ct(T34.new("1y")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+  if init:ct(T34.new("1y")) == 2 and init:step4() >= 3 then
     ok = 1
   end
   
-  if init:ct(T34.new("2y")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+  if init:ct(T34.new("2y")) == 2 and init:step4() >= 3 then
     ok = 1
   end
     
-  if init:ct(T34.new("3y")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+  if init:ct(T34.new("3y")) == 2 and init:step4() >= 3 then
     ok = 1
   end
   
   if rw == 1 or sw == 1 then
-    if init:ct(T34.new("1f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+    if init:ct(T34.new("1f")) == 2 and init:step4() >= 3 then
       ok = 1
     end
   end
   
   if rw == 2 or sw == 2 then
-    if init:ct(T34.new("2f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+    if init:ct(T34.new("2f")) == 2 and init:step4() >= 3 then
       ok = 1
     end
   end
   
   if rw == 3 or sw == 3 then
-    if init:ct(T34.new("3f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+    if init:ct(T34.new("3f")) == 2 and init:step4() >= 3 then
       ok = 1
     end
   end
   
   if sw == 4 then
-    if init:ct(T34.new("4f")) >= 2 and init:step4() >= 3 and init:step4() <= 4 then
+    if init:ct(T34.new("4f")) == 2 and init:step4() >= 3 then
       ok = 1
     end
   end
@@ -57,7 +57,9 @@ function ondraw()
   local hand = game:gethand(self)
   local closed = hand:closed()
   local barks = hand:barks()
-
+  local steps = hand:step(self)
+  local junmk = junme * 5
+  
   local function isfish(meld)
     local t = meld:type()
     return t == "pon" or t == "daiminkan" or t == "kakan" or t == "chii"
@@ -69,14 +71,25 @@ function ondraw()
       fishct = fishct + 1
     end
   end
+  
+  junme = junme + 1
 
-  if fishct >= 3 then
-    accelerate(mount, hand, game:getriver(self), 500)
-  elseif not hand:ready() then
-
-
-
-    
+  if fishct ~= 0 then
+    if steps > 3 - fishct then
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, junmk)
+      end
+    else
+      for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, -2)
+      end
+    end
+    if fishct >= 3 then
+      accelerate(mount, hand, game:getriver(self), 500)
+    end
+  else
+    for _, t in ipairs(hand:effa()) do
+        mount:lighta(t, -2)
     end
   end
 end
