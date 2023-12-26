@@ -81,7 +81,7 @@ function ondraw()
       end
     else
       for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, -2)
+        mount:lighta(t, -1)
       end
     end
     if fishct >= 3 then
@@ -89,7 +89,7 @@ function ondraw()
     end
   else
     for _, t in ipairs(hand:effa()) do
-        mount:lighta(t, -2)
+        mount:lighta(t, -1)
     end
   end
 end
