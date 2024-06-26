@@ -24,9 +24,9 @@ function onmonkey()
     existl:incmk(T34.new("7m"), -307)
     existc:incmk(T34.new("7m"), -307)
     existr:incmk(T34.new("7m"), -307)
-    existself:incmk(T34.new("1m"), -307)
-    existself:incmk(T34.new("4m"), -307)
-    existself:incmk(T34.new("7m"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "m"), -307)
+    end
   end
   
   if status == 2 then
@@ -40,9 +40,9 @@ function onmonkey()
     existl:incmk(T34.new("8m"), -307)
     existc:incmk(T34.new("8m"), -307)
     existr:incmk(T34.new("8m"), -307)
-    existself:incmk(T34.new("2m"), -307)
-    existself:incmk(T34.new("5m"), -307)
-    existself:incmk(T34.new("8m"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "m"), -307)
+    end
   end
   
   if status == 3 then
@@ -56,9 +56,9 @@ function onmonkey()
     existl:incmk(T34.new("9m"), -307)
     existc:incmk(T34.new("9m"), -307)
     existr:incmk(T34.new("9m"), -307)
-    existself:incmk(T34.new("3m"), -307)
-    existself:incmk(T34.new("6m"), -307)
-    existself:incmk(T34.new("9m"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "m"), -307)
+    end
   end
   
   if status == 4 then
@@ -72,9 +72,9 @@ function onmonkey()
     existl:incmk(T34.new("7p"), -307)
     existc:incmk(T34.new("7p"), -307)
     existr:incmk(T34.new("7p"), -307)
-    existself:incmk(T34.new("1p"), -307)
-    existself:incmk(T34.new("4p"), -307)
-    existself:incmk(T34.new("7p"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "p"), -307)
+    end
   end
   
 if status == 5 then
@@ -88,9 +88,9 @@ if status == 5 then
     existl:incmk(T34.new("8p"), -307)
     existc:incmk(T34.new("8p"), -307)
     existr:incmk(T34.new("8p"), -307)
-    existself:incmk(T34.new("2p"), -307)
-    existself:incmk(T34.new("5p"), -307)
-    existself:incmk(T34.new("8p"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "p"), -307)
+    end
   end
   
   if status == 6 then
@@ -104,9 +104,9 @@ if status == 5 then
     existl:incmk(T34.new("9p"), -307)
     existc:incmk(T34.new("9p"), -307)
     existr:incmk(T34.new("9p"), -307)
-    existself:incmk(T34.new("3p"), -307)
-    existself:incmk(T34.new("6p"), -307)
-    existself:incmk(T34.new("9p"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "p"), -307)
+    end
   end
 
   if status == 7 then
@@ -120,9 +120,9 @@ if status == 5 then
     existl:incmk(T34.new("7s"), -307)
     existc:incmk(T34.new("7s"), -307)
     existr:incmk(T34.new("7s"), -307)
-    existself:incmk(T34.new("1s"), -307)
-    existself:incmk(T34.new("4s"), -307)
-    existself:incmk(T34.new("7s"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "s"), -307)
+    end
   end
   
 if status == 8 then
@@ -136,9 +136,9 @@ if status == 8 then
     existl:incmk(T34.new("8s"), -307)
     existc:incmk(T34.new("8s"), -307)
     existr:incmk(T34.new("8s"), -307)
-    existself:incmk(T34.new("2s"), -307)
-    existself:incmk(T34.new("5s"), -307)
-    existself:incmk(T34.new("8s"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "s"), -307)
+    end
   end
   
   if status >= 9 then
@@ -152,9 +152,9 @@ if status == 8 then
     existl:incmk(T34.new("9s"), -307)
     existc:incmk(T34.new("9s"), -307)
     existr:incmk(T34.new("9s"), -307)
-    existself:incmk(T34.new("3s"), -307)
-    existself:incmk(T34.new("6s"), -307)
-    existself:incmk(T34.new("9s"), -307)
+    for i = 1, 9 do
+      existself:incmk(T34.new(i .. "s"), -307)
+    end
   end
 end
 
@@ -315,6 +315,21 @@ function ondraw()
   local dormk = ((nd - 2) * -45) - junme - 24
   
   if who == self then
+    if status <= 3 then
+      for i = 1, 9 do
+        mount:lighta(T34.new(i .. "m"), -30)
+      end
+    end
+    if status >= 4 and status <= 6 then
+      for i = 1, 9 do
+        mount:lighta(T34.new(i .. "p"), -30)
+      end
+    end
+    if status >= 7 then
+      for i = 1, 9 do
+        mount:lighta(T34.new(i .. "s"), -30)
+      end
+    end
     if steps >= 1 then
       mount:lighta(T37.new("0p"), dormk)
       mount:lighta(T37.new("0s"), dormk)
