@@ -25,7 +25,10 @@ function onmonkey()
     existc:incmk(T34.new("7m"), -307)
     existr:incmk(T34.new("7m"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "m"), -30)
+      existself:incmk(T34.new(i .. "m"), -307)
+      existl:incmk(T34.new(i .. "m"), 10)
+      existc:incmk(T34.new(i .. "m"), 10)
+      existr:incmk(T34.new(i .. "m"), 10)
     end
   end
   
@@ -41,7 +44,10 @@ function onmonkey()
     existc:incmk(T34.new("8m"), -307)
     existr:incmk(T34.new("8m"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "m"), -30)
+      existself:incmk(T34.new(i .. "m"), -307)
+      existl:incmk(T34.new(i .. "m"), 10)
+      existc:incmk(T34.new(i .. "m"), 10)
+      existr:incmk(T34.new(i .. "m"), 10)
     end
   end
   
@@ -57,7 +63,10 @@ function onmonkey()
     existc:incmk(T34.new("9m"), -307)
     existr:incmk(T34.new("9m"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "m"), -30)
+      existself:incmk(T34.new(i .. "m"), -307)
+      existl:incmk(T34.new(i .. "m"), 10)
+      existc:incmk(T34.new(i .. "m"), 10)
+      existr:incmk(T34.new(i .. "m"), 10)
     end
   end
   
@@ -73,7 +82,10 @@ function onmonkey()
     existc:incmk(T34.new("7p"), -307)
     existr:incmk(T34.new("7p"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "p"), -30)
+      existself:incmk(T34.new(i .. "p"), -307)
+      existl:incmk(T34.new(i .. "p"), 10)
+      existc:incmk(T34.new(i .. "p"), 10)
+      existr:incmk(T34.new(i .. "p"), 10)
     end
   end
   
@@ -89,7 +101,10 @@ if status == 5 then
     existc:incmk(T34.new("8p"), -307)
     existr:incmk(T34.new("8p"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "p"), -30)
+      existself:incmk(T34.new(i .. "p"), -307)
+      existl:incmk(T34.new(i .. "p"), 10)
+      existc:incmk(T34.new(i .. "p"), 10)
+      existr:incmk(T34.new(i .. "p"), 10)
     end
   end
   
@@ -105,7 +120,10 @@ if status == 5 then
     existc:incmk(T34.new("9p"), -307)
     existr:incmk(T34.new("9p"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "p"), -30)
+      existself:incmk(T34.new(i .. "p"), -307)
+      existl:incmk(T34.new(i .. "p"), 10)
+      existc:incmk(T34.new(i .. "p"), 10)
+      existr:incmk(T34.new(i .. "p"), 10)
     end
   end
 
@@ -121,7 +139,10 @@ if status == 5 then
     existc:incmk(T34.new("7s"), -307)
     existr:incmk(T34.new("7s"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "s"), -30)
+      existself:incmk(T34.new(i .. "s"), -307)
+      existl:incmk(T34.new(i .. "s"), 10)
+      existc:incmk(T34.new(i .. "s"), 10)
+      existr:incmk(T34.new(i .. "s"), 10)
     end
   end
   
@@ -137,7 +158,10 @@ if status == 8 then
     existc:incmk(T34.new("8s"), -307)
     existr:incmk(T34.new("8s"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "s"), -30)
+      existself:incmk(T34.new(i .. "s"), -307)
+      existl:incmk(T34.new(i .. "s"), 10)
+      existc:incmk(T34.new(i .. "s"), 10)
+      existr:incmk(T34.new(i .. "s"), 10)
     end
   end
   
@@ -153,7 +177,10 @@ if status == 8 then
     existc:incmk(T34.new("9s"), -307)
     existr:incmk(T34.new("9s"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "s"), -30)
+      existself:incmk(T34.new(i .. "s"), -307)
+      existl:incmk(T34.new(i .. "s"), 10)
+      existc:incmk(T34.new(i .. "s"), 10)
+      existr:incmk(T34.new(i .. "s"), 10)
     end
   end
 end
@@ -343,6 +370,22 @@ function ondraw()
     else
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, 96 - junmk)
+      end
+    end
+  else
+    if status <= 3 then
+      for i = 1, 9 do
+        mount:lighta(T34.new(i .. "m"), 10)
+      end
+    end
+    if status >= 4 and status <= 6 then
+      for i = 1, 9 do
+        mount:lighta(T34.new(i .. "p"), 10)
+      end
+    end
+    if status >= 7 then
+      for i = 1, 9 do
+        mount:lighta(T34.new(i .. "s"), 10)
       end
     end
   end
