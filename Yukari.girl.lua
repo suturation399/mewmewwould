@@ -335,35 +335,23 @@ function ondraw()
     end
   end
   
-  for _, t in ipairs(drids) do
-    nd = hands:ctaka5() + hands:ct(t:dora())
-  end
-  
-  local dormk = ((nd - 2) * -45) - junme - 24
-  
   if who == self then
     if status <= 3 then
       for i = 1, 9 do
-        mount:lighta(T34.new(i .. "m"), -30)
+        mount:lighta(T34.new(i .. "m"), -37)
       end
     end
     if status >= 4 and status <= 6 then
       for i = 1, 9 do
-        mount:lighta(T34.new(i .. "p"), -30)
+        mount:lighta(T34.new(i .. "p"), -37)
       end
     end
     if status >= 7 then
       for i = 1, 9 do
-        mount:lighta(T34.new(i .. "s"), -30)
+        mount:lighta(T34.new(i .. "s"), -37)
       end
     end
     if steps >= 1 then
-      mount:lighta(T37.new("0p"), dormk)
-      mount:lighta(T37.new("0s"), dormk)
-      mount:lighta(T37.new("0m"), dormk)
-      for _, t in ipairs(drids) do
-        mount:lighta(t:dora(), dormk)
-      end
       for _, t in ipairs(hands:effa()) do
         mount:lighta(t, junmk)
       end
