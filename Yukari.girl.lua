@@ -25,7 +25,7 @@ function onmonkey()
     existc:incmk(T34.new("7m"), -307)
     existr:incmk(T34.new("7m"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "m"), -307)
+      existself:incmk(T34.new(i .. "m"), -30)
     end
   end
   
@@ -41,7 +41,7 @@ function onmonkey()
     existc:incmk(T34.new("8m"), -307)
     existr:incmk(T34.new("8m"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "m"), -307)
+      existself:incmk(T34.new(i .. "m"), -30)
     end
   end
   
@@ -57,7 +57,7 @@ function onmonkey()
     existc:incmk(T34.new("9m"), -307)
     existr:incmk(T34.new("9m"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "m"), -307)
+      existself:incmk(T34.new(i .. "m"), -30)
     end
   end
   
@@ -73,7 +73,7 @@ function onmonkey()
     existc:incmk(T34.new("7p"), -307)
     existr:incmk(T34.new("7p"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "p"), -307)
+      existself:incmk(T34.new(i .. "p"), -30)
     end
   end
   
@@ -89,7 +89,7 @@ if status == 5 then
     existc:incmk(T34.new("8p"), -307)
     existr:incmk(T34.new("8p"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "p"), -307)
+      existself:incmk(T34.new(i .. "p"), -30)
     end
   end
   
@@ -105,7 +105,7 @@ if status == 5 then
     existc:incmk(T34.new("9p"), -307)
     existr:incmk(T34.new("9p"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "p"), -307)
+      existself:incmk(T34.new(i .. "p"), -30)
     end
   end
 
@@ -121,7 +121,7 @@ if status == 5 then
     existc:incmk(T34.new("7s"), -307)
     existr:incmk(T34.new("7s"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "s"), -307)
+      existself:incmk(T34.new(i .. "s"), -30)
     end
   end
   
@@ -137,7 +137,7 @@ if status == 8 then
     existc:incmk(T34.new("8s"), -307)
     existr:incmk(T34.new("8s"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "s"), -307)
+      existself:incmk(T34.new(i .. "s"), -30)
     end
   end
   
@@ -153,7 +153,7 @@ if status == 8 then
     existc:incmk(T34.new("9s"), -307)
     existr:incmk(T34.new("9s"), -307)
     for i = 1, 9 do
-      existself:incmk(T34.new(i .. "s"), -307)
+      existself:incmk(T34.new(i .. "s"), -30)
     end
   end
 end
