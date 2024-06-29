@@ -340,16 +340,19 @@ function ondraw()
       for i = 1, 9 do
         mount:lighta(T34.new(i .. "m"), -37)
       end
+      mount:lighta(T37.new("0m"), -37)
     end
     if status >= 4 and status <= 6 then
       for i = 1, 9 do
         mount:lighta(T34.new(i .. "p"), -37)
       end
+      mount:lighta(T37.new("0p"), -37)
     end
     if status >= 7 then
       for i = 1, 9 do
         mount:lighta(T34.new(i .. "s"), -37)
       end
+      mount:lighta(T37.new("0s"), -37)
     end
     if steps >= 1 then
       for _, t in ipairs(hands:effa()) do
